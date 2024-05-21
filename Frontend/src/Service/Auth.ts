@@ -1,7 +1,7 @@
 import api from "../Utils/Api";
 
 const authServices = {
-  login: (email: string, password: string) => api.post("/auth/login", { email, password }),
+  login: (email: string, password: string) => api.post("auth/login", { email, password }),
   register: (body: {
     first_name: string;
     last_name: string;
