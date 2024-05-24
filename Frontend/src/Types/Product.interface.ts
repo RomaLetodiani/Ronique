@@ -10,3 +10,13 @@ export interface addProductDto {
 }
 
 export interface ProductI extends addProductDto, Item {}
+
+export interface ProductFilterI {
+  categoryName?: string;
+  page?: string;
+  pageSize?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  productName?: string;
+  onlySales?: boolean;
+}
