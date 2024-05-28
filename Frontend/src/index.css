@@ -7,3 +7,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* FIXME: Remove this */
+
+body {
+  background-color: #b5b5b5;
+}

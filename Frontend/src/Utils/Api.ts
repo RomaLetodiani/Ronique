@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
-import authServices from "../Service/Auth";
 import authStore from "../Stores/Auth.store";
+import authServices from "../Services/AuthServices";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
