@@ -1,0 +1,6 @@
+VITE_ENV = development
+VITE_API=''
+VITE_LOCAL_API=http://localhost:3000
+VITE_PROD_API=https://api.example.com
+VITE_ADMIN_EMAIL=admin
+VITE_ADMIN_PASSWORD=admin123
