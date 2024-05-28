@@ -3,6 +3,12 @@ import Root from "./Root";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import Admin from "../Pages/Admin/Admin";
+import AuthPage from "../Pages/Auth/AuthPage";
+import LoginPage from "../Pages/Auth/Login/LoginPage";
+import RegisterPage from "../Pages/Auth/Register/RegisterPage";
+import AuthRoute from "./AuthRoute";
 
 const Router = createBrowserRouter([
   {
@@ -34,6 +40,34 @@ const Router = createBrowserRouter([
           {
             path: "/profile",
             element: <div>Profile</div>,
+          },
+          {
+            element: <AdminRoute />,
+            children: [
+              {
+                path: "/admin",
+                element: <Admin />,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    element: <AuthRoute />,
+    children: [
+      {
+        path: "/auth",
+        element: <AuthPage />,
+        children: [
+          {
+            path: "login",
+            element: <LoginPage />,
+          },
+          {
+            path: "register",
+            element: <RegisterPage />,
           },
         ],
       },
