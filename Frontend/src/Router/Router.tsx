@@ -9,6 +9,7 @@ import AuthPage from "../Pages/Auth/AuthPage";
 import LoginPage from "../Pages/Auth/Login/LoginPage";
 import RegisterPage from "../Pages/Auth/Register/RegisterPage";
 import AuthRoute from "./AuthRoute";
+import Profile from "../Pages/Profile/Profile";
 
 const Router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const Router = createBrowserRouter([
         children: [
           {
             path: "/profile",
-            element: <div>Profile</div>,
+            element: <Profile />,
           },
           {
             element: <AdminRoute />,
