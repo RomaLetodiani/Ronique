@@ -1,9 +1,11 @@
 import { create } from "zustand";
-import { UserI } from "../Types/User.interface";
+import { UserDecodedI, UserI } from "../Types/User.interface";
 import { jwtDecode } from "jwt-decode";
 
 interface authStoreI {
-  user: null | UserI;
+  user: null | UserDecodedI;
+  fullUser: null | UserI;
+  setFullUser: (user: UserI) => void;
   accessToken?: string;
   refreshToken?: string;
   setTokens: (token: { access_token: string; refresh_token: string }) => void;
@@ -12,12 +14,13 @@ interface authStoreI {
 
 const authStore = create<authStoreI>()((set) => ({
   user: null,
+  fullUser: null,
+  setFullUser: (user) => set({ fullUser: user }),
   accessToken: localStorage.getItem("accessToken") || "",
   refreshToken: localStorage.getItem("refreshToken") || "",
   setTokens: (tokens) => {
-    const decodedUser = jwtDecode(tokens.access_token) as UserI;
+    const decodedUser = jwtDecode(tokens.access_token) as UserDecodedI;
     if (!decodedUser) {
-      // TODO: Handle error, maybe redirect to login page, Clear tokens
       console.error("Invalid token");
       authStore.getState().clearTokens();
       return;
@@ -30,14 +33,14 @@ const authStore = create<authStoreI>()((set) => ({
   clearTokens: () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
-    set({ accessToken: "", refreshToken: "" });
+    set({ user: null, accessToken: "", refreshToken: "" });
   },
 }));
 
 const accessToken = localStorage.getItem("accessToken");
 if (accessToken) {
   try {
-    const decodedUser = jwtDecode<UserI>(accessToken);
+    const decodedUser = jwtDecode<UserDecodedI>(accessToken);
     authStore.setState({ user: decodedUser });
   } catch (error) {
     // Handle error if token is invalid
