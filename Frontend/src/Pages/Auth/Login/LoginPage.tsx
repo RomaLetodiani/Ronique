@@ -3,6 +3,7 @@ import { useInput } from "../../../Hooks/useInput";
 import Input from "../../../Components/UI/Input";
 import authServices from "../../../Services/AuthServices";
 import authStore from "../../../Stores/Auth.store";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const emailInput = useInput(
@@ -10,8 +11,7 @@ const LoginPage = () => {
   );
   const passwordInput = useInput((value) => value.length > 6);
 
-  const { user, setTokens } = authStore();
-  console.log("🚀 ~ LoginPage ~ user:", user);
+  const { setTokens } = authStore();
 
   const login = () => {
     authServices
@@ -22,12 +22,20 @@ const LoginPage = () => {
   };
   return (
     <div>
-      <div>
+      <div className="flex gap-5 flex-col">
         <Input label="Email" {...emailInput} />
-        <Input label="Password" {...passwordInput} />
-        <div>
-          <Button onClick={login}>Login</Button>
-        </div>
+        <Input label="Password" type="password" {...passwordInput} />
+        <Button className="w-full" onClick={login}>
+          Login
+        </Button>
+      </div>
+      <div className="flex flex-col justify-center items-center mt-5">
+        <p>Don't have an account?</p>
+        <Link to={"/auth/register"}>
+          <Button btnType="secondary" className="bg-transparent shadow-lg">
+            Register
+          </Button>
+        </Link>
       </div>
     </div>
   );
