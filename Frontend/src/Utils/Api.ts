@@ -9,7 +9,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   config.paramsSerializer = (params) => qs.stringify(params, { arrayFormat: "repeat" });
-  const accessToken = authStore.getState().accessToken;
+  const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {
     config.headers["Authorization"] = `Bearer ${accessToken}`;
   }
@@ -22,7 +22,7 @@ api.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config;
-    if (!error.config && error.response.status === 401 && !originalRequest._retry) {
+    if (error.config && error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
         const refreshToken = authStore.getState().refreshToken;
