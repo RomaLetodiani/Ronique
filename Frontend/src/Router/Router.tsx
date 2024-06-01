@@ -10,6 +10,11 @@ import LoginPage from "../Pages/Auth/Login/LoginPage";
 import RegisterPage from "../Pages/Auth/Register/RegisterPage";
 import AuthRoute from "./AuthRoute";
 import Profile from "../Pages/Profile/Profile";
+import ContactPage from "../Pages/Contact/ContactPage";
+import AboutPage from "../Pages/About/AboutPage";
+import CartPage from "../Pages/Cart/CartPage";
+import WishListPage from "../Pages/WishList/WishListPage";
+import FAQPage from "../Pages/FAQ/FAQPage";
 
 const Router = createBrowserRouter([
   {
@@ -23,11 +28,27 @@ const Router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <div>About</div>,
+        element: <AboutPage />,
       },
       {
-        path: "/shop",
-        element: <div>Shop</div>,
+        path: "/contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
+      {
+        path: "/wishlist",
+        element: <WishListPage />,
+      },
+      {
+        path: "/faq",
+        element: <FAQPage />,
+      },
+      {
+        path: "/courses",
+        element: <div>Courses</div>,
         children: [
           {
             path: ":id",
