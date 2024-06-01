@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import Button from "../../../Components/UI/Button";
 import Input from "../../../Components/UI/Input";
 import { useInput } from "../../../Hooks/useInput";
@@ -28,17 +29,18 @@ const InputsRender = () => {
     !phoneNumberInput.value,
   ];
   const inputs = [
-    { ...emailInput, label: "Email", errorMessage: "Email is not valid" },
-    { ...passwordInput, label: "Password", type: "password" },
-    { ...rePasswordInput, label: "Re-Password", type: "password" },
-    { ...firstNameInput, label: "First Name" },
-    { ...lastNameInput, label: "Last Name" },
-    { ...phoneNumberInput, label: "Phone Number" },
+    { ...emailInput, label: "Email", autoComplete: "email", errorMessage: "Email is not valid" },
+    { ...passwordInput, label: "Password", autoComplete: "new-password", type: "password" },
+    { ...rePasswordInput, label: "Re-Password", autoComplete: "rePassword", type: "password" },
+    { ...firstNameInput, label: "First Name", autoComplete: "first name" },
+    { ...lastNameInput, label: "Last Name", autoComplete: "last name" },
+    { ...phoneNumberInput, label: "Phone Number", autoComplete: "phone" },
   ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (errors.some((error) => error)) {
+      toast.error("Please fill all fields correctly");
       return;
     }
     authServices
