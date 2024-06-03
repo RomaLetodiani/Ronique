@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { logo } from "./Shared/Assets/Assets";
 
+// @ts-ignore
+const tailwindClasses = ["max-w-[150px]", "max-w-[250px]"];
+
 const Logo = ({ size }: { size: string }) => {
   return (
     <Link to={"/"}>

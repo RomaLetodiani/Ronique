@@ -2,19 +2,15 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../Components/Logo";
 import { FooterTextLeft, FooterTextRight } from "../Utils/Consts";
 import SocialsDiv from "../Components/Socials";
-import useMediaQuery from "../Hooks/UseMediaQuery";
 
 const Footer = () => {
   const { pathname } = useLocation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <div
-      className={`border-t flex ${
-        isMobile && "flex-col"
-      } gap-16 justify-between border-secondary-200 p-5`}
+      className={`border-t flex flex-col min-[540px]:flex-row gap-16 justify-between border-secondary-200 p-5`}
     >
       <div className="flex flex-col items-start gap-8">
-        <Logo size="100" />
+        <Logo size="150" />
         <div className="flex flex-col gap-3">
           {FooterTextLeft.map((item, index) => (
             <div key={index} className="flex items-center gap-2">
@@ -24,7 +20,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="flex gap-5 flex-wrap">
+      <div className={"flex flex-col md:flex-row gap-5 "}>
         <div className="flex gap-10">
           <div className="flex flex-col gap-3 min-w-[70px]">
             {FooterTextRight.firstHalf.map((item, index) => (
