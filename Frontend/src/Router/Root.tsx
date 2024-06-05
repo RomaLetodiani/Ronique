@@ -4,7 +4,6 @@ import Footer from "../Layout/Footer";
 import SideBar from "../Layout/SideBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// BUG: Forgot to import CSS file for toastify
 
 const Root = () => {
   return (
