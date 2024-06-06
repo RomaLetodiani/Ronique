@@ -6,14 +6,15 @@ import NavBar from "./NavBar";
 import SideBar from "./SideBar";
 import UserAvatar from "../Components/UserAvatar";
 import Logo from "../Components/Logo";
+import SearchBar from "../Components/SearchBar/SearchBar";
 
 const Header = () => {
   const isDesktop = useMediaQuery("(min-width: 1000px)");
   const { user } = authStore();
   return (
-    <div className="p-5 shadow-md flex justify-between items-center">
+    <div className="p-5 shadow-md flex gap-5 justify-between items-center">
       <Logo size="250" />
-      <div>searchBar</div>
+      <SearchBar />
       {isDesktop ? <NavBar /> : <SideBar />}
       {user ? (
         <UserAvatar user={user} />

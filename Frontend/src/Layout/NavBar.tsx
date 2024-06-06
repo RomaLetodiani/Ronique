@@ -9,13 +9,12 @@ const NavBar = () => {
       <ul className="flex gap-5">
         {navBarText.map((item, index) => {
           return (
-            <Link to={item.path}>
+            <Link key={index} to={item.path}>
               <li
                 className={twMerge(
                   "hover:text-secondary-500 ease-in-out transition-all duration-200",
                   pathname === item.path && "text-secondary-500 font-bold"
                 )}
-                key={index}
               >
                 {item.name}
               </li>

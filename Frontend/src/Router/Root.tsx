@@ -11,7 +11,7 @@ const Root = () => {
       <ToastContainer />
       <Header />
       <SideBar />
-      <div className="flex-1 w-full flex">
+      <div className="flex-1 w-full flex justify-center">
         <Outlet />
       </div>
       <Footer />

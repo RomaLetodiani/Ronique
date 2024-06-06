@@ -13,7 +13,7 @@ export interface ProductI extends addProductDto, Item {}
 
 export interface ProductFilterI {
   categoryName?: string;
-  page?: string;
+  page?: number;
   pageSize?: number;
   minPrice?: number;
   maxPrice?: number;

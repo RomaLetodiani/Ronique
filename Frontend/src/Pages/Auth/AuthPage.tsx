@@ -4,7 +4,6 @@ import { logo } from "../../Components/Shared/Assets/Assets";
 import { FaRegCopyright } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { allRightsReserved } from "../../Utils/Consts";
-import { ToastContainer } from "react-toastify";
 
 const AuthPage = () => {
   const { pathname } = useLocation();
@@ -16,7 +15,6 @@ const AuthPage = () => {
   }, [pathname]);
   return (
     <div className="w-full bg-gradient-to-bl from-light-blue to-light-gray min-h-screen min-w-[375px] flex flex-col justify-center items-center">
-      <ToastContainer />
       <header className="w-full flex justify-center p-5 shadow-lg bg-sky-100">
         <Link to={"/"}>
           <img src={logo} alt="Ronique Logo" />
