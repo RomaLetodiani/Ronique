@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 interface ButtonI extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
-  btnType?: "primary" | "secondary";
+  btnType?: "primary" | "secondary" | "danger";
 }
 
 const Button = ({ children, className, btnType = "primary", ...rest }: ButtonI) => {
@@ -14,6 +14,7 @@ const Button = ({ children, className, btnType = "primary", ...rest }: ButtonI) 
       className={twMerge(
         "rounded-lg cursor-pointer px-5 py-2 shadow-lg hover:opacity-70",
         btnType === "primary" ? "bg-primary text-white" : "bg-secondary-200 text-primary",
+        btnType === "danger" && "bg-danger text-white",
         className
       )}
     >
