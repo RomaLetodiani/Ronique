@@ -52,7 +52,7 @@ const SearchBar = () => {
 
   return (
     <div ref={containerRef} className="flex-1 mx-5 relative">
-      <Input label="" inputClassName="py-2" {...SearchInput} placeholder="Search" />
+      <Input label="" {...SearchInput} placeholder="Search" />
 
       {/* TODO: Extract in another component */}
       {visible && (

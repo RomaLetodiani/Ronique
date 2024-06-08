@@ -8,7 +8,7 @@ const productServices = {
   addProducts: (products: addProductDto[]) => api.post("product/many", { products }),
   deleteProducts: (ids: string[]) => api.delete("product", { data: { ids } }),
   deleteAllProducts: () => api.delete("product/delete-all"),
-  updateProduct: () => api.put("product"),
+  updateProduct: (body: { id: string; image: string }) => api.put("product", body),
 };
 
 export default productServices;

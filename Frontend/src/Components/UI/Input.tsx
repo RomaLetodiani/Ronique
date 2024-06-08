@@ -46,7 +46,8 @@ const Input = ({
         {...rest}
         type={isPassword ? (passwordVisible ? "text" : "password") : rest.type}
         className={twMerge(
-          "w-full border outline-none px-3 py-1 pt-5 rounded-xl",
+          "w-full border outline-none px-3 py-2 rounded-xl",
+          label && "pt-5",
           `${hasError && "border-error"}`,
           isPassword && "pr-14",
 
