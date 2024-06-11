@@ -8,4 +8,6 @@ const phoneNumberValidator = (phoneNumber: string) => {
 };
 const isValid = (value: string) => value.length > 6;
 
+// TODO - Add more validators for Course DTO
+
 export { emailValidator, phoneNumberValidator, isValid };
