@@ -17,6 +17,8 @@ const CartPage = lazy(() => import("../Pages/Cart/CartPage"));
 const WishListPage = lazy(() => import("../Pages/WishList/WishListPage"));
 const FAQPage = lazy(() => import("../Pages/FAQ/FAQPage"));
 const AboutPage = lazy(() => import("../Pages/About/AboutPage"));
+const Courses = lazy(() => import("../Pages/Courses/Courses"));
+const Course = lazy(() => import("../Pages/Course/Course"));
 
 const Router = createBrowserRouter([
   {
@@ -50,11 +52,12 @@ const Router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: <div>Courses</div>,
+        element: <Courses />,
+        // BUG: The following code is not working as expected. It should open single course page
         children: [
           {
             path: ":id",
-            element: <div>Shop Detail</div>,
+            element: <Course />,
           },
         ],
       },
