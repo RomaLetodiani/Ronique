@@ -1,15 +1,16 @@
 import { useRef, useState } from "react";
 import useDebounce from "../../Hooks/useDebounce";
-import { useInput } from "../../Hooks/useInput";
+import { InputState } from "../../Hooks/useInput";
 import Input from "../UI/Input";
 import productServices from "../../Services/ProductServices";
 import useClickInside from "../../Hooks/useClickInside";
 import useClickOutside from "../../Hooks/useClickOutside";
 import { ProductI } from "../../Types/Product.interface";
+import Options from "./Options";
 
-const SearchBar = () => {
-  const SearchInput = useInput(() => true);
-  const [loading, setLoading] = useState(true);
+const SearchBar = ({ searchInput }: { searchInput: InputState }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [visible, setVisible] = useState(false);
   const [searchResults, setSearchResults] = useState<ProductI[]>([]);
 
@@ -18,14 +19,17 @@ const SearchBar = () => {
   const handleSearch = (searchTerm: string) => {
     if (!searchTerm) {
       setSearchResults([]);
+      setVisible(false);
+      setError(false);
       return;
     }
     setLoading(true);
     productServices
       .allProducts({ productName: searchTerm, page: 1, pageSize: 50 })
       .then(({ data }) => {
-        if (!data.products) {
+        if (!data.total || !data.products) {
           setSearchResults([]);
+          setError(true);
           return;
         }
         setSearchResults(data.products);
@@ -34,6 +38,7 @@ const SearchBar = () => {
       .catch((error) => {
         console.log("🚀 ~ .then ~ error:", error);
         setSearchResults([]);
+        setError(true);
       })
       .finally(() => setLoading(false));
   };
@@ -46,28 +51,19 @@ const SearchBar = () => {
     setVisible(true);
   };
 
-  useDebounce(() => handleSearch(SearchInput.value), 500, [SearchInput.value]);
+  useDebounce(() => handleSearch(searchInput.value), 500, [searchInput.value]);
   useClickInside(containerRef, handleClickInside);
   useClickOutside(containerRef, handleClickOutside);
 
   return (
     <div ref={containerRef} className="flex-1 mx-5 relative">
-      <Input label="" {...SearchInput} placeholder="Search" />
-
-      {/* TODO: Extract in another component */}
-      {visible && (
-        <div className="absolute overflow-y-auto max-h-96 bg-white shadow-md w-full">
-          {loading ? (
-            <div className="p-2">Loading...</div>
-          ) : (
-            searchResults.map((product) => (
-              <div key={product.id} className="p-2 hover:bg-gray-100">
-                {product.title}
-              </div>
-            ))
-          )}
-        </div>
-      )}
+      <Input
+        label=""
+        {...searchInput}
+        inputClassName={`${visible && "rounded-t-xl rounded-b-none"}`}
+        placeholder="Search"
+      />
+      {visible && <Options loading={loading} searchResults={searchResults} error={error} />}
     </div>
   );
 };
