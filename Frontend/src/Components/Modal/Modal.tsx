@@ -1,20 +1,40 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import Button from "../UI/Button";
+import { twMerge } from "tailwind-merge";
 
-export type ModalProps = {
+export interface ModalI extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   open: boolean;
   close: () => void;
-};
+  wrapperClassName?: string;
+  modalClassName?: string;
+  bodyClassName?: string;
+  footerClassName?: string;
+}
 
-const Modal = ({ children, open, close }: ModalProps) => {
+const Modal = ({
+  children,
+  open,
+  close,
+  wrapperClassName,
+  modalClassName,
+  bodyClassName,
+  footerClassName,
+  ...divAttrs
+}: ModalI) => {
   return (
     open && (
-      <div className="w-full h-full fixed flex justify-center items-center inset-0 z-50">
+      <div
+        {...divAttrs}
+        className={twMerge(
+          "w-full h-full fixed flex justify-center items-center inset-0 z-50",
+          wrapperClassName
+        )}
+      >
         <div className="bg-black/20 backdrop-blur-sm fixed w-full z-30 h-full"></div>
-        <div className="bg-white rounded-xl z-40">
-          <div className="p-5">{children}</div>
-          <div className="border-t p-5 flex justify-end gap-5">
+        <div className={twMerge("bg-white rounded-xl z-40", modalClassName)}>
+          <div className={twMerge("p-5", bodyClassName)}>{children}</div>
+          <div className={twMerge("border-t p-5 flex justify-end gap-5", footerClassName)}>
             <Button btnType="secondary" onClick={close}>
               Close
             </Button>
