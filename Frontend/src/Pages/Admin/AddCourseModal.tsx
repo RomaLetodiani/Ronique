@@ -1,32 +1,74 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ImageToBase64Converter from "../../Components/ImageToBase64Converter";
-import Modal, { ModalProps } from "../../Components/Modal/Modal";
+import Modal, { ModalI } from "../../Components/Modal/Modal";
 import Input from "../../Components/UI/Input";
 import { useInput } from "../../Hooks/useInput";
 import { isValid } from "../../Utils/Validators";
+import CheckBox from "../../Components/UI/CheckBox";
+import Selector from "../../Components/CategorySelector/CategorySelector";
+import categoryServices from "../../Services/CategoryServices";
+import { CategoryI } from "../../Types/Category.interface";
 
-const AddCourseModal = (props: ModalProps) => {
-  // TODO: Clear Inputs on Close
-
+const AddCourseModal = (props: ModalI) => {
   const [image, setImage] = useState("");
-  const titleInput = useInput((value) => isValid(value));
-  const descInput = useInput((value) => isValid(value));
-  // TODO: Change Category Input to Selector
-  const categoryInput = useInput((value) => isValid(value));
+  const titleInput = useInput((value) => isValid(value), "");
+  const descInput = useInput((value) => isValid(value), "");
+  const [category, setCategory] = useState<CategoryI>();
+  const [categories, setCategories] = useState<CategoryI[]>();
 
-  // TODO: if onSale is false, disable salePrice input
+  const fetchCategories = async () => {
+    await categoryServices.allCategories().then(({ data }) => {
+      setCategories(data);
+    });
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   const [onSale, setOnSale] = useState(false);
+  const salePriceInput = useInput((value) => {
+    if (value) return !isNaN(Number(value)) && Number(value) > 0;
+    return false;
+  }, 10);
+
+  const priceInput = useInput((value) => {
+    if (value) return !isNaN(Number(value)) && Number(value) > 0;
+    return false;
+  }, 10);
+  console.log("🚀 ~ priceInput ~ priceInput:", priceInput);
 
   const handleImageChange = (base64: string) => {
     setImage(base64);
   };
+
+  const handleClear = () => {
+    props.close();
+    setOnSale(false);
+    titleInput.clear();
+    descInput.clear();
+    priceInput.clear();
+    salePriceInput.clear();
+    setImage("");
+  };
+
   return (
-    <Modal {...props}>
+    <Modal bodyClassName="flex flex-col gap-5 max-w-[300px]" {...props} close={handleClear}>
+      <div className="flex flex-col gap-2">
+        <CheckBox
+          withText
+          checkedText="On Sale"
+          uncheckedText="Not On Sale"
+          checked={onSale}
+          id="onSale"
+          onChange={() => setOnSale((prev) => !prev)}
+        />
+        {onSale && <Input type="number" label="Sale Price" {...salePriceInput} />}
+      </div>
+      <Input {...priceInput} label="Price" />
       <Input {...titleInput} label="Course Name" />
-      {/* TODO: Make Selector Component For Categories */}
+      <Selector selected={category} setSelected={setCategory} options={categories || []} />
       <Input {...descInput} label="Description" />
-      {/* TODO: Make Checkbox Component For Sales Input */}
-      {/* TODO: Make Number Input or Selector */}
 
       <ImageToBase64Converter initialImage={image} handleChange={handleImageChange} />
     </Modal>
