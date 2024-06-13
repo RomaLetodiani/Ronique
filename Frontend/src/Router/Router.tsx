@@ -53,13 +53,10 @@ const Router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
-        // BUG: The following code is not working as expected. It should open single course page
-        children: [
-          {
-            path: ":id",
-            element: <Course />,
-          },
-        ],
+      },
+      {
+        path: "/courses/:id",
+        element: <Course />,
       },
       {
         element: <PrivateRoute />,
