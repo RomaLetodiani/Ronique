@@ -8,7 +8,7 @@ import useClickOutside from "../../Hooks/useClickOutside";
 import { ProductI } from "../../Types/Product.interface";
 import Options from "./Options";
 
-const SearchBar = ({ searchInput }: { searchInput: InputState }) => {
+const SearchBar = ({ searchInput }: { searchInput: InputState<string> }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(false);

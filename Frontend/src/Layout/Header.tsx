@@ -13,7 +13,7 @@ const Header = () => {
   const isDesktop = useMediaQuery("(min-width: 1000px)");
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { user } = authStore();
-  const SearchInput = useInput(() => true);
+  const SearchInput = useInput(() => true, "");
   return (
     <div>
       <div className="p-5 shadow-sm flex gap-5 justify-between items-center">

@@ -10,9 +10,10 @@ import { FormEvent } from "react";
 
 const LoginPage = () => {
   const emailInput = useInput(
-    (value) => emailValidator(value) || value === import.meta.env.VITE_ADMIN_EMAIL
+    (value) => emailValidator(value) || value === import.meta.env.VITE_ADMIN_EMAIL,
+    ""
   );
-  const passwordInput = useInput((value) => isValid(value));
+  const passwordInput = useInput((value) => isValid(value), "");
 
   const { setTokens } = authStore();
 

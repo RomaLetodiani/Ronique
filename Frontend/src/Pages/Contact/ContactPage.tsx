@@ -5,11 +5,11 @@ import { useInput } from "../../Hooks/useInput";
 import { FooterTextLeft } from "../../Utils/Consts";
 
 const ContactPage = () => {
-  const firstNameInput = useInput(() => true);
-  const lastNameInput = useInput(() => true);
-  const phoneNameInput = useInput(() => true);
-  const emailInput = useInput(() => true);
-  const subjectInput = useInput(() => true);
+  const firstNameInput = useInput(() => true, "");
+  const lastNameInput = useInput(() => true, "");
+  const phoneNameInput = useInput(() => true, "");
+  const emailInput = useInput(() => true, "");
+  const subjectInput = useInput(() => true, "");
   return (
     <div className="w-full flex flex-col p-5 bg-teal-300 justify-center items-center">
       <h2>Contact Us</h2>

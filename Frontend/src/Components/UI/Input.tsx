@@ -4,13 +4,14 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { twMerge } from "tailwind-merge";
 
 interface inputI extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   labelClassName?: string;
   inputClassName?: string;
   wrapperClassName?: string;
   errorMessage?: string;
   hasError?: boolean;
   focus?: boolean;
+  clear?: () => void;
 }
 
 const Input = ({
@@ -21,10 +22,12 @@ const Input = ({
   errorMessage,
   hasError,
   focus,
+  clear,
   ...rest
 }: inputI) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const isPassword = rest.type === "password";
+
   return (
     <div className={twMerge("relative w-full", wrapperClassName)}>
       <label

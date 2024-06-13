@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 /**
  * Represents the shape of the state object returned by the useInput hook.
  */
-export type InputState = {
+export type InputState<T> = {
   /** The current value of the input field. */
-  value: string;
+  value: T;
   /** Indicates whether the input field is currently focused. */
   focus: boolean;
   /** Event handler for input changes. */
@@ -16,6 +16,8 @@ export type InputState = {
   onFocus: () => void;
   /** Indicates whether there is an error in the input value. */
   hasError: boolean;
+  /** Function to clear the input value. */
+  clear: () => void;
 };
 
 /**
@@ -23,16 +25,18 @@ export type InputState = {
  * @param validate A function to validate the input value.
  * @returns An object containing input state and event handlers.
  */
-export const useInput = (validate: (value: string) => boolean): InputState => {
-  const [value, setValue] = useState<string>("");
-  const [touched, setTouched] = useState<boolean>(false);
+export const useInput = <T>(validate: (value?: T) => boolean, initialValue: T): InputState<T> => {
+  const [value, setValue] = useState<T>(initialValue);
+
+  // TODO: BUG: FIXME: This is a bug, the touched state should be set to false when the initialValue is falsy
+  const [touched, setTouched] = useState<boolean>(!!initialValue);
   const [focus, setFocus] = useState<boolean>(false);
 
   const isValid: boolean = validate(value);
   const hasError: boolean = !isValid && touched;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setValue(e.target.value as T);
   };
 
   const onBlur = (): void => {
@@ -44,9 +48,15 @@ export const useInput = (validate: (value: string) => boolean): InputState => {
     setFocus(true);
   };
 
+  const clear = (): void => {
+    setValue(initialValue);
+    setTouched(false);
+    setFocus(false);
+  };
+
   useEffect(() => {
-    value && setFocus(true);
-  }, [value]);
+    value && initialValue && onFocus();
+  }, [value, initialValue]);
 
   return {
     value,
@@ -55,6 +65,7 @@ export const useInput = (validate: (value: string) => boolean): InputState => {
     onBlur,
     onFocus,
     hasError,
+    clear,
   };
 };
 

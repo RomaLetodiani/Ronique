@@ -7,12 +7,12 @@ import authStore from "../../../Stores/Auth.store";
 import { emailValidator, isValid, phoneNumberValidator } from "../../../Utils/Validators";
 
 const InputsRender = () => {
-  const emailInput = useInput((value) => emailValidator(value));
-  const passwordInput = useInput((value) => isValid(value));
-  const rePasswordInput = useInput((value) => isValid(value) && value === passwordInput.value);
-  const firstNameInput = useInput((value) => isValid(value));
-  const lastNameInput = useInput((value) => isValid(value));
-  const phoneNumberInput = useInput((value) => phoneNumberValidator(value));
+  const emailInput = useInput((value) => emailValidator(value), "");
+  const passwordInput = useInput((value) => isValid(value), "");
+  const rePasswordInput = useInput((value) => isValid(value) && value === passwordInput.value, "");
+  const firstNameInput = useInput((value) => isValid(value), "");
+  const lastNameInput = useInput((value) => isValid(value), "");
+  const phoneNumberInput = useInput((value) => phoneNumberValidator(value), "");
   const { setTokens } = authStore();
   const errors = [
     emailInput.hasError,
