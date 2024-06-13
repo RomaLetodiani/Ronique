@@ -13,7 +13,8 @@ const Admin = () => {
         <h2>Admin Panel</h2>
         <Button onClick={handleAdd}>Add Course</Button>
       </div>
-      <AddCourseModal open={open} close={handleClose} />
+      {/* FIXME: LOOK AT THE RENDERING */}
+      {open && <AddCourseModal open={open} close={handleClose} />}
       <div>
         <RenderCourses />
       </div>

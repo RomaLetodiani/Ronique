@@ -5,7 +5,7 @@ import Input from "../../Components/UI/Input";
 import { useInput } from "../../Hooks/useInput";
 import { isValid } from "../../Utils/Validators";
 import CheckBox from "../../Components/UI/CheckBox";
-import Selector from "../../Components/CategorySelector/CategorySelector";
+import CategorySelector from "../../Components/CategorySelector/CategorySelector";
 import categoryServices from "../../Services/CategoryServices";
 import { CategoryI } from "../../Types/Category.interface";
 
@@ -36,7 +36,6 @@ const AddCourseModal = (props: ModalI) => {
     if (value) return !isNaN(Number(value)) && Number(value) > 0;
     return false;
   }, 10);
-  console.log("🚀 ~ priceInput ~ priceInput:", priceInput);
 
   const handleImageChange = (base64: string) => {
     setImage(base64);
@@ -65,9 +64,9 @@ const AddCourseModal = (props: ModalI) => {
         />
         {onSale && <Input type="number" label="Sale Price" {...salePriceInput} />}
       </div>
-      <Input {...priceInput} label="Price" />
+      <Input type="number" min={1} {...priceInput} label="Price" />
       <Input {...titleInput} label="Course Name" />
-      <Selector selected={category} setSelected={setCategory} options={categories || []} />
+      <CategorySelector selected={category} setSelected={setCategory} options={categories || []} />
       <Input {...descInput} label="Description" />
 
       <ImageToBase64Converter initialImage={image} handleChange={handleImageChange} />

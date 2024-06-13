@@ -32,7 +32,9 @@ const CategorySelector = ({ options, selected, setSelected }: SelectorProps) => 
   return (
     <div ref={containerRef} className="relative">
       <div className="w-full border outline-none px-3 py-6 rounded-xl relative">
-        <p className="absolute left-3 top-1/2 -translate-y-1/2">{selected?.name}</p>
+        <p className="absolute left-3 top-1/2 -translate-y-1/2">
+          {options[0] && (selected?.name ?? options[0].name)}
+        </p>
       </div>
       {visible && <Options options={options} setValue={handleSelect} selected={selected} />}
     </div>
