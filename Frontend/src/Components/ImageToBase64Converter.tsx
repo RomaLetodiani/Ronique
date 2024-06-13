@@ -28,9 +28,9 @@ const ImageToBase64Converter = ({ handleChange, initialImage = "" }: Props) => {
     }
   };
   return (
-    <div>
+    <div className="w-full flex flex-col gap-2">
       <input type="file" onChange={handleChangeInput} />
-      {base64Image && <img src={base64Image} alt="preview" />}
+      {base64Image && <img className="w-full h-full rounded-xl" src={base64Image} alt="preview" />}
     </div>
   );
 };
