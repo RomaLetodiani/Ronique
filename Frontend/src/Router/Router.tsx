@@ -1,17 +1,23 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 
 const Home = lazy(() => import("../Pages/Home/Home"));
 const Root = lazy(() => import("./Root"));
 const Error = lazy(() => import("../Pages/Error/Error"));
-const PrivateRoute = lazy(() => import("./PrivateRoute"));
+
 const AdminRoute = lazy(() => import("./AdminRoute"));
 const Admin = lazy(() => import("../Pages/Admin/Admin"));
+const CoursesPage = lazy(() => import("../Pages/Admin/CoursesPage"));
+const CategoryPage = lazy(() => import("../Pages/Admin/CategoryPage"));
+
+const AuthRoute = lazy(() => import("./AuthRoute"));
 const AuthPage = lazy(() => import("../Pages/Auth/AuthPage"));
 const LoginPage = lazy(() => import("../Pages/Auth/Login/LoginPage"));
 const RegisterPage = lazy(() => import("../Pages/Auth/Register/RegisterPage"));
-const AuthRoute = lazy(() => import("./AuthRoute"));
+
+const PrivateRoute = lazy(() => import("./PrivateRoute"));
 const Profile = lazy(() => import("../Pages/Profile/Profile"));
+
 const ContactPage = lazy(() => import("../Pages/Contact/ContactPage"));
 const CartPage = lazy(() => import("../Pages/Cart/CartPage"));
 const WishListPage = lazy(() => import("../Pages/WishList/WishListPage"));
@@ -75,6 +81,20 @@ const Router = createBrowserRouter([
                   {
                     path: "admin",
                     element: <Admin />,
+                    children: [
+                      {
+                        path: "/profile/admin",
+                        element: <Navigate to="courses" />,
+                      },
+                      {
+                        path: "courses",
+                        element: <CoursesPage />,
+                      },
+                      {
+                        path: "category",
+                        element: <CategoryPage />,
+                      },
+                    ],
                   },
                 ],
               },
