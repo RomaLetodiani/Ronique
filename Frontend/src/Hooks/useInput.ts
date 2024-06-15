@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 /**
  * Represents the shape of the state object returned by the useInput hook.
  */
-export type InputState<T> = {
+export type InputState = {
   /** The current value of the input field. */
-  value: T;
+  value: string | number;
   /** Indicates whether the input field is currently focused. */
   focus: boolean;
   /** Event handler for input changes. */
@@ -25,10 +25,12 @@ export type InputState<T> = {
  * @param validate A function to validate the input value.
  * @returns An object containing input state and event handlers.
  */
-export const useInput = <T>(validate: (value?: T) => boolean, initialValue: T): InputState<T> => {
-  const [value, setValue] = useState<T>(initialValue);
+export const useInput = (
+  validate: (value?: string | number) => boolean,
+  initialValue: string | number = ""
+): InputState => {
+  const [value, setValue] = useState(initialValue);
 
-  // TODO: BUG: FIXME: This is a bug, the touched state should be set to false when the initialValue is falsy
   const [touched, setTouched] = useState<boolean>(!!initialValue);
   const [focus, setFocus] = useState<boolean>(false);
 
@@ -36,7 +38,7 @@ export const useInput = <T>(validate: (value?: T) => boolean, initialValue: T): 
   const hasError: boolean = !isValid && touched;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value as T);
+    setValue(e.target.value);
   };
 
   const onBlur = (): void => {
