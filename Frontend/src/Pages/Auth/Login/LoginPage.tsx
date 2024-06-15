@@ -10,7 +10,9 @@ import { FormEvent } from "react";
 
 const LoginPage = () => {
   const emailInput = useInput(
-    (value) => emailValidator(value) || value === import.meta.env.VITE_ADMIN_EMAIL,
+    (value) =>
+      (typeof value === "string" && emailValidator(value)) ||
+      value === import.meta.env.VITE_ADMIN_EMAIL,
     ""
   );
   const passwordInput = useInput((value) => isValid(value), "");
@@ -33,7 +35,7 @@ const LoginPage = () => {
     }
 
     authServices
-      .login({ email: emailInput.value, password: passwordInput.value })
+      .login({ email: emailInput.value as string, password: passwordInput.value as string })
       .then(({ data }) => {
         setTokens(data);
         toast.success("Login successful");

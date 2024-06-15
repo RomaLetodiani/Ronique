@@ -7,12 +7,14 @@ import authStore from "../../../Stores/Auth.store";
 import { emailValidator, isValid, phoneNumberValidator } from "../../../Utils/Validators";
 
 const InputsRender = () => {
-  const emailInput = useInput((value) => emailValidator(value), "");
-  const passwordInput = useInput((value) => isValid(value), "");
-  const rePasswordInput = useInput((value) => isValid(value) && value === passwordInput.value, "");
-  const firstNameInput = useInput((value) => isValid(value), "");
-  const lastNameInput = useInput((value) => isValid(value), "");
-  const phoneNumberInput = useInput((value) => phoneNumberValidator(value), "");
+  const emailInput = useInput((value) => typeof value === "string" && emailValidator(value));
+  const passwordInput = useInput((value) => isValid(value));
+  const rePasswordInput = useInput((value) => isValid(value) && value === passwordInput.value);
+  const firstNameInput = useInput((value) => isValid(value));
+  const lastNameInput = useInput((value) => isValid(value));
+  const phoneNumberInput = useInput(
+    (value) => typeof value === "string" && phoneNumberValidator(value)
+  );
   const { setTokens } = authStore();
   const errors = [
     emailInput.hasError,
@@ -45,11 +47,11 @@ const InputsRender = () => {
     }
     authServices
       .register({
-        email: emailInput.value,
-        password: passwordInput.value,
-        first_name: firstNameInput.value,
-        last_name: lastNameInput.value,
-        phone_number: phoneNumberInput.value,
+        email: emailInput.value as string,
+        password: passwordInput.value as string,
+        first_name: firstNameInput.value as string,
+        last_name: lastNameInput.value as string,
+        phone_number: phoneNumberInput.value as string,
       })
       .then(({ data }) => {
         setTokens(data);
