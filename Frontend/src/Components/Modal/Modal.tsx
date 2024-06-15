@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 export interface ModalI extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   open: boolean;
+  handleSubmit?: () => void;
   close: () => void;
   wrapperClassName?: string;
   modalClassName?: string;
@@ -16,6 +17,7 @@ const Modal = ({
   children,
   open,
   close,
+  handleSubmit,
   wrapperClassName,
   modalClassName,
   bodyClassName,
@@ -38,7 +40,7 @@ const Modal = ({
             <Button btnType="secondary" onClick={close}>
               Close
             </Button>
-            <Button>Save</Button>
+            <Button onClick={handleSubmit}>Save</Button>
           </div>
         </div>
       </div>

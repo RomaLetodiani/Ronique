@@ -8,7 +8,7 @@ import useClickOutside from "../../Hooks/useClickOutside";
 import { ProductI } from "../../Types/Product.interface";
 import Options from "./Options";
 
-const SearchBar = ({ searchInput }: { searchInput: InputState<string> }) => {
+const SearchBar = ({ searchInput }: { searchInput: InputState }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -16,7 +16,7 @@ const SearchBar = ({ searchInput }: { searchInput: InputState<string> }) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleSearch = (searchTerm: string) => {
+  const handleSearch = (searchTerm: string | number) => {
     if (!searchTerm) {
       setSearchResults([]);
       setVisible(false);
@@ -25,7 +25,7 @@ const SearchBar = ({ searchInput }: { searchInput: InputState<string> }) => {
     }
     setLoading(true);
     productServices
-      .allProducts({ productName: searchTerm, page: 1, pageSize: 50 })
+      .allProducts({ productName: searchTerm as string, page: 1, pageSize: 50 })
       .then(({ data }) => {
         if (!data.total || !data.products) {
           setSearchResults([]);

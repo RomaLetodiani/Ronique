@@ -7,6 +7,7 @@ interface CheckBoxI extends InputHTMLAttributes<HTMLInputElement> {
   checkedText?: string;
   uncheckedText?: string;
   withText?: boolean;
+  clickable?: boolean;
 }
 
 const CheckBox = ({
@@ -15,6 +16,7 @@ const CheckBox = ({
   withText = false,
   checkedText,
   uncheckedText,
+  clickable = true,
   ...rest
 }: CheckBoxI) => {
   return (
@@ -22,7 +24,8 @@ const CheckBox = ({
       <label
         className={twMerge(
           "flex justify-center items-center w-5 h-5 border rounded-full cursor-pointer transition-colors duration-300 ease-in-out",
-          checked ? "bg-primary" : "bg-gray-200"
+          checked ? "bg-primary" : "bg-gray-200",
+          !clickable && "pointer-events-none"
         )}
         htmlFor={id}
       >
