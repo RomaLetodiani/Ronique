@@ -19,6 +19,8 @@ export default {
       gradientColorStops: {
         "light-blue": "#ace0f9",
         "light-gray": "#fff1eb",
+        oceanBlue: "#042890",
+        skyBlue: "#0A6FA0",
       },
     },
   },
