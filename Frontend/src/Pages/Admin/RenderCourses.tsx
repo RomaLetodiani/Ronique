@@ -3,7 +3,13 @@ import { ProductI } from "../../Types/Product.interface";
 import productServices from "../../Services/ProductServices";
 import Course from "./Course";
 
-const RenderCourses = () => {
+const RenderCourses = ({
+  selectedKeys,
+  setSelectedKeys,
+}: {
+  selectedKeys: string[];
+  setSelectedKeys: (keys: string[]) => void;
+}) => {
   const [courses, setCourse] = useState<ProductI[]>([]);
 
   useEffect(() => {
@@ -13,9 +19,20 @@ const RenderCourses = () => {
   }, []);
 
   return (
-    <div className="flex gap-5 flex-wrap">
+    <div className="flex gap-5 p-5 overflow-y-auto flex-wrap">
       {courses.map((course) => (
-        <Course key={course.id} setCourse={setCourse} course={course} />
+        <Course
+          key={course.id}
+          setCourse={setCourse}
+          course={course}
+          handleSelect={(id) => {
+            if (selectedKeys.includes(id)) {
+              setSelectedKeys(selectedKeys.filter((key) => key !== id));
+            } else {
+              setSelectedKeys([...selectedKeys, id]);
+            }
+          }}
+        />
       ))}
     </div>
   );

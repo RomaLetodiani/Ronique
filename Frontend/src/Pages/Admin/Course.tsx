@@ -6,15 +6,23 @@ import Button from "../../Components/UI/Button";
 import { twMerge } from "tailwind-merge";
 import productServices from "../../Services/ProductServices";
 import { toast } from "react-toastify";
+import CheckBox from "../../Components/UI/CheckBox";
 
 type Props = {
   course: ProductI;
   setCourse: React.Dispatch<React.SetStateAction<ProductI[]>>;
+  handleSelect: (id: string) => void;
 };
 
-const Course = ({ course, setCourse }: Props) => {
+const Course = ({ course, setCourse, handleSelect }: Props) => {
   const [editMode, setEditMode] = useState(false);
+  const [selected, setSelected] = useState(false);
   const [image, setImage] = useState("");
+
+  const onSelect = (id: string) => {
+    handleSelect(id);
+    setSelected((prev) => !prev);
+  };
 
   const updateCourse = (id: string, image: string) => {
     productServices
@@ -61,7 +69,10 @@ const Course = ({ course, setCourse }: Props) => {
       {editMode ? (
         <ImageToBase64Converter handleChange={setImage} initialImage={course.image} />
       ) : (
-        <div className="p-5">
+        <div onClick={() => onSelect(course.id)} className="p-5 relative">
+          <div className="absolute right-2 top-2">
+            <CheckBox clickable={false} id={course.id} checked={selected} />
+          </div>
           <img src={!course.image.split(",")[1] ? logo : course.image} alt={course.title} />
           <div className="flex justify-between items-center">
             <h5>{course.title}</h5>

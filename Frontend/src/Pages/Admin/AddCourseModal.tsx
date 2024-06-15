@@ -5,16 +5,57 @@ import Input from "../../Components/UI/Input";
 import { useInput } from "../../Hooks/useInput";
 import { isValid } from "../../Utils/Validators";
 import CheckBox from "../../Components/UI/CheckBox";
-import CategorySelector from "../../Components/CategorySelector/CategorySelector";
 import categoryServices from "../../Services/CategoryServices";
 import { CategoryI } from "../../Types/Category.interface";
+import Selector from "../../Components/UI/Selector";
+import { toast } from "react-toastify";
+import productServices from "../../Services/ProductServices";
 
 const AddCourseModal = (props: ModalI) => {
-  const [image, setImage] = useState("");
-  const titleInput = useInput((value) => isValid(value), "");
-  const descInput = useInput((value) => isValid(value), "");
-  const [category, setCategory] = useState<CategoryI>();
+  const titleInput = useInput((value) => isValid(value));
+  const descInput = useInput((value) => isValid(value));
+  const [category, setCategory] = useState("");
   const [categories, setCategories] = useState<CategoryI[]>();
+  const [onSale, setOnSale] = useState(false);
+  const salePriceInput = useInput((value) => {
+    if (value) return !isNaN(Number(value)) && Number(value) > 0;
+    return false;
+  }, 10);
+  const priceInput = useInput((value) => {
+    if (value) return !isNaN(Number(value)) && Number(value) > 0;
+    return false;
+  }, 10);
+
+  const [image, setImage] = useState("");
+  const handleImageChange = (base64: string) => {
+    setImage(base64);
+  };
+
+  const errors = [
+    titleInput.hasError,
+    !titleInput.value,
+    descInput.hasError,
+    !descInput.value,
+    !category,
+    !priceInput.value,
+    priceInput.hasError,
+    onSale && (!salePriceInput.value || salePriceInput.hasError),
+  ];
+
+  const handleCourseCreate = () => {
+    if (errors.some((err) => err)) {
+      toast.error("Fill all fields correctly");
+      return;
+    }
+    productServices.addProduct({
+      title: titleInput.value as string,
+      description: descInput.value as string,
+      price: priceInput.value as number,
+      salePrice: onSale ? (salePriceInput.value as number) : null,
+      image,
+      category_name: category as string,
+    });
+  };
 
   const fetchCategories = async () => {
     await categoryServices.allCategories().then(({ data }) => {
@@ -25,21 +66,6 @@ const AddCourseModal = (props: ModalI) => {
   useEffect(() => {
     fetchCategories();
   }, []);
-
-  const [onSale, setOnSale] = useState(false);
-  const salePriceInput = useInput((value) => {
-    if (value) return !isNaN(Number(value)) && Number(value) > 0;
-    return false;
-  }, 10);
-
-  const priceInput = useInput((value) => {
-    if (value) return !isNaN(Number(value)) && Number(value) > 0;
-    return false;
-  }, 10);
-
-  const handleImageChange = (base64: string) => {
-    setImage(base64);
-  };
 
   const handleClear = () => {
     props.close();
@@ -52,7 +78,12 @@ const AddCourseModal = (props: ModalI) => {
   };
 
   return (
-    <Modal bodyClassName="flex flex-col gap-5 max-w-[300px]" {...props} close={handleClear}>
+    <Modal
+      handleSubmit={handleCourseCreate}
+      bodyClassName="flex flex-col gap-5 max-w-[300px]"
+      {...props}
+      close={handleClear}
+    >
       <div className="flex flex-col gap-2">
         <CheckBox
           withText
@@ -62,11 +93,26 @@ const AddCourseModal = (props: ModalI) => {
           id="onSale"
           onChange={() => setOnSale((prev) => !prev)}
         />
-        {onSale && <Input type="number" label="Sale Price" {...salePriceInput} />}
+        <Input
+          type="number"
+          label={onSale ? "Sale Price" : "Enable Sale"}
+          disabled={!onSale}
+          {...salePriceInput}
+        />
       </div>
       <Input type="number" min={1} {...priceInput} label="Price" />
       <Input {...titleInput} label="Course Name" />
-      <CategorySelector selected={category} setSelected={setCategory} options={categories || []} />
+      {categories && (
+        <Selector
+          defaultOption="Select Category"
+          label="Category"
+          selected={category}
+          setSelected={(option) => typeof option === "string" && setCategory(option)}
+          options={categories.map((category) => {
+            return { title: category.name, value: category.name };
+          })}
+        />
+      )}
       <Input {...descInput} label="Description" />
 
       <ImageToBase64Converter initialImage={image} handleChange={handleImageChange} />
