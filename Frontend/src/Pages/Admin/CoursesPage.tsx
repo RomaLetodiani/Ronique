@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../Components/UI/Button";
 import AddCourseModal from "./AddCourseModal";
 import RenderCourses from "./RenderCourses";
 import productServices from "../../Services/ProductServices";
 import { toast } from "react-toastify";
 import globalStore from "../../Stores/Global.store";
+import Pagination from "../../Components/UI/Pagination/Pagination";
 
 const CoursesPage = () => {
+  const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const { deleteProduct } = globalStore();
+  const { deleteProduct, totalProducts, setFilterParams } = globalStore();
+
+  useEffect(() => {
+    setFilterParams({ page });
+  }, [page]);
+
   const handleAdd = () => setOpen(true);
   const handleDelete = () => {
     if (!selectedKeys.length) {
@@ -43,6 +50,7 @@ const CoursesPage = () => {
       {open && <AddCourseModal open={open} close={handleClose} />}
       <div>
         <RenderCourses selectedKeys={selectedKeys} setSelectedKeys={setSelectedKeys} />
+        <Pagination totalItems={totalProducts} pageSize={12} page={page} setPage={setPage} />
       </div>
     </>
   );
