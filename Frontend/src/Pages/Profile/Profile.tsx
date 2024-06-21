@@ -28,12 +28,12 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col w-full md:flex-row relative overflow-hidden">
       <SideBar open={open} setOpen={setOpen} isMobile={!isNotMobile} role={fullUser?.role} />
-      <SectionWrapper className={twMerge("flex-1", isNotMobile ? "mt-0" : "mt-32")}>
+      <SectionWrapper className={twMerge("flex-1 py-5", isNotMobile ? "mt-0" : "mt-24 border-t")}>
         <Outlet />
       </SectionWrapper>
-      {isNotMobile && <UserProfile user={fullUser} />}
+      {isNotMobile && <UserProfile />}
     </div>
   );
 };
