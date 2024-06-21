@@ -7,17 +7,18 @@ import { twMerge } from "tailwind-merge";
 import productServices from "../../Services/ProductServices";
 import { toast } from "react-toastify";
 import CheckBox from "../../Components/UI/CheckBox";
+import globalStore from "../../Stores/Global.store";
 
 type Props = {
   course: ProductI;
-  setCourse: React.Dispatch<React.SetStateAction<ProductI[]>>;
   handleSelect: (id: string) => void;
 };
 
-const Course = ({ course, setCourse, handleSelect }: Props) => {
+const Course = ({ course, handleSelect }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const [selected, setSelected] = useState(false);
   const [image, setImage] = useState("");
+  const {deleteProduct, updateProduct} = globalStore();
 
   const onSelect = (id: string) => {
     handleSelect(id);
@@ -28,7 +29,7 @@ const Course = ({ course, setCourse, handleSelect }: Props) => {
     productServices
       .updateProduct({ id, image })
       .then(({ data }) => {
-        setCourse((prev) => [...prev.map((course) => (course.id === id ? data : course))]);
+        updateProduct(data);
         toast.success("Product updated successfully");
       })
       .catch(() => {
@@ -47,10 +48,11 @@ const Course = ({ course, setCourse, handleSelect }: Props) => {
     productServices
       .deleteProducts([id])
       .then(() => {
+        deleteProduct(id);
         setEditMode(false);
       })
       .then(() => {
-        setCourse((prev) => [...prev.filter((course) => course.id !== id)]);
+        
         toast.success("Product deleted successfully");
       })
       .catch(() => {
@@ -64,7 +66,11 @@ const Course = ({ course, setCourse, handleSelect }: Props) => {
   return (
     <div
       key={course.id}
-      className="relative bg-white group w-64 min-h-64 shadow-sm overflow-hidden rounded-xl border"
+      className={twMerge("relative bg-white group w-64 min-h-64 shadow-sm overflow-hidden rounded-xl border hover:scale-105 cursor-pointer",
+        'transition-all duration-300 ease-in-out',
+        selected && "border-primary border-b-4 border-r-4" 
+
+      )}
     >
       {editMode ? (
         <ImageToBase64Converter handleChange={setImage} initialImage={course.image} />

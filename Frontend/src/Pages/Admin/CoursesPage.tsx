@@ -4,10 +4,12 @@ import AddCourseModal from "./AddCourseModal";
 import RenderCourses from "./RenderCourses";
 import productServices from "../../Services/ProductServices";
 import { toast } from "react-toastify";
+import globalStore from "../../Stores/Global.store";
 
 const CoursesPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const { deleteProduct } = globalStore();
   const handleAdd = () => setOpen(true);
   const handleDelete = () => {
     if (!selectedKeys.length) {
@@ -17,12 +19,12 @@ const CoursesPage = () => {
     productServices
       .deleteProducts(selectedKeys)
       .then(() => {
-        // TODO: Implement this when you have courses globally
-        // setCourse((prev) => [...prev.filter((course) => course.id !== id)]);
-        toast.success("Product deleted successfully");
+        selectedKeys.forEach((id) => deleteProduct(id));
+        setSelectedKeys([]);
+        toast.success("Products deleted successfully");
       })
       .catch(() => {
-        toast.error("Product deletion failed");
+        toast.error("Error while deleting products");
       });
   };
   const handleClose = () => setOpen(false);

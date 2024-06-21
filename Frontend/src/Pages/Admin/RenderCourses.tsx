@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import { ProductI } from "../../Types/Product.interface";
-import productServices from "../../Services/ProductServices";
 import Course from "./Course";
+import globalStore from "../../Stores/Global.store";
 
 const RenderCourses = ({
   selectedKeys,
@@ -10,20 +8,13 @@ const RenderCourses = ({
   selectedKeys: string[];
   setSelectedKeys: (keys: string[]) => void;
 }) => {
-  const [courses, setCourse] = useState<ProductI[]>([]);
-
-  useEffect(() => {
-    productServices.allProducts({ page: 1, pageSize: 1000 }).then(({ data }) => {
-      setCourse(data.products);
-    });
-  }, []);
-
+  const {products:courses} = globalStore();
+  console.log("🚀 ~ courses:", courses)
   return (
-    <div className="flex gap-5 p-5 overflow-y-auto flex-wrap">
+    <div className="grid justify-items-center grid-cols-1 min-[950px]:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4  gap-5 p-5 ">
       {courses.map((course) => (
         <Course
           key={course.id}
-          setCourse={setCourse}
           course={course}
           handleSelect={(id) => {
             if (selectedKeys.includes(id)) {
