@@ -7,8 +7,8 @@ const Error = lazy(() => import("../Pages/Error/Error"));
 
 const AdminRoute = lazy(() => import("./AdminRoute"));
 const Admin = lazy(() => import("../Pages/Admin/Admin"));
-const CoursesPage = lazy(() => import("../Pages/Admin/CoursesPage"));
-const CategoryPage = lazy(() => import("../Pages/Admin/CategoryPage"));
+const CoursesPage = lazy(() => import("../Pages/Admin/Course/CoursesPage"));
+const CategoryPage = lazy(() => import("../Pages/Admin/Category/CategoryPage"));
 
 const AuthRoute = lazy(() => import("./AuthRoute"));
 const AuthPage = lazy(() => import("../Pages/Auth/AuthPage"));

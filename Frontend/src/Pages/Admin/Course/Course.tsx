@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { ProductI } from "../../Types/Product.interface";
-import ImageToBase64Converter from "../../Components/ImageToBase64Converter";
-import { logo } from "../../Components/Shared/Assets/Assets";
-import Button from "../../Components/UI/Button";
+import { ProductI } from "../../../Types/Product.interface";
+import ImageToBase64Converter from "../../../Components/ImageToBase64Converter";
+import { logo } from "../../../Components/Shared/Assets/Assets";
+import Button from "../../../Components/UI/Button";
 import { twMerge } from "tailwind-merge";
-import productServices from "../../Services/ProductServices";
+import productServices from "../../../Services/ProductServices";
 import { toast } from "react-toastify";
-import CheckBox from "../../Components/UI/CheckBox";
-import globalStore from "../../Stores/Global.store";
+import CheckBox from "../../../Components/UI/CheckBox";
+import globalStore from "../../../Stores/Global.store";
 
 type Props = {
   course: ProductI;
@@ -18,7 +18,7 @@ const Course = ({ course, handleSelect }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const [selected, setSelected] = useState(false);
   const [image, setImage] = useState("");
-  const {deleteProduct, updateProduct} = globalStore();
+  const { deleteProduct, updateProduct } = globalStore();
 
   const onSelect = (id: string) => {
     handleSelect(id);
@@ -52,7 +52,6 @@ const Course = ({ course, handleSelect }: Props) => {
         setEditMode(false);
       })
       .then(() => {
-        
         toast.success("Product deleted successfully");
       })
       .catch(() => {
@@ -66,10 +65,10 @@ const Course = ({ course, handleSelect }: Props) => {
   return (
     <div
       key={course.id}
-      className={twMerge("relative bg-white group w-64 min-h-64 shadow-sm overflow-hidden rounded-xl border hover:scale-105 cursor-pointer",
-        'transition-all duration-300 ease-in-out',
-        selected && "border-primary border-b-4 border-r-4" 
-
+      className={twMerge(
+        "relative bg-white group w-64 min-h-64 shadow-sm overflow-hidden rounded-xl border hover:scale-105 cursor-pointer",
+        "transition-all duration-300 ease-in-out",
+        selected && "border-primary border-b-4 border-r-4"
       )}
     >
       {editMode ? (

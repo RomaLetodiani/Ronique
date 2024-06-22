@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import ImageToBase64Converter from "../../Components/ImageToBase64Converter";
-import Modal, { ModalI } from "../../Components/Modal/Modal";
-import Input from "../../Components/UI/Input";
-import { useInput } from "../../Hooks/useInput";
-import { isValid } from "../../Utils/Validators";
-import CheckBox from "../../Components/UI/CheckBox";
-import categoryServices from "../../Services/CategoryServices";
-import { CategoryI } from "../../Types/Category.interface";
-import Selector from "../../Components/UI/Selector";
+import ImageToBase64Converter from "../../../Components/ImageToBase64Converter";
+import Modal, { ModalI } from "../../../Components/Modal/Modal";
+import Input from "../../../Components/UI/Input";
+import { useInput } from "../../../Hooks/useInput";
+import { isValid } from "../../../Utils/Validators";
+import CheckBox from "../../../Components/UI/CheckBox";
+import categoryServices from "../../../Services/CategoryServices";
+import { CategoryI } from "../../../Types/Category.interface";
+import Selector from "../../../Components/UI/Selector";
 import { toast } from "react-toastify";
-import productServices from "../../Services/ProductServices";
+import productServices from "../../../Services/ProductServices";
 
 const AddCourseModal = (props: ModalI) => {
   const titleInput = useInput((value) => isValid(value));

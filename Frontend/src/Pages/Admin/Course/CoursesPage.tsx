@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Button from "../../Components/UI/Button";
 import AddCourseModal from "./AddCourseModal";
 import RenderCourses from "./RenderCourses";
-import productServices from "../../Services/ProductServices";
+import productServices from "../../../Services/ProductServices";
 import { toast } from "react-toastify";
-import globalStore from "../../Stores/Global.store";
-import Pagination from "../../Components/UI/Pagination/Pagination";
+import globalStore from "../../../Stores/Global.store";
+import Pagination from "../../../Components/UI/Pagination/Pagination";
+import HandlerHeader from "../Shared/HandlerHeader";
 
 const CoursesPage = () => {
   const [page, setPage] = useState(1);
@@ -37,15 +37,7 @@ const CoursesPage = () => {
   const handleClose = () => setOpen(false);
   return (
     <>
-      <div className="border-b-2 rounded-xl px-5 flex justify-between items-center py-2 mb-5">
-        <h2>Courses</h2>
-        <div className="flex gap-3">
-          <Button btnType="danger" onClick={handleDelete}>
-            Delete
-          </Button>
-          <Button onClick={handleAdd}>Add</Button>
-        </div>
-      </div>
+      <HandlerHeader handleAdd={handleAdd} handleDelete={handleDelete} title="Courses" />
 
       {open && <AddCourseModal open={open} close={handleClose} />}
       <div>
