@@ -8,6 +8,7 @@ interface GlobalStoreI {
   loadingCategories: boolean;
   setLoadingCategories: (loading: boolean) => void;
   deleteCategory: (id: string) => void;
+  addCategory: (category: CategoryI) => void;
 
   products: ProductI[];
   setProducts: (products: ProductI[]) => void;
@@ -29,6 +30,7 @@ const globalStore = create<GlobalStoreI>()((set) => ({
   setLoadingCategories: (loading) => set({ loadingCategories: loading }),
   deleteCategory: (id) =>
     set((state) => ({ categories: state.categories.filter((category) => category.id !== id) })),
+  addCategory: (category) => set((state) => ({ categories: [...state.categories, category] })),
   products: [],
   setProducts: (products) => set({ products }),
   deleteProduct: (id) =>
