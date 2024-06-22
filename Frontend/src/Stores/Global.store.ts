@@ -13,6 +13,7 @@ interface GlobalStoreI {
   products: ProductI[];
   setProducts: (products: ProductI[]) => void;
   deleteProduct: (id: string) => void;
+  addProduct: (product: ProductI) => void;
   updateProduct: (product: ProductI) => void;
   totalProducts: number;
   setTotalProducts: (total: number) => void;
@@ -35,6 +36,8 @@ const globalStore = create<GlobalStoreI>()((set) => ({
   setProducts: (products) => set({ products }),
   deleteProduct: (id) =>
     set((state) => ({ products: state.products.filter((product) => product.id !== id) })),
+  addProduct: (product) =>
+    set((state) => ({ products: [product, ...state.products.splice(1, 12)] })),
   updateProduct: (product) =>
     set((state) => ({ products: state.products.map((p) => (p.id === product.id ? product : p)) })),
   totalProducts: 0,
