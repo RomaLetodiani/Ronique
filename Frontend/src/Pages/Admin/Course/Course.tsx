@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductI } from "../../../Types/Product.interface";
 import ImageToBase64Converter from "../../../Components/ImageToBase64Converter";
 import { logo } from "../../../Components/Shared/Assets/Assets";
@@ -8,17 +8,23 @@ import productServices from "../../../Services/ProductServices";
 import { toast } from "react-toastify";
 import CheckBox from "../../../Components/UI/CheckBox";
 import globalStore from "../../../Stores/Global.store";
+import PriceRender from "../../../Components/PriceRender";
 
 type Props = {
   course: ProductI;
   handleSelect: (id: string) => void;
+  selectedP: boolean;
 };
 
-const Course = ({ course, handleSelect }: Props) => {
+const Course = ({ course, handleSelect, selectedP }: Props) => {
   const [editMode, setEditMode] = useState(false);
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(selectedP);
   const [image, setImage] = useState("");
   const { deleteProduct, updateProduct } = globalStore();
+
+  useEffect(() => {
+    setSelected(selectedP);
+  }, [selectedP]);
 
   const onSelect = (id: string) => {
     handleSelect(id);
@@ -81,7 +87,7 @@ const Course = ({ course, handleSelect }: Props) => {
           <img src={!course.image.split(",")[1] ? logo : course.image} alt={course.title} />
           <div className="flex justify-between items-center">
             <h5>{course.title}</h5>
-            <p>{course.price}$</p>
+            <PriceRender price={course.price} salePrice={course.salePrice} />
           </div>
           <p className="border my-2 rounded-md">{course.description.slice(0, 100)}...</p>
         </div>

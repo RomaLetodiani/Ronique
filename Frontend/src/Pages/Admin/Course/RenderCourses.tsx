@@ -1,5 +1,6 @@
 import Course from "./Course";
 import globalStore from "../../../Stores/Global.store";
+import CheckBox from "../../../Components/UI/CheckBox";
 
 const RenderCourses = ({
   selectedKeys,
@@ -17,11 +18,34 @@ const RenderCourses = ({
       setSelectedKeys([...selectedKeys, id]);
     }
   };
+
+  const handleSelectAll = () => {
+    if (selectedKeys.length === courses.length) {
+      setSelectedKeys([]);
+    } else {
+      setSelectedKeys(courses.map((course) => course.id));
+    }
+  };
   return (
-    <div className="grid justify-items-center grid-cols-1 min-[950px]:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4  gap-5 p-5 ">
-      {courses.map((course) => (
-        <Course key={course.id} course={course} handleSelect={handleSelect} />
-      ))}
+    <div>
+      <CheckBox
+        id="selectAllProducts"
+        checked={selectedKeys.length === courses.length}
+        onChange={handleSelectAll}
+        uncheckedText="Select All"
+        checkedText="Deselect All"
+        withText
+      />
+      <div className="grid justify-items-center grid-cols-1 min-[950px]:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4  gap-5 p-5 ">
+        {courses.map((course) => (
+          <Course
+            key={course.id}
+            course={course}
+            handleSelect={handleSelect}
+            selectedP={selectedKeys.includes(course.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

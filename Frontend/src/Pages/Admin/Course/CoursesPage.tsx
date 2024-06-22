@@ -28,6 +28,9 @@ const CoursesPage = () => {
       .then(() => {
         selectedKeys.forEach((id) => deleteProduct(id));
         setSelectedKeys([]);
+        if (selectedKeys.length === 12) {
+          setPage(1);
+        }
         toast.success("Products deleted successfully");
       })
       .catch(() => {
