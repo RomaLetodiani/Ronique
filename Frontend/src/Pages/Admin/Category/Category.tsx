@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CategoryI } from "../../../Types/Category.interface";
 import CheckBox from "../../../Components/UI/CheckBox";
 import { twMerge } from "tailwind-merge";
@@ -6,10 +6,15 @@ import { twMerge } from "tailwind-merge";
 type Props = {
   category: CategoryI;
   handleSelect: (id: string) => void;
+  selectedP: boolean;
 };
 
-const Category = ({ category, handleSelect }: Props) => {
-  const [selected, setSelected] = useState(false);
+const Category = ({ category, handleSelect, selectedP }: Props) => {
+  const [selected, setSelected] = useState(selectedP);
+
+  useEffect(() => {
+    setSelected(selectedP);
+  }, [selectedP]);
 
   const onSelect = (id: string) => {
     handleSelect(id);
