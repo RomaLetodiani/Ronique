@@ -88,6 +88,46 @@ const Socials = [
   },
 ];
 
+const ProfileSideBarTexts = [
+  {
+    name: "OverView",
+    path: "overView",
+  },
+  {
+    name: "Dashboard",
+    path: "dashboard",
+  },
+  {
+    name: "Inbox",
+    path: "inbox",
+  },
+  {
+    name: "Task",
+    path: "task",
+  },
+  {
+    name: "Admin Panel",
+    path: "admin/courses",
+    children: [
+      {
+        name: "Courses",
+        path: "admin/courses",
+      },
+      {
+        name: "Category",
+        path: "admin/category",
+      },
+    ],
+  },
+];
+
 const allRightsReserved = "2024 Ronique. All Rights Reserved";
 
-export { navBarText, FooterTextLeft, FooterTextRight, Socials, allRightsReserved };
+export {
+  navBarText,
+  FooterTextLeft,
+  FooterTextRight,
+  Socials,
+  allRightsReserved,
+  ProfileSideBarTexts,
+};

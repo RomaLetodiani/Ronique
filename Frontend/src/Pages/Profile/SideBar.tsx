@@ -5,6 +5,7 @@ import Logo from "../../Components/Logo";
 import Burger from "../../Components/Burger";
 import UserAvatar from "../../Components/UserAvatar";
 import { twMerge } from "tailwind-merge";
+import { ProfileSideBarTexts } from "../../Utils/Consts";
 
 type SideBarProps = {
   role?: Role;
@@ -49,16 +50,28 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
         <Logo size="100" />
 
         <div>
-          <p>OverView</p>
           <ul>
-            <li>Dashboard</li>
-            <li>Inbox</li>
-            <li>Task</li>
-            {isAdmin(role) && (
-              <li>
-                <Link to={"admin/courses"}>Admin Panel</Link>
-              </li>
-            )}
+            {ProfileSideBarTexts.map((text, index) => {
+              if (text.path.includes("admin")) {
+                if (isAdmin(role)) {
+                  return (
+                    <div key={index}>
+                      <li>{<Link to={text.path}>{text.name}</Link>}</li>
+                      <ul>
+                        {text.children?.map((child, index) => {
+                          return (
+                            <li className="ml-5" key={index}>
+                              {<Link to={child.path}>{child.name}</Link>}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  );
+                }
+              }
+              return <li key={index}>{<Link to={text.path}>{text.name}</Link>}</li>;
+            })}
           </ul>
         </div>
 
