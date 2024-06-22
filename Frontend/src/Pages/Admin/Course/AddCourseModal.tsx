@@ -10,6 +10,7 @@ import { CategoryI } from "../../../Types/Category.interface";
 import Selector from "../../../Components/UI/Selector";
 import { toast } from "react-toastify";
 import productServices from "../../../Services/ProductServices";
+import globalStore from "../../../Stores/Global.store";
 
 const AddCourseModal = (props: ModalI) => {
   const titleInput = useInput((value) => isValid(value));
@@ -31,6 +32,8 @@ const AddCourseModal = (props: ModalI) => {
     setImage(base64);
   };
 
+  const { addProduct } = globalStore();
+
   const errors = [
     titleInput.hasError,
     !titleInput.value,
@@ -47,14 +50,24 @@ const AddCourseModal = (props: ModalI) => {
       toast.error("Fill all fields correctly");
       return;
     }
-    productServices.addProduct({
-      title: titleInput.value as string,
-      description: descInput.value as string,
-      price: priceInput.value as number,
-      salePrice: onSale ? (salePriceInput.value as number) : null,
-      image,
-      category_name: category as string,
-    });
+    productServices
+      .addProduct({
+        title: titleInput.value as string,
+        description: descInput.value as string,
+        price: priceInput.value as number,
+        salePrice: onSale ? (salePriceInput.value as number) : null,
+        image,
+        category_name: category as string,
+      })
+      .then(({ data }) => {
+        addProduct(data);
+      })
+      .catch(() => {
+        toast.error("Error while adding product");
+      })
+      .finally(() => {
+        handleClear();
+      });
   };
 
   const fetchCategories = async () => {
