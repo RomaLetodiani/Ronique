@@ -21,7 +21,7 @@ const Header = () => {
         {!isMobile && <SearchBar searchInput={SearchInput} />}
         {isDesktop ? <NavBar /> : <SideBar />}
         {user ? (
-          <UserAvatar user={user} />
+          <UserAvatar />
         ) : (
           <div className="flex gap-5">
             <Link to={"auth"}>
