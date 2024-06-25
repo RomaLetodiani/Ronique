@@ -6,6 +6,7 @@ import Burger from "../../Components/Burger";
 import UserAvatar from "../../Components/UserAvatar";
 import { twMerge } from "tailwind-merge";
 import { ProfileSideBarTexts } from "../../Utils/Consts";
+import authStore from "../../Stores/Auth.store";
 
 type SideBarProps = {
   role?: Role;
@@ -15,6 +16,7 @@ type SideBarProps = {
 };
 
 const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
+  const { clearTokens } = authStore();
   return (
     <>
       {isMobile && (
@@ -79,7 +81,7 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
           <p>Setting</p>
           <ul>
             <li>Setting</li>
-            <li>Log Out</li>
+            <li onClick={clearTokens}>Log Out</li>
           </ul>
         </div>
       </div>
