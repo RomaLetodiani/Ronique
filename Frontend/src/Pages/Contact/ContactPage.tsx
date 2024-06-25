@@ -10,8 +10,9 @@ const ContactPage = () => {
   const phoneNameInput = useInput(() => true, "");
   const emailInput = useInput(() => true, "");
   const subjectInput = useInput(() => true, "");
+
   return (
-    <div className="w-full flex flex-col p-5 bg-teal-300 justify-center items-center">
+    <form className="w-full flex flex-col p-5 bg-teal-300 justify-center items-center">
       <h2>Contact Us</h2>
       <div className="bg-white bg-opacity-30 rounded-xl p-5 flex flex-col md:flex-row gap-10">
         <div className="flex flex-col gap-5">
@@ -49,7 +50,7 @@ const ContactPage = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
