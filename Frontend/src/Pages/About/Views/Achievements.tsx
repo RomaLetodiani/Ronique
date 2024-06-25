@@ -5,9 +5,7 @@ const Achievements = () => {
   return (
     <RenderView
       title="Achievements"
-      description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid libero repellat esse
-     harum dicta qui voluptate asperiores vero a. Neque nihil assumenda atque ipsum laboriosam
-     reiciendis beatae natus enim quibusdam."
+      description="Our journey is marked by numerous milestones that highlight our commitment to innovation, community impact, and educational excellence. Each achievement is a testament to the hard work and dedication of our team, partners, and supporters. Explore some of the key accomplishments that drive us forward and inspire our future endeavors."
       cards={AchievementsTextObj}
     />
   );
