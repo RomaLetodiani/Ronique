@@ -5,8 +5,9 @@ import Logo from "../../Components/Logo";
 import Burger from "../../Components/Burger";
 import UserAvatar from "../../Components/UserAvatar";
 import { twMerge } from "tailwind-merge";
-import { ProfileSideBarTexts } from "../../Utils/Consts";
+import { ProfileSideBarTexts } from "../../Utils/Const";
 import authStore from "../../Stores/Auth.store";
+import BlurBackground from "../../Components/BlurBackground";
 
 type SideBarProps = {
   role?: Role;
@@ -29,19 +30,11 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
       )}
 
       {/* Blurred dark Background */}
-      {isMobile && (
-        <div
-          className={twMerge(
-            "w-full h-full absolute bg-black/20 backdrop-blur-sm z-30 transition-transform ease-in-out duration-700",
-            open ? "translate-y-0" : "-translate-y-full"
-          )}
-        ></div>
-      )}
-
+      <BlurBackground absOrFixed="absolute" isMobile={isMobile} open={open} zIndex={30} />
       <div
         className={twMerge(
-          "p-5 justify-between items-center gap-5 bg-primary-500 bg-white rounded-b-lg border-t md:border-t-none transform transition-transform ease-out duration-300",
-
+          "p-5 pt-28 justify-between items-center gap-5 bg-white rounded-b-lg border-t md:border-t-none",
+          "transform transition-transform ease-out duration-300",
           isMobile
             ? `absolute -translate-x-full top-0 left-0 w-full flex flex-col z-40 ${
                 open && "translate-x-0"
