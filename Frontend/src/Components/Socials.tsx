@@ -1,4 +1,4 @@
-import { Socials } from "../Utils/Consts";
+import { Socials } from "../Utils/Const";
 
 const SocialsDiv = () => {
   return (

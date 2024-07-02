@@ -2,7 +2,7 @@ import SocialsDiv from "../../Components/Socials";
 import Button from "../../Components/UI/Button";
 import Input from "../../Components/UI/Input";
 import { useInput } from "../../Hooks/useInput";
-import { FooterTextLeft } from "../../Utils/Consts";
+import { FooterTextLeft } from "../../Utils/Const";
 
 const ContactPage = () => {
   const firstNameInput = useInput(() => true, "");

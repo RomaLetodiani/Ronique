@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate } from "react-router";
 import { logo } from "../../Components/Shared/Assets/Assets";
 import { FaRegCopyright } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { allRightsReserved } from "../../Utils/Consts";
+import { allRightsReserved } from "../../Utils/Const";
 
 const AuthPage = () => {
   const { pathname } = useLocation();

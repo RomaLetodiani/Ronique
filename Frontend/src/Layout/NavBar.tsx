@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { navBarText } from "../Utils/Consts";
+import { navBarText } from "../Utils/Const";
 import { twMerge } from "tailwind-merge";
 
 const NavBar = () => {

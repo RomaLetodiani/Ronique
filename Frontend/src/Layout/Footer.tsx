@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../Components/Logo";
-import { FooterTextLeft, FooterTextRight } from "../Utils/Consts";
+import { FooterTextLeft, FooterTextRight } from "../Utils/Const";
 import SocialsDiv from "../Components/Socials";
 
 const Footer = () => {
@@ -28,13 +28,6 @@ const Footer = () => {
                 <p className={`${pathname === item.path && "text-secondary-500 font-bold"}`}>
                   {item.name}
                 </p>
-              </Link>
-            ))}
-          </div>
-          <div className="flex flex-col gap-3">
-            {FooterTextRight.secondHalf.map((item, index) => (
-              <Link key={index} to={item.path}>
-                {item.name}
               </Link>
             ))}
           </div>

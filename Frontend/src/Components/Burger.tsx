@@ -6,6 +6,11 @@ type BurgerProps = {
 };
 
 const Burger = ({ open, setOpen }: BurgerProps) => {
+  const handleOnClick = () => {
+    document.body.style.overflow = open ? "auto" : "hidden";
+    setOpen((prev) => !prev);
+  };
+
   const lineStyle =
     "bg-gradient-to-r from-skyBlue to-oceanBlue w-full h-1 transition-all duration-500 ease-in-out rounded-xl";
   return (
@@ -14,7 +19,7 @@ const Burger = ({ open, setOpen }: BurgerProps) => {
         "flex flex-col z-[100] justify-between w-8 bg-transparent border-none cursor-pointer relative",
         open ? "h-8" : "h-6"
       )}
-      onClick={() => setOpen((prev) => !prev)}
+      onClick={handleOnClick}
     >
       <div className={twMerge(lineStyle, open ? "rotate-45 absolute top-1/2" : "rotate-0")} />
       <div
