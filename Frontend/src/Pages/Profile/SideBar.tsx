@@ -71,7 +71,6 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
         </div>
 
         <div>
-          <p>Setting</p>
           <ul>
             <li>Setting</li>
             <li onClick={clearTokens}>Log Out</li>

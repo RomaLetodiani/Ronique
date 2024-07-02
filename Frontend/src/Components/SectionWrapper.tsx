@@ -8,7 +8,9 @@ type SectionWrapperProps = {
 };
 
 const SectionWrapper = ({ children, maxWidth = "max-w-7xl", className }: SectionWrapperProps) => {
-  return <div className={twMerge("px-5 w-full", maxWidth, className)}>{children}</div>;
+  return (
+    <section className={twMerge("px-5 w-full mx-auto", maxWidth, className)}>{children}</section>
+  );
 };
 
 export default SectionWrapper;

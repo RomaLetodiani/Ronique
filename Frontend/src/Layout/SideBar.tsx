@@ -29,7 +29,7 @@ const SideBar = ({ isMobile, open, setOpen }: SideBarProps) => {
             "transform transition-transform ease-out duration-300",
             isMobile &&
               `fixed translate-x-full top-0 right-0 flex flex-col z-[60] ${
-                open && "translate-x-0 w-64"
+                open && "translate-x-0 w-72"
               }`
           )}
         >
