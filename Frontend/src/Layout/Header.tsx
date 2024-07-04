@@ -19,7 +19,7 @@ const Header = () => {
   const { user } = authStore();
   const SearchInput = useInput(() => true, "");
   return (
-    <div>
+    <header>
       <div className="p-5 shadow-sm flex gap-5 justify-between items-center">
         <Logo size="250" />
         {!isMobile && <SearchBar searchInput={SearchInput} />}
@@ -50,7 +50,7 @@ const Header = () => {
           <SearchBar searchInput={SearchInput} />
         </div>
       )}
-    </div>
+    </header>
   );
 };
 

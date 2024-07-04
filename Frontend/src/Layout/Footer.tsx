@@ -6,7 +6,7 @@ import SocialsDiv from "../Components/Socials";
 const Footer = () => {
   const { pathname } = useLocation();
   return (
-    <div
+    <footer
       className={`border-t flex flex-col min-[540px]:flex-row gap-16 justify-between border-secondary-200 p-5`}
     >
       <div className="flex flex-col items-start gap-8">
@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
         <SocialsDiv />
       </div>
-    </div>
+    </footer>
   );
 };
 

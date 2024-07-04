@@ -11,8 +11,8 @@ import Testimonials from "./Views/Testimonials/Testimonials";
 const Home = () => {
   return (
     <>
-      {/* TODO: Build these Sections */}
       <CategoryDiv />
+      {/* TODO: Build these Sections */}
       <Hero />
       <Services />
       <Portfolio />
