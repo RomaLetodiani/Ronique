@@ -19,7 +19,7 @@ type SideBarProps = {
 const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
   const { clearTokens } = authStore();
   return (
-    <>
+    <aside>
       {isMobile && (
         <div className="absolute z-50 top-[20px] w-full flex justify-between items-center px-5">
           <div>
@@ -33,11 +33,11 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
       <BlurBackground absOrFixed="absolute" isMobile={isMobile} open={open} zIndex={30} />
       <div
         className={twMerge(
-          "p-5 pt-28 justify-between items-center gap-5 bg-white rounded-b-lg border-t md:border-t-none",
+          "p-5 justify-between items-center gap-5 bg-white rounded-b-lg border-t md:border-t-none",
           "transform transition-transform ease-out duration-300",
           isMobile
             ? `absolute -translate-x-full top-0 left-0 w-full flex flex-col z-40 ${
-                open && "translate-x-0"
+                open && "translate-x-0 pt-28"
               }`
             : "border-r w-64 h-full border-secondary-200"
         )}
@@ -77,7 +77,7 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
           </ul>
         </div>
       </div>
-    </>
+    </aside>
   );
 };
 

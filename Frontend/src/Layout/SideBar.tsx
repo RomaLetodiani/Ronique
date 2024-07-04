@@ -23,7 +23,7 @@ const SideBar = ({ isMobile, open, setOpen }: SideBarProps) => {
       <>
         {/* Blurred dark Background */}
         <BlurBackground absOrFixed="fixed" zIndex={60} isMobile={isMobile} open={open} />
-        <div
+        <aside
           className={twMerge(
             "p-5 pt-28 bg-primary/80 bg h-full",
             "transform transition-transform ease-out duration-300",
@@ -60,7 +60,7 @@ const SideBar = ({ isMobile, open, setOpen }: SideBarProps) => {
               })}
             </div>
           </div>
-        </div>
+        </aside>
       </>
     )
   );
