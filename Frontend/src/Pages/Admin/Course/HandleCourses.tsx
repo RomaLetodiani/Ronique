@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import productServices from "../../../Services/ProductServices";
-import globalStore from "../../../Stores/Global.store";
+import productStore from "../../../Stores/Product.store";
 
 const HandleCourses = ({
   selectedKeys,
@@ -9,7 +9,7 @@ const HandleCourses = ({
   selectedKeys: string[];
   setSelectedKeys: (keys: string[]) => void;
 }) => {
-  const { deleteProduct } = globalStore();
+  const { deleteProduct } = productStore();
 
   const handleDelete = () => {
     if (!selectedKeys.length) {

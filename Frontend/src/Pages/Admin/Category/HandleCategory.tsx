@@ -1,14 +1,14 @@
 import { toast } from "react-toastify";
-import globalStore from "../../../Stores/Global.store";
 import { useInput } from "../../../Hooks/useInput";
 import categoryServices from "../../../Services/CategoryServices";
 import { useState } from "react";
 import { isValid } from "../../../Utils/Validators";
+import categoryStore from "../../../Stores/Category.store";
 
 const HandleCategory = () => {
   const [addMode, setAddMode] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const { addCategory, deleteCategory, categories } = globalStore();
+  const { addCategory, deleteCategory, categories } = categoryStore();
   const categoryInput = useInput((value) => isValid(value));
 
   const handleAdd = () => {

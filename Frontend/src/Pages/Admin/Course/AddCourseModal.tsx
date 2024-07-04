@@ -10,7 +10,7 @@ import { CategoryI } from "../../../Types/Category.interface";
 import Selector from "../../../Components/UI/Selector";
 import { toast } from "react-toastify";
 import productServices from "../../../Services/ProductServices";
-import globalStore from "../../../Stores/Global.store";
+import productStore from "../../../Stores/Product.store";
 
 const AddCourseModal = (props: ModalI) => {
   const titleInput = useInput((value) => isValid(value));
@@ -32,7 +32,7 @@ const AddCourseModal = (props: ModalI) => {
     setImage(base64);
   };
 
-  const { addProduct } = globalStore();
+  const { addProduct } = productStore();
 
   const errors = [
     titleInput.hasError,

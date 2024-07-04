@@ -7,8 +7,8 @@ import { twMerge } from "tailwind-merge";
 import productServices from "../../../Services/ProductServices";
 import { toast } from "react-toastify";
 import CheckBox from "../../../Components/UI/CheckBox";
-import globalStore from "../../../Stores/Global.store";
 import PriceRender from "../../../Components/PriceRender";
+import productStore from "../../../Stores/Product.store";
 
 type Props = {
   course: ProductI;
@@ -20,7 +20,7 @@ const Course = ({ course, handleSelect, selectedP }: Props) => {
   const [editMode, setEditMode] = useState(false);
   const [selected, setSelected] = useState(selectedP);
   const [image, setImage] = useState("");
-  const { deleteProduct, updateProduct } = globalStore();
+  const { deleteProduct, updateProduct } = productStore();
 
   useEffect(() => {
     setSelected(selectedP);

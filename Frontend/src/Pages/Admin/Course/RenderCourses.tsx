@@ -1,6 +1,6 @@
 import Course from "./Course";
-import globalStore from "../../../Stores/Global.store";
 import CheckBox from "../../../Components/UI/CheckBox";
+import productStore from "../../../Stores/Product.store";
 
 const RenderCourses = ({
   selectedKeys,
@@ -9,7 +9,7 @@ const RenderCourses = ({
   selectedKeys: string[];
   setSelectedKeys: (keys: string[]) => void;
 }) => {
-  const { products: courses } = globalStore();
+  const { products: courses } = productStore();
 
   const handleSelect = (id: string) => {
     if (selectedKeys.includes(id)) {

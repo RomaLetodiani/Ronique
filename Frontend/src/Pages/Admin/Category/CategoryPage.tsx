@@ -1,13 +1,13 @@
-import globalStore from "../../../Stores/Global.store";
 import HandlerHeader from "../Shared/HandlerHeader";
 import Input from "../../../Components/UI/Input";
 import Button from "../../../Components/UI/Button";
 import Category from "./Category";
 import CheckBox from "../../../Components/UI/CheckBox";
 import HandleCategory from "./HandleCategory";
+import categoryStore from "../../../Stores/Category.store";
 
 const CategoryPage = () => {
-  const { categories } = globalStore();
+  const { categories } = categoryStore();
   const {
     handleAdd,
     handleDelete,
