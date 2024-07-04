@@ -9,14 +9,14 @@ export const initialFilterParams: ProductFilterI = {
   onlySales: false,
 };
 
-interface FilterProductsStoreI {
+interface FilteredStoreI {
   filterParams: ProductFilterI;
   setFilterParams: (params: ProductFilterI) => void;
 }
 
-const filteredProductsStore = create<FilterProductsStoreI>()((set) => ({
+const filteredStore = create<FilteredStoreI>()((set) => ({
   filterParams: initialFilterParams,
   setFilterParams: (params) =>
     set((state) => ({ filterParams: { ...state.filterParams, ...params } })),
 }));
-export default filteredProductsStore;
+export default filteredStore;

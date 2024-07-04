@@ -4,14 +4,14 @@ import RenderCourses from "./RenderCourses";
 import Pagination from "../../../Components/UI/Pagination/Pagination";
 import HandlerHeader from "../Shared/HandlerHeader";
 import HandleCourses from "./HandleCourses";
-import filteredProductsStore from "../../../Stores/Filtered.store";
 import productStore from "../../../Stores/Product.store";
+import filteredStore from "../../../Stores/Filtered.store";
 
 const CoursesPage = () => {
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const { setFilterParams } = filteredProductsStore();
+  const { setFilterParams } = filteredStore();
   const { totalProducts } = productStore();
   const { handleDelete } = HandleCourses({ selectedKeys, setSelectedKeys });
 
