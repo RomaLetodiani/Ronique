@@ -4,15 +4,12 @@ import productServices from "../Services/ProductServices";
 import { toast } from "react-toastify";
 import filteredProductsStore from "../Stores/Filtered.store";
 import categoryStore from "../Stores/Category.store";
+import productStore from "../Stores/Product.store";
 
 const handleDataFetching = () => {
-  const {
-    filterParams,
-    filteredProducts,
-    setFilteredProducts,
-    setTotalFilteredProducts,
-    setLoadingFilteredProducts,
-  } = filteredProductsStore();
+  const { filterParams } = filteredProductsStore();
+
+  const { products, setProducts, setLoadingProducts, setTotalProducts } = productStore();
 
   const { setCategories, loadingCategories, setLoadingCategories } = categoryStore();
 
@@ -20,19 +17,19 @@ const handleDataFetching = () => {
 
   // INFO: Fetch Products
   useEffect(() => {
-    if (!filteredProducts) {
-      setLoadingFilteredProducts(true);
+    if (!products.length) {
+      setLoadingProducts(true);
       productServices
         .allProducts(filterParams)
         .then(({ data }) => {
-          setFilteredProducts(data.products);
-          setTotalFilteredProducts(data.total);
+          setProducts(data.products);
+          setTotalProducts(data.total);
         })
         .catch((error) => {
           console.error("❌ filterProducts ~ error:", error.message);
           toast.error("Error while getting products Data!");
         })
-        .finally(() => setLoadingFilteredProducts(false));
+        .finally(() => setLoadingProducts(false));
     }
   }, [filterParams]);
 

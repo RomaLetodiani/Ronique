@@ -5,12 +5,14 @@ import Pagination from "../../../Components/UI/Pagination/Pagination";
 import HandlerHeader from "../Shared/HandlerHeader";
 import HandleCourses from "./HandleCourses";
 import filteredProductsStore from "../../../Stores/Filtered.store";
+import productStore from "../../../Stores/Product.store";
 
 const CoursesPage = () => {
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const { totalFilteredProducts, setFilterParams } = filteredProductsStore();
+  const { setFilterParams } = filteredProductsStore();
+  const { totalProducts } = productStore();
   const { handleDelete } = HandleCourses({ selectedKeys, setSelectedKeys });
 
   useEffect(() => {
@@ -26,12 +28,7 @@ const CoursesPage = () => {
       {open && <AddCourseModal open={open} close={handleClose} />}
       <div>
         <RenderCourses selectedKeys={selectedKeys} setSelectedKeys={setSelectedKeys} />
-        <Pagination
-          totalItems={totalFilteredProducts}
-          pageSize={12}
-          page={page}
-          setPage={setPage}
-        />
+        <Pagination totalItems={totalProducts} pageSize={12} page={page} setPage={setPage} />
       </div>
     </>
   );
