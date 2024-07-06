@@ -30,7 +30,9 @@ const Profile = () => {
   return (
     <div className="flex flex-col w-full h-full flex-1 md:flex-row relative overflow-hidden">
       <SideBar open={open} setOpen={setOpen} isMobile={!isNotMobile} role={fullUser?.role} />
-      <SectionWrapper className={twMerge("flex-1 py-5", isNotMobile ? "mt-0" : "mt-24 border-t")}>
+      <SectionWrapper
+        className={twMerge("flex-1 py-5 min-h-screen", isNotMobile ? "mt-0" : "mt-24 border-t")}
+      >
         <Outlet />
       </SectionWrapper>
       {isNotMobile && <UserProfile />}
