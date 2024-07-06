@@ -1,24 +1,13 @@
-import { Link } from "react-router-dom";
-import categoryStore from "../../../../Stores/Category.store";
-import filteredStore from "../../../../Stores/Filtered.store";
+import SectionWrapper from "../../../../Components/SectionWrapper";
+import LeftRightWhiteGradient from "../../../../Components/LeftRightWhiteGradient";
+import RenderCategories from "./RenderCategories";
 
 const CategoryDiv = () => {
-  const { categories } = categoryStore();
-  const { setFilterParams } = filteredStore();
-
-  const handleCategoryClick = (category: string) => {
-    setFilterParams({ categoryName: category });
-  };
   return (
-    <div className="px-5 py-2 flex gap-5 overflow-auto w-full">
-      {categories.map((category) => (
-        <Link onClick={() => handleCategoryClick(category.name)} to="/courses" key={category.id}>
-          <div className="py-1 px-3 rounded-lg bg-black/10">
-            <p className="text-nowrap">{category.name}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <SectionWrapper className="relative">
+      <LeftRightWhiteGradient />
+      <RenderCategories />
+    </SectionWrapper>
   );
 };
 
