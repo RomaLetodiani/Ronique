@@ -3,8 +3,13 @@ import qs from "qs";
 import authStore from "../Stores/Auth.store";
 import authServices from "../Services/AuthServices";
 
+const baseUrl =
+  import.meta.env.VITE_ENV === "development"
+    ? import.meta.env.VITE_LOCAL_API
+    : import.meta.env.VITE_PROD_API;
+
 const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: baseUrl,
 });
 
 api.interceptors.request.use((config) => {
