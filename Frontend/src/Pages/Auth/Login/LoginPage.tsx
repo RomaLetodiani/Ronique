@@ -12,10 +12,9 @@ const LoginPage = () => {
   const emailInput = useInput(
     (value) =>
       (typeof value === "string" && emailValidator(value)) ||
-      value === import.meta.env.VITE_ADMIN_EMAIL,
-    ""
+      value === import.meta.env.VITE_ADMIN_EMAIL
   );
-  const passwordInput = useInput((value) => isValid(value), "");
+  const passwordInput = useInput((value) => isValid(value));
 
   const { setTokens } = authStore();
 
