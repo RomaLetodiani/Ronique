@@ -15,13 +15,7 @@ const RenderView = ({ title, description, cards }: Props) => {
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {cards.map((card, index) => {
-          return (
-            <Card
-              className="flex flex-1 flex-col border rounded-xl shadow-md h-full gap-5 lg:items-start p-5 sm:p-2"
-              key={index}
-              {...card}
-            />
-          );
+          return <Card key={index} {...card} align="items-center" direction="flex-col" />;
         })}
       </div>
     </div>
