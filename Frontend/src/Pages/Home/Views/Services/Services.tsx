@@ -4,7 +4,7 @@ import RenderServiceTexts from "./RenderServiceTexts";
 
 const Services = () => {
   return (
-    <SectionWrapper className="flex text-secondary-500 flex-col md:flex-row gap-10 py-10">
+    <SectionWrapper className="flex flex-col md:flex-row gap-10 py-10">
       <RenderServiceTexts />
       <RenderServicesCards />
     </SectionWrapper>

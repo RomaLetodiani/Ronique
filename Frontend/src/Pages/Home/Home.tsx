@@ -10,18 +10,18 @@ import Testimonials from "./Views/Testimonials/Testimonials";
 
 const Home = () => {
   return (
-    <>
+    <span className="text-secondary-500">
       <Hero />
       <CategoryDiv />
-      {/* TODO: Build these Sections */}
       <Services />
+      {/* TODO: Build these Sections */}
       <Portfolio />
       <Testimonials />
       <About />
       <FAQ />
       <Newsletter />
       <Contact />
-    </>
+    </span>
   );
 };
 

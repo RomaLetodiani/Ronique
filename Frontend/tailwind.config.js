@@ -20,6 +20,7 @@ export default {
         "hero-1": 'url("/src/Assets/Images/Slider/1.png")',
         "hero-2": 'url("/src/Assets/Images/Slider/2.png")',
         "hero-3": 'url("/src/Assets/Images/Slider/3.png")',
+        gradient: 'url("/src/Assets/Images/Gradient.png")',
       },
       gradientColorStops: {
         "light-blue": "#ace0f9",
