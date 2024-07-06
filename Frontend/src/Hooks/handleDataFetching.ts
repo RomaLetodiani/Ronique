@@ -43,7 +43,7 @@ const handleDataFetching = () => {
           setCategories(data);
         })
         .catch((error) => {
-          console.log("❌ ~ categoryServices.allCategories ~ error:", error.message);
+          console.error("❌ ~ categoryServices.allCategories ~ error:", error.message);
           toast.error("Error while getting categories Data!");
         })
         .finally(() => setLoadingCategories(false));

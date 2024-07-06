@@ -26,6 +26,11 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
+    if (error.code === "ERR_NETWORK") {
+      console.error("❌ ~ Network Error");
+      authStore.getState().clearTokens();
+      return Promise.reject(error);
+    }
     const originalRequest = error.config;
     if (error.config && error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
@@ -42,8 +47,7 @@ api.interceptors.response.use(
 
         return api(originalRequest);
       } catch (error) {
-        console.log("🚀 ~ error:", error);
-        console.error("Failed to refresh tokens");
+        console.error("❌ ~ Failed to refresh tokens");
 
         authStore.getState().clearTokens();
 

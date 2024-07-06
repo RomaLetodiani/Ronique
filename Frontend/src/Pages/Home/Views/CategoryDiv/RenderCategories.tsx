@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import categoryStore from "../../../../Stores/Category.store";
 import filteredStore from "../../../../Stores/Filtered.store";
+import { CategoryI } from "../../../../Types/Category.interface";
 
-const RenderCategories = () => {
-  const { categories } = categoryStore();
+const RenderCategories = ({ categories }: { categories: CategoryI[] }) => {
   const { setFilterParams } = filteredStore();
 
   const handleCategoryClick = (category: string) => {
