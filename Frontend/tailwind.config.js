@@ -13,6 +13,9 @@ export default {
         error: "#FF0000",
         info: "#FF0000",
       },
+      gridTemplateColumns: {
+        15: "repeat(15, minmax(200px, 1fr))",
+      },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },

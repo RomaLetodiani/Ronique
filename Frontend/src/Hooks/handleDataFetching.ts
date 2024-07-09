@@ -9,7 +9,7 @@ import filteredStore from "../Stores/Filtered.store";
 const handleDataFetching = () => {
   const { filterParams } = filteredStore();
 
-  const { products, setProducts, setLoadingProducts, setTotalProducts } = productStore();
+  const { loadingProducts, setProducts, setLoadingProducts, setTotalProducts } = productStore();
 
   const { setCategories, loadingCategories, setLoadingCategories } = categoryStore();
 
@@ -17,7 +17,7 @@ const handleDataFetching = () => {
 
   // INFO: Fetch Products
   useEffect(() => {
-    if (!products.length) {
+    if (!loadingProducts) {
       setLoadingProducts(true);
       productServices
         .allProducts(filterParams)
