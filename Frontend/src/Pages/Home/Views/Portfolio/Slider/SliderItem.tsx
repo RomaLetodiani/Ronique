@@ -2,9 +2,18 @@ import { Link } from "react-router-dom";
 import { ProductI } from "../../../../../Types/Product.interface";
 import { renderImage } from "../../../../../Utils/helpers";
 import CartWishlistButton from "../../../../../Components/CartWishlistButton/CartWishlistButton";
-import { handleActions } from "../../../../../Components/CartWishlistButton/handler";
 
-const SliderItem = ({ product }: { product: ProductI }) => {
+const SliderItem = ({
+  product,
+  isInWishlist,
+  wishlistAction,
+  cartAction,
+}: {
+  product: ProductI;
+  isInWishlist: boolean;
+  wishlistAction: () => void;
+  cartAction: () => void;
+}) => {
   return (
     <div className="text-center h-full flex flex-col justify-between p-3 border border-secondary-500 rounded-xl">
       <Link className="h-full" to={`/courses/${product.id}`}>
@@ -15,11 +24,12 @@ const SliderItem = ({ product }: { product: ProductI }) => {
       </Link>
       <div className="flex justify-between gap-3">
         <CartWishlistButton
-          onClick={() => handleActions(product.id, "wishlist")}
+          onClick={wishlistAction}
           path="/"
           isWishlist
+          isInWishlist={isInWishlist}
         />
-        <CartWishlistButton onClick={() => handleActions(product.id, "cart")} path="/" isCart />
+        <CartWishlistButton onClick={cartAction} path="/" isCart />
       </div>
     </div>
   );

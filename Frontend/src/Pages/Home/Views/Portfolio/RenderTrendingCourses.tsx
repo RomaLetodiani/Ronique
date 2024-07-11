@@ -1,9 +1,12 @@
+import { wishListHandler } from "../../../../Hooks/handlerWishlist";
 import CoursesCard from "../../../../Components/Courses/CoursesCard";
 import SectionWrapper from "../../../../Components/SectionWrapper";
 import Button from "../../../../Components/UI/Button";
 import { ProductI } from "../../../../Types/Product.interface";
 
 const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
+  const { handleWishlistActions, isInWishlist } = wishListHandler();
+
   return (
     <div className="bg-gradient bg-cover bg-center">
       <SectionWrapper className="py-10">
@@ -15,9 +18,12 @@ const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
         <div className="flex flex-wrap justify-center gap-5">
           {products.slice(0, 3).map((product) => (
             <CoursesCard
+              isInWishlist={isInWishlist(product.id)}
               key={product.id}
               className="flex-1 min-w-[345px] max-w-[400px] lg:min-w-0"
               {...product}
+              cartAction={() => {}}
+              wishlistAction={() => handleWishlistActions(product.id)}
             />
           ))}
         </div>

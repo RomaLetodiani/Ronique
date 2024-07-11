@@ -4,10 +4,13 @@ import PriceRender from "../PriceRender";
 import { renderImage, sliceText } from "../../Utils/helpers";
 import { Link } from "react-router-dom";
 import CartWishlistButton from "../CartWishlistButton/CartWishlistButton";
-import { handleActions } from "../CartWishlistButton/handler";
 
 interface CoursesCardI extends ProductI {
+  isInWishlist: boolean;
   className?: string;
+  length?: number;
+  wishlistAction: () => void;
+  cartAction: () => void;
 }
 
 const CoursesCard = ({
@@ -19,6 +22,10 @@ const CoursesCard = ({
   image,
   salePrice,
   category_name,
+  length = 80,
+  wishlistAction,
+  cartAction,
+  isInWishlist,
 }: CoursesCardI) => {
   return (
     <div
@@ -37,12 +44,12 @@ const CoursesCard = ({
             <PriceRender price={price} salePrice={salePrice} />
           </div>
           <p>{category_name}</p>
-          <p>{sliceText(description, 80)}</p>
+          <p>{sliceText(description, length)}</p>
         </div>
       </Link>
       <div className="flex justify-between gap-3 p-3 pt-0">
-        <CartWishlistButton onClick={() => handleActions(id, "wishlist")} path="/" isWishlist />
-        <CartWishlistButton onClick={() => handleActions(id, "cart")} path="/" isCart />
+        <CartWishlistButton onClick={wishlistAction} isWishlist isInWishlist={isInWishlist} />
+        <CartWishlistButton isCart onClick={cartAction} />
       </div>
     </div>
   );

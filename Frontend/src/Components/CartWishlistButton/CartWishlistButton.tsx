@@ -2,15 +2,17 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import Button from "../UI/Button";
 import { Link } from "react-router-dom";
 import { MouseEvent } from "react";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   isCart?: boolean;
   isWishlist?: boolean;
-  path: string;
+  isInWishlist?: boolean;
+  path?: string;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
-const CartWishlistButton = ({ isCart, isWishlist, path, onClick }: Props) => {
+const CartWishlistButton = ({ isCart, isWishlist, isInWishlist, path = "", onClick }: Props) => {
   return (
     <Link to={path}>
       <Button
@@ -18,7 +20,7 @@ const CartWishlistButton = ({ isCart, isWishlist, path, onClick }: Props) => {
         onClick={onClick}
       >
         <span>
-          {isWishlist && <FaHeart />}
+          {isWishlist && <FaHeart className={twMerge(isInWishlist && "text-danger")} />}
           {isCart && <FaShoppingCart />}
         </span>
       </Button>

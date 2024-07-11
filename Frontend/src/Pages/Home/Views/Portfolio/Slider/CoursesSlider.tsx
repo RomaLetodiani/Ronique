@@ -6,6 +6,7 @@ import useMediaQuery from "../../../../../Hooks/UseMediaQuery";
 import handleSlider from "./handleSlider";
 import { ProductI } from "../../../../../Types/Product.interface";
 import useScrollPosition from "../../../../../Hooks/useScrollPosition";
+import { wishListHandler } from "../../../../../Hooks/handlerWishlist";
 
 const CoursesSlider = ({ products }: { products: ProductI[] }) => {
   const { scrollLeft, scrollRight, sliderRef } = handleSlider();
@@ -15,6 +16,7 @@ const CoursesSlider = ({ products }: { products: ProductI[] }) => {
     50,
     sliderRef
   );
+  const { handleWishlistActions, isInWishlist } = wishListHandler();
   return (
     <SectionWrapper className="relative mt-10">
       <LeftRightWhiteGradient disabledLeft={forWhiteIsAtStartX} disabledRight={forWhiteIsAtEndX} />
@@ -27,7 +29,13 @@ const CoursesSlider = ({ products }: { products: ProductI[] }) => {
       <div ref={sliderRef} className="overflow-x-auto py-5">
         <div className="grid grid-cols-15 gap-5">
           {products.slice(0, 15).map((product) => (
-            <SliderItem key={product.id} product={product} />
+            <SliderItem
+              isInWishlist={isInWishlist(product.id)}
+              cartAction={() => {}}
+              wishlistAction={() => handleWishlistActions(product.id)}
+              key={product.id}
+              product={product}
+            />
           ))}
         </div>
       </div>
