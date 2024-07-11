@@ -3,6 +3,8 @@ import { ProductI } from "../../Types/Product.interface";
 import PriceRender from "../PriceRender";
 import { renderImage, sliceText } from "../../Utils/helpers";
 import { Link } from "react-router-dom";
+import CartWishlistButton from "../CartWishlistButton/CartWishlistButton";
+import { handleActions } from "../CartWishlistButton/handler";
 
 interface CoursesCardI extends ProductI {
   className?: string;
@@ -19,13 +21,13 @@ const CoursesCard = ({
   category_name,
 }: CoursesCardI) => {
   return (
-    <Link to={`/courses/${id}`}>
-      <div
-        className={twMerge(
-          "border overflow-hidden border-secondary-500 rounded-xl shadow-lg bg-white",
-          className
-        )}
-      >
+    <div
+      className={twMerge(
+        "border overflow-hidden border-secondary-500 rounded-xl shadow-lg bg-white",
+        className
+      )}
+    >
+      <Link to={`/courses/${id}`}>
         <div className="overflow-hidden border shadow-md border-secondary-500 rounded-xl ">
           <img className="w-full h-full" src={renderImage(image)} alt={title} />
         </div>
@@ -37,8 +39,12 @@ const CoursesCard = ({
           <p>{category_name}</p>
           <p>{sliceText(description, 80)}</p>
         </div>
+      </Link>
+      <div className="flex justify-between gap-3 p-3 pt-0">
+        <CartWishlistButton onClick={() => handleActions(id, "wishlist")} path="/" isWishlist />
+        <CartWishlistButton onClick={() => handleActions(id, "cart")} path="/" isCart />
       </div>
-    </Link>
+    </div>
   );
 };
 

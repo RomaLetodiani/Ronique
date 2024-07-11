@@ -18,6 +18,19 @@ const SideBar = ({ isMobile, open, setOpen }: SideBarProps) => {
   const handleOnClick = () => {
     setOpen(false);
   };
+
+  const sideBarTexts = [
+    ...navBarText,
+    {
+      name: "Cart",
+      path: "/cart",
+    },
+    {
+      name: "Wishlist",
+      path: "/wishlist",
+    },
+  ];
+
   return (
     isMobile && (
       <>
@@ -40,7 +53,7 @@ const SideBar = ({ isMobile, open, setOpen }: SideBarProps) => {
               </span>
             )}
             <div className="mt-10 flex flex-col items-end gap-4">
-              {navBarText.map((item, index) => {
+              {sideBarTexts.map((item, index) => {
                 return (
                   <Link onClick={handleOnClick} to={item.path} key={index}>
                     <div>
