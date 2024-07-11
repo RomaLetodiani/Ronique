@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header>
       <div className="p-5 shadow-sm flex gap-5 justify-between items-center">
-        <Logo size="250" />
+        <Logo size="200" />
         {!isMobile && <SearchBar searchInput={SearchInput} />}
         {isDesktop ? <NavBar /> : <SideBar isMobile={!isDesktop} open={open} setOpen={setOpen} />}
 

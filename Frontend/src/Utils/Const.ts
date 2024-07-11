@@ -48,28 +48,6 @@ const FooterTextLeft = [
   },
 ];
 
-const FooterTextRight = {
-  firstHalf: navBarText,
-  secondHalf: [
-    {
-      name: "About Us",
-      path: "/about",
-    },
-    {
-      name: "Company",
-      path: "/about",
-    },
-    {
-      name: "Achievements",
-      path: "/about",
-    },
-    {
-      name: "Our Goals",
-      path: "/about",
-    },
-  ],
-};
-
 const Socials = [
   {
     alt: "Facebook",
@@ -178,12 +156,4 @@ const FAQs: {
 ];
 const allRightsReserved = "2024 Ronique. All Rights Reserved";
 
-export {
-  navBarText,
-  FooterTextLeft,
-  FooterTextRight,
-  Socials,
-  allRightsReserved,
-  ProfileSideBarTexts,
-  FAQs,
-};
+export { navBarText, FooterTextLeft, Socials, allRightsReserved, ProfileSideBarTexts, FAQs };
