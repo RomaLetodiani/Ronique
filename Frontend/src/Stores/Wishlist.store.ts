@@ -1,15 +1,26 @@
 import { create } from "zustand";
-
-// TODO: Check if the ProductI is correct interface
-import { ProductI } from "../Types/Product.interface";
+import { WishlistProductI } from "../Types/Wishlist.interface";
 
 interface WishlistProductStoreI {
-  wishlistProducts: ProductI[];
-  setWishlistProducts: (products: ProductI[]) => void;
+  wishlistProducts: WishlistProductI[];
+  setWishlistProducts: (products: WishlistProductI[]) => void;
+  loadingWishlistProducts: boolean;
+  setLoadingWishlistProducts: (loading: boolean) => void;
+  addWishlistProduct: (product: WishlistProductI) => void;
+  removeWishlistProduct: (productId: string) => void;
 }
 
 const wishlistProductStore = create<WishlistProductStoreI>()((set) => ({
   wishlistProducts: [],
   setWishlistProducts: (products) => set({ wishlistProducts: products }),
+  loadingWishlistProducts: false,
+  setLoadingWishlistProducts: (loading) => set({ loadingWishlistProducts: loading }),
+  addWishlistProduct: (product) =>
+    set((state) => ({ wishlistProducts: [...state.wishlistProducts, product] })),
+  removeWishlistProduct: (productId) => {
+    set((state) => ({
+      wishlistProducts: state.wishlistProducts.filter((product) => product.id !== productId),
+    }));
+  },
 }));
 export default wishlistProductStore;
