@@ -8,6 +8,7 @@ interface WishlistProductStoreI {
   setLoadingWishlistProducts: (loading: boolean) => void;
   addWishlistProduct: (product: WishlistProductI) => void;
   removeWishlistProduct: (productId: string) => void;
+  clearWishlist: () => void;
 }
 
 const wishlistProductStore = create<WishlistProductStoreI>()((set) => ({
@@ -22,5 +23,6 @@ const wishlistProductStore = create<WishlistProductStoreI>()((set) => ({
       wishlistProducts: state.wishlistProducts.filter((product) => product.id !== productId),
     }));
   },
+  clearWishlist: () => set({ wishlistProducts: [] }),
 }));
 export default wishlistProductStore;

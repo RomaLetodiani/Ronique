@@ -2,11 +2,18 @@ import { toast } from "react-toastify";
 import WishListServices from "../Services/WishlistServices";
 import wishlistProductStore from "../Stores/Wishlist.store";
 import productStore from "../Stores/Product.store";
+import authStore from "../Stores/Auth.store";
 
 export const wishListHandler = () => {
   const { wishlistProducts, addWishlistProduct, removeWishlistProduct } = wishlistProductStore();
   const { products } = productStore();
+  const { accessToken } = authStore();
   const handleWishlistActions = (id: string) => {
+    if (!accessToken) {
+      toast.info("You need to login first");
+      return;
+    }
+
     const product = wishlistProducts.find((product) => product.product_id === id);
     if (product) {
       WishListServices.deleteProduct(product.id).then(() => {

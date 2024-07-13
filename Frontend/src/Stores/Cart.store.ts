@@ -10,6 +10,7 @@ interface CartProductStoreI {
   setLoadingCartProducts: (loading: boolean) => void;
   addCartProduct: (product: ProductI) => void;
   removeCartProduct: (productId: string) => void;
+  clearCart: () => void;
 }
 
 const cartProductStore = create<CartProductStoreI>()((set) => ({
@@ -23,5 +24,6 @@ const cartProductStore = create<CartProductStoreI>()((set) => ({
       CartProducts: state.CartProducts.filter((product) => product.id !== productId),
     }));
   },
+  clearCart: () => set({ CartProducts: [] }),
 }));
 export default cartProductStore;

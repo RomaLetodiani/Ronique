@@ -5,6 +5,7 @@ import authStore from "../Stores/Auth.store";
 import UserAvatar from "../Components/UserAvatar";
 import { navBarText } from "../Utils/Const";
 import { Link, useLocation } from "react-router-dom";
+import Button from "../Components/UI/Button";
 
 type SideBarProps = {
   isMobile: boolean;
@@ -47,10 +48,21 @@ const SideBar = ({ isMobile, open, setOpen }: SideBarProps) => {
           )}
         >
           <div>
-            {user && (
+            {user ? (
               <span onClick={handleOnClick}>
                 <UserAvatar />
               </span>
+            ) : (
+              <div className="flex justify-end gap-5">
+                <Link to={"auth"}>
+                  <Button className="py-1">Login</Button>
+                </Link>
+                <Link to={"auth/register"}>
+                  <Button className="py-1" btnType="secondary">
+                    Register
+                  </Button>
+                </Link>
+              </div>
             )}
             <div className="mt-10 flex flex-col items-end gap-4">
               {sideBarTexts.map((item, index) => {

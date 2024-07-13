@@ -9,6 +9,7 @@ import wishlistProductStore from "../Stores/Wishlist.store";
 import WishListServices from "../Services/WishlistServices";
 import cartProductStore from "../Stores/Cart.store";
 import cartServices from "../Services/CartServices";
+import authStore from "../Stores/Auth.store";
 
 const handleDataFetching = () => {
   const { filterParams } = filteredStore();
@@ -16,12 +17,17 @@ const handleDataFetching = () => {
   const { loadingProducts, setProducts, setLoadingProducts, setTotalProducts } = productStore();
 
   const { setCategories, loadingCategories, setLoadingCategories } = categoryStore();
-  const { setWishlistProducts, loadingWishlistProducts, setLoadingWishlistProducts } =
-    wishlistProductStore();
-  const { setCartProducts, loadingCartProducts, setLoadingCartProducts } = cartProductStore();
-  // INFO: This is a custom hook to fetch data from the server and store it in the global store.
+  const {
+    setWishlistProducts,
+    loadingWishlistProducts,
+    setLoadingWishlistProducts,
+    clearWishlist,
+  } = wishlistProductStore();
+  const { setCartProducts, loadingCartProducts, setLoadingCartProducts, clearCart } =
+    cartProductStore();
 
-  // INFO: Fetch Products
+  const { user } = authStore();
+
   useEffect(() => {
     if (!loadingProducts) {
       setLoadingProducts(true);
@@ -39,21 +45,13 @@ const handleDataFetching = () => {
     }
   }, [filterParams]);
 
-  // INFO: Fetch Categories and Wishlist Products
   useEffect(() => {
-    if (!loadingCategories && !loadingWishlistProducts && !loadingCartProducts) {
+    if (!loadingCategories) {
       setLoadingCategories(true);
-      setLoadingWishlistProducts(true);
-      setLoadingCartProducts(true);
-      Promise.all([
-        categoryServices.allCategories(),
-        WishListServices.allProducts(),
-        cartServices.allCartProducts(),
-      ])
-        .then(([categories, wishlistProducts, cartProducts]) => {
-          setCategories(categories.data);
-          setWishlistProducts(wishlistProducts.data);
-          setCartProducts(cartProducts.data);
+      categoryServices
+        .allCategories()
+        .then(({ data }) => {
+          setCategories(data);
         })
         .catch((error) => {
           console.error("❌ fetchCategories ~ error:", error.message);
@@ -61,11 +59,48 @@ const handleDataFetching = () => {
         })
         .finally(() => {
           setLoadingCategories(false);
-          setLoadingWishlistProducts(false);
-          setLoadingCartProducts(false);
         });
     }
   }, []);
+
+  useEffect(() => {
+    if (!user) {
+      clearWishlist();
+      clearCart();
+      return;
+    }
+
+    if (!loadingWishlistProducts) {
+      setLoadingWishlistProducts(true);
+      WishListServices.allProducts()
+        .then(({ data }) => {
+          setWishlistProducts(data);
+        })
+        .catch((error) => {
+          console.error("❌ fetchWishlist ~ error:", error.message);
+          toast.error("Error while getting wishlist Data!");
+        })
+        .finally(() => {
+          setLoadingWishlistProducts(false);
+        });
+    }
+
+    if (!loadingCartProducts) {
+      setLoadingCartProducts(true);
+      cartServices
+        .allCartProducts()
+        .then(({ data }) => {
+          setCartProducts(data);
+        })
+        .catch((error) => {
+          console.error("❌ fetchCart ~ error:", error.message);
+          toast.error("Error while getting cart Data!");
+        })
+        .finally(() => {
+          setLoadingCartProducts(false);
+        });
+    }
+  }, [user]);
 };
 
 export default handleDataFetching;

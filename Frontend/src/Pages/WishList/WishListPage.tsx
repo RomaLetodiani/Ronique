@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import SectionWrapper from "../../Components/SectionWrapper";
+import Button from "../../Components/UI/Button";
 import { wishListHandler } from "../../Hooks/handlerWishlist";
 import wishlistProductStore from "../../Stores/Wishlist.store";
 import WishlistItem from "./WishlistItem";
@@ -15,13 +17,22 @@ const WishListPage = () => {
         <p>Loading...</p>
       ) : (
         <div className="flex flex-wrap gap-5">
-          {wishlistProducts.map((product) => (
-            <WishlistItem
-              wishlistAction={() => handleWishlistActions(product.likedProduct.id)}
-              key={product.id}
-              product={product}
-            />
-          ))}
+          {wishlistProducts.length ? (
+            wishlistProducts.map((product) => (
+              <WishlistItem
+                wishlistAction={() => handleWishlistActions(product.likedProduct.id)}
+                key={product.id}
+                product={product}
+              />
+            ))
+          ) : (
+            <div className="flex w-full gap-5 flex-col justify-center items-center">
+              <h3 className="text-center text-gray-400 text-lg">No products in your wishlist</h3>
+              <Link to={"/courses"}>
+                <Button btnType="secondary">Continue Shopping</Button>
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </SectionWrapper>
