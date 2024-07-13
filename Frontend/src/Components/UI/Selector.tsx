@@ -27,17 +27,15 @@ const Selector = ({
 }: Props) => {
   return (
     <div className="w-full relative">
-      {selected && (
-        <label
-          htmlFor={props.id}
-          className={twMerge(
-            "absolute top-1 text-sm text-primary left-4 pointer-events-none transition-all",
-            labelClassName
-          )}
-        >
-          {label}
-        </label>
-      )}
+      <label
+        htmlFor={props.id}
+        className={twMerge(
+          "absolute top-1 text-sm text-primary left-4 pointer-events-none transition-all",
+          labelClassName
+        )}
+      >
+        {label}
+      </label>
       <select
         {...props}
         onChange={(e) => setSelected(e.target.value)}

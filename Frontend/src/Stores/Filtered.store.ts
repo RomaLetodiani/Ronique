@@ -5,7 +5,7 @@ export const initialFilterParams: ProductFilterI = {
   page: 1,
   pageSize: 12,
   minPrice: 0,
-  maxPrice: 1000,
+  maxPrice: 200,
   onlySales: false,
 };
 

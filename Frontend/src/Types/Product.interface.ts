@@ -15,8 +15,8 @@ export interface ProductFilterI {
   categoryName?: string;
   page?: number;
   pageSize?: number;
-  minPrice?: number;
-  maxPrice?: number;
+  minPrice: number;
+  maxPrice: number;
   productName?: string;
   onlySales?: boolean;
 }
