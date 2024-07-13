@@ -11,6 +11,16 @@
   font-family: "Rubik", sans-serif;
 }
 
+body::after {
+  content: url("/src/Assets/Images/Slider/1.png") url("/src/Assets/Images/Slider/2.png")
+    url("/src/Assets/Images/Slider/3.png");
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
 /* This styles the main scrollbar container */
 ::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */
