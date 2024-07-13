@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 import categoryServices from "../Services/CategoryServices";
 import productServices from "../Services/ProductServices";
-import { toast } from "react-toastify";
 import categoryStore from "../Stores/Category.store";
 import productStore from "../Stores/Product.store";
 import filteredStore from "../Stores/Filtered.store";
@@ -17,12 +17,14 @@ const handleDataFetching = () => {
   const { loadingProducts, setProducts, setLoadingProducts, setTotalProducts } = productStore();
 
   const { setCategories, loadingCategories, setLoadingCategories } = categoryStore();
+
   const {
     setWishlistProducts,
     loadingWishlistProducts,
     setLoadingWishlistProducts,
     clearWishlist,
   } = wishlistProductStore();
+
   const { setCartProducts, loadingCartProducts, setLoadingCartProducts, clearCart } =
     cartProductStore();
 

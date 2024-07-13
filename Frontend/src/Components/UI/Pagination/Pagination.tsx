@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { GeneratePage } from "./GeneratePage";
 import Selector from "../Selector";
 import useMediaQuery from "../../../Hooks/UseMediaQuery";
 import Page from "./Page";
 import { twMerge } from "tailwind-merge";
+import filteredStore from "../../../Stores/Filtered.store";
 
 type PaginationProps = {
   totalItems: number;
@@ -16,6 +17,11 @@ const Pagination = ({ totalItems, pageSize, page, setPage }: PaginationProps) =>
   const totalPages = Math.ceil(totalItems / pageSize);
   const isNotMobile = useMediaQuery("(min-width: 768px)");
   const pages = useMemo(() => GeneratePage(page, totalPages), [page, totalPages]);
+  const { setFilterParams } = filteredStore();
+  useEffect(() => {
+    setFilterParams({ page });
+  }, [page]);
+
   return (
     totalPages > 1 && (
       <div className="flex items-center justify-center gap-3 w-full px-3 py-1">

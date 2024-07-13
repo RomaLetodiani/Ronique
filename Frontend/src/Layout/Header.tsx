@@ -20,7 +20,7 @@ const Header = () => {
   const SearchInput = useInput(() => true);
   return (
     <header>
-      <div className="p-5 shadow-sm flex gap-5 justify-between items-center">
+      <div className="p-5 shadow-sm border-b border-secondary-200 flex gap-5 justify-between items-center">
         <Logo size="200" />
         {!isMobile && <SearchBar searchInput={SearchInput} />}
         {isDesktop ? <NavBar /> : <SideBar isMobile={!isDesktop} open={open} setOpen={setOpen} />}

@@ -31,6 +31,7 @@ const CoursesCard = ({
     <div
       className={twMerge(
         "border overflow-hidden border-secondary-500 rounded-xl shadow-lg bg-white",
+        "flex flex-col justify-between",
         className
       )}
     >

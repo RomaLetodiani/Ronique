@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddCourseModal from "./AddCourseModal";
 import RenderCourses from "./RenderCourses";
 import Pagination from "../../../Components/UI/Pagination/Pagination";
 import HandlerHeader from "../Shared/HandlerHeader";
 import HandleCourses from "./HandleCourses";
 import productStore from "../../../Stores/Product.store";
-import filteredStore from "../../../Stores/Filtered.store";
 
 const CoursesPage = () => {
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const { setFilterParams } = filteredStore();
   const { totalProducts } = productStore();
   const { handleDelete } = HandleCourses({ selectedKeys, setSelectedKeys });
-
-  useEffect(() => {
-    setFilterParams({ page });
-  }, [page]);
 
   const handleAdd = () => setOpen(true);
   const handleClose = () => setOpen(false);

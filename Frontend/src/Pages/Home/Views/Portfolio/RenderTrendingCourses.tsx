@@ -3,6 +3,7 @@ import CoursesCard from "../../../../Components/Courses/CoursesCard";
 import SectionWrapper from "../../../../Components/SectionWrapper";
 import Button from "../../../../Components/UI/Button";
 import { ProductI } from "../../../../Types/Product.interface";
+import { Link } from "react-router-dom";
 
 const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
   const { handleWishlistActions, isInWishlist } = wishListHandler();
@@ -29,7 +30,9 @@ const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
         </div>
 
         <div className="flex justify-center">
-          <Button className="mt-5">View All Courses</Button>
+          <Link to={"/courses"}>
+            <Button className="mt-5">View All Courses</Button>
+          </Link>
         </div>
       </SectionWrapper>
     </div>

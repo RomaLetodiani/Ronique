@@ -33,7 +33,7 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
       <BlurBackground absOrFixed="absolute" isMobile={isMobile} open={open} zIndex={30} />
       <div
         className={twMerge(
-          "p-5 justify-between items-center gap-5 bg-white rounded-b-lg border-t md:border-t-none",
+          "p-5 justify-between items-center gap-5 bg-white rounded-b-lg",
           "transform transition-transform ease-out duration-300",
           isMobile
             ? `absolute -translate-x-full top-0 left-0 w-full flex flex-col z-40 ${
