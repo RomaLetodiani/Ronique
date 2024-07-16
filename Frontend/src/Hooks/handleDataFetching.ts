@@ -7,8 +7,6 @@ import productStore from "../Stores/Product.store";
 import filteredStore from "../Stores/Filtered.store";
 import wishlistProductStore from "../Stores/Wishlist.store";
 import WishListServices from "../Services/WishlistServices";
-import cartProductStore from "../Stores/Cart.store";
-import cartServices from "../Services/CartServices";
 import authStore from "../Stores/Auth.store";
 
 const handleDataFetching = () => {
@@ -24,9 +22,6 @@ const handleDataFetching = () => {
     setLoadingWishlistProducts,
     clearWishlist,
   } = wishlistProductStore();
-
-  const { setCartProducts, loadingCartProducts, setLoadingCartProducts, clearCart } =
-    cartProductStore();
 
   const { user } = authStore();
 
@@ -68,7 +63,6 @@ const handleDataFetching = () => {
   useEffect(() => {
     if (!user) {
       clearWishlist();
-      clearCart();
       return;
     }
 
@@ -84,22 +78,6 @@ const handleDataFetching = () => {
         })
         .finally(() => {
           setLoadingWishlistProducts(false);
-        });
-    }
-
-    if (!loadingCartProducts) {
-      setLoadingCartProducts(true);
-      cartServices
-        .allCartProducts()
-        .then(({ data }) => {
-          setCartProducts(data);
-        })
-        .catch((error) => {
-          console.error("❌ fetchCart ~ error:", error.message);
-          toast.error("Error while getting cart Data!");
-        })
-        .finally(() => {
-          setLoadingCartProducts(false);
         });
     }
   }, [user]);

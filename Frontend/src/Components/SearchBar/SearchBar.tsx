@@ -36,7 +36,7 @@ const SearchBar = ({ searchInput }: { searchInput: InputState }) => {
         setVisible(true);
       })
       .catch((error) => {
-        console.log("🚀 ~ .then ~ error:", error);
+        console.log("❌ ~ .then ~ error:", error);
         setSearchResults([]);
         setError(true);
       })
