@@ -27,8 +27,8 @@ const Filters = ({
   const { totalProducts } = productStore();
   const nameInput = useInput(() => true, filterParams.productName);
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({
-    min: filterParams.minPrice,
-    max: filterParams.maxPrice,
+    min: filterParams.minPrice ?? 0,
+    max: filterParams.maxPrice ?? 200,
   });
   const [onlySales, setOnlySales] = useState(!!filterParams.onlySales);
 

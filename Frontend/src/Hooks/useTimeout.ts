@@ -10,7 +10,7 @@ const useTimeout = (callback: () => void, delay: number) => {
   // Create a ref to store the callback function
   const callbackRef = useRef(callback);
   // Create a ref to store the timeout ID
-  const timeoutRef = useRef<number | undefined>();
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>();
 
   // Update the callback ref whenever the callback prop changes
   useEffect(() => {
