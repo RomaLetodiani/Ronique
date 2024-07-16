@@ -32,7 +32,9 @@ const handleCartItems = () => {
     cartServices
       .addCartProduct(productId)
       .then(({ data }) => {
-        addCartProduct(data);
+        if (data.count > 1) {
+          addCartProduct(data);
+        }
 
         if (toastOn) {
           toast.success("Product Added to Cart Successfully!");
