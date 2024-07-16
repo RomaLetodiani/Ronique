@@ -7,6 +7,7 @@ import handleSlider from "./handleSlider";
 import { ProductI } from "../../../../../Types/Product.interface";
 import useScrollPosition from "../../../../../Hooks/useScrollPosition";
 import { wishListHandler } from "../../../../../Hooks/handlerWishlist";
+import handleCartItems from "../../../../../Hooks/handleCartItems";
 
 const CoursesSlider = ({ products }: { products: ProductI[] }) => {
   const { scrollLeft, scrollRight, sliderRef } = handleSlider();
@@ -17,6 +18,7 @@ const CoursesSlider = ({ products }: { products: ProductI[] }) => {
     sliderRef
   );
   const { handleWishlistActions, isInWishlist } = wishListHandler();
+  const { handleAddCartProduct } = handleCartItems();
   return (
     <SectionWrapper className="relative mt-10">
       <LeftRightWhiteGradient disabledLeft={forWhiteIsAtStartX} disabledRight={forWhiteIsAtEndX} />
@@ -31,7 +33,7 @@ const CoursesSlider = ({ products }: { products: ProductI[] }) => {
           {products.slice(0, 15).map((product) => (
             <SliderItem
               isInWishlist={isInWishlist(product.id)}
-              cartAction={() => {}}
+              cartAction={() => handleAddCartProduct({ productId: product.id })}
               wishlistAction={() => handleWishlistActions(product.id)}
               key={product.id}
               product={product}

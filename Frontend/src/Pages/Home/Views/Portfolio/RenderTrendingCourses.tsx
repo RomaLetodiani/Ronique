@@ -4,10 +4,11 @@ import SectionWrapper from "../../../../Components/SectionWrapper";
 import Button from "../../../../Components/UI/Button";
 import { ProductI } from "../../../../Types/Product.interface";
 import { Link } from "react-router-dom";
+import handleCartItems from "../../../../Hooks/handleCartItems";
 
 const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
   const { handleWishlistActions, isInWishlist } = wishListHandler();
-
+  const { handleAddCartProduct } = handleCartItems();
   return (
     <div className="bg-gradient bg-cover bg-center">
       <SectionWrapper className="py-10">
@@ -23,7 +24,7 @@ const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
               key={product.id}
               className="flex-1 min-w-[345px] max-w-[400px] lg:min-w-0"
               {...product}
-              cartAction={() => {}}
+              cartAction={() => handleAddCartProduct({ productId: product.id })}
               wishlistAction={() => handleWishlistActions(product.id)}
             />
           ))}

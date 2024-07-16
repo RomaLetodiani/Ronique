@@ -4,10 +4,12 @@ import Button from "../../Components/UI/Button";
 import { wishListHandler } from "../../Hooks/handlerWishlist";
 import wishlistProductStore from "../../Stores/Wishlist.store";
 import WishlistItem from "./WishlistItem";
+import handleCartItems from "../../Hooks/handleCartItems";
 
 const WishListPage = () => {
   const { wishlistProducts, loadingWishlistProducts } = wishlistProductStore();
   const { handleWishlistActions } = wishListHandler();
+  const { handleAddCartProduct } = handleCartItems();
   return (
     <SectionWrapper className="pb-10">
       <h2 className="text-center my-10 font-bold text-primary text-xl">
@@ -20,7 +22,8 @@ const WishListPage = () => {
           {wishlistProducts.length ? (
             wishlistProducts.map((product) => (
               <WishlistItem
-                wishlistAction={() => handleWishlistActions(product.likedProduct.id)}
+                cartAction={() => handleAddCartProduct({ productId: product.product_id })}
+                wishlistAction={() => handleWishlistActions(product.product_id)}
                 key={product.id}
                 product={product}
               />
