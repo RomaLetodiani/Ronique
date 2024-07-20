@@ -1,13 +1,13 @@
 import Button from "../../../Components/UI/Button";
-import { useInput } from "../../../Hooks/useInput";
 import Input from "../../../Components/UI/Input";
 import authServices from "../../../Services/AuthServices";
-import authStore from "../../../Stores/Auth.store";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { emailValidator, isValid } from "../../../Utils/Validators";
 import { FormEvent } from "react";
 import env from "@env";
+import { authStore } from "../../../Stores";
+import { useInput } from "../../../Hooks";
 
 const LoginPage = () => {
   const emailInput = useInput(

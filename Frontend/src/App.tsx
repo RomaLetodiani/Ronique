@@ -1,9 +1,9 @@
-import { RouterProvider } from "react-router-dom";
 import Router from "./Router/Router";
+import { RouterProvider } from "react-router-dom";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
+import { handleDataFetching } from "./Hooks";
 import "react-toastify/dist/ReactToastify.css";
-import handleDataFetching from "./Hooks/handleDataFetching";
 
 const App = () => {
   handleDataFetching();

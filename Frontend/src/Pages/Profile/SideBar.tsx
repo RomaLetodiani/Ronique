@@ -6,8 +6,8 @@ import Burger from "../../Components/Burger";
 import UserAvatar from "../../Components/UserAvatar";
 import { twMerge } from "tailwind-merge";
 import { ProfileSideBarTexts } from "../../Utils/Const";
-import authStore from "../../Stores/Auth.store";
 import BlurBackground from "../../Components/BlurBackground";
+import { authStore } from "../../Stores";
 
 type SideBarProps = {
   role?: Role;

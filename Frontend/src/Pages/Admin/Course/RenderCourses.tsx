@@ -1,6 +1,6 @@
 import Course from "./Course";
 import CheckBox from "../../../Components/UI/CheckBox";
-import productStore from "../../../Stores/Product.store";
+import { productStore } from "../../../Stores";
 
 const RenderCourses = ({
   selectedKeys,

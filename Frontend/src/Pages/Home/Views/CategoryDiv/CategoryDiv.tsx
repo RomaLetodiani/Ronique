@@ -1,6 +1,6 @@
 import SectionWrapper from "../../../../Components/SectionWrapper";
+import { categoryStore } from "../../../../Stores";
 import RenderCategories from "./RenderCategories";
-import categoryStore from "../../../../Stores/Category.store";
 
 const CategoryDiv = () => {
   const { categories } = categoryStore();

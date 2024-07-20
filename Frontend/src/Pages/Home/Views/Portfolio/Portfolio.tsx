@@ -1,4 +1,4 @@
-import productStore from "../../../../Stores/Product.store";
+import { productStore } from "../../../../Stores";
 import RenderTrendingCourses from "./RenderTrendingCourses";
 import CoursesSlider from "./Slider/CoursesSlider";
 

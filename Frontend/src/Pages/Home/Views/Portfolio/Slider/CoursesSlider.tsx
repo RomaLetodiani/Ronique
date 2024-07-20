@@ -1,13 +1,10 @@
-import LeftRightWhiteGradient from "../../../../../Components/LeftRightWhiteGradient";
-import SectionWrapper from "../../../../../Components/SectionWrapper";
-import SliderArrow from "../../../../../Components/SliderArrow";
+import LeftRightWhiteGradient from "@/Components/LeftRightWhiteGradient";
+import SectionWrapper from "@/Components/SectionWrapper";
+import SliderArrow from "@/Components/SliderArrow";
 import SliderItem from "./SliderItem";
-import useMediaQuery from "../../../../../Hooks/UseMediaQuery";
+import { ProductI } from "@/Types/Product.interface";
+import { handleCartItems, handlerWishlist, useMediaQuery, useScrollPosition } from "@/Hooks";
 import handleSlider from "./handleSlider";
-import { ProductI } from "../../../../../Types/Product.interface";
-import useScrollPosition from "../../../../../Hooks/useScrollPosition";
-import { wishListHandler } from "../../../../../Hooks/handlerWishlist";
-import handleCartItems from "../../../../../Hooks/handleCartItems";
 
 const CoursesSlider = ({ products }: { products: ProductI[] }) => {
   const { scrollLeft, scrollRight, sliderRef } = handleSlider();
@@ -17,7 +14,7 @@ const CoursesSlider = ({ products }: { products: ProductI[] }) => {
     50,
     sliderRef
   );
-  const { handleWishlistActions, isInWishlist } = wishListHandler();
+  const { handleWishlistActions, isInWishlist } = handlerWishlist();
   const { handleAddCartProduct } = handleCartItems();
   return (
     <SectionWrapper className="relative mt-10">

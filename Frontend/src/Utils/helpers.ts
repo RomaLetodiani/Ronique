@@ -1,4 +1,4 @@
-import { logo } from "../Components/Shared/Assets/Assets";
+import { logo } from "@/Components/Shared/Assets/Assets";
 
 export const sliceText = (text: string, length: number) => {
   return text.length > length ? text.slice(0, length) + "..." : text;

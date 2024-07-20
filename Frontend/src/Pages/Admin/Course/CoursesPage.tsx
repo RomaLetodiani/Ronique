@@ -4,7 +4,7 @@ import RenderCourses from "./RenderCourses";
 import Pagination from "../../../Components/UI/Pagination/Pagination";
 import HandlerHeader from "../Shared/HandlerHeader";
 import HandleCourses from "./HandleCourses";
-import productStore from "../../../Stores/Product.store";
+import { productStore } from "../../../Stores";
 
 const CoursesPage = () => {
   const [page, setPage] = useState(1);

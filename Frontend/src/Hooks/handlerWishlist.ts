@@ -1,10 +1,8 @@
 import { toast } from "react-toastify";
 import WishListServices from "../Services/WishlistServices";
-import wishlistProductStore from "../Stores/Wishlist.store";
-import productStore from "../Stores/Product.store";
-import authStore from "../Stores/Auth.store";
+import { authStore, productStore, wishlistProductStore } from "../Stores";
 
-export const wishListHandler = () => {
+const handlerWishlist = () => {
   const { wishlistProducts, addWishlistProduct, removeWishlistProduct } = wishlistProductStore();
   const { products } = productStore();
   const { accessToken } = authStore();
@@ -35,3 +33,5 @@ export const wishListHandler = () => {
 
   return { handleWishlistActions, isInWishlist };
 };
+
+export default handlerWishlist;

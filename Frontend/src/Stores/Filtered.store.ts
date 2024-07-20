@@ -7,6 +7,7 @@ export const initialFilterParams: ProductFilterI = {
   minPrice: 0,
   maxPrice: 200,
   onlySales: false,
+  categoryName: undefined,
 };
 
 interface FilteredStoreI {

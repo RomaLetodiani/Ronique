@@ -25,7 +25,7 @@ export type InputState = {
  * @param validate A function to validate the input value.
  * @returns An object containing input state and event handlers.
  */
-export const useInput = (
+const useInput = (
   validate: (value?: string | number) => boolean,
   initialValue: string | number = ""
 ): InputState => {
@@ -70,6 +70,8 @@ export const useInput = (
     clear,
   };
 };
+
+export default useInput;
 
 // Example usage
 // Email Input

@@ -1,7 +1,7 @@
-import cartProductStore from "../Stores/Cart.store";
 import authStore from "../Stores/Auth.store";
 import cartServices from "../Services/CartServices";
 import { toast } from "react-toastify";
+import { cartProductStore } from "../Stores";
 
 const handleCartItems = () => {
   const { user } = authStore();

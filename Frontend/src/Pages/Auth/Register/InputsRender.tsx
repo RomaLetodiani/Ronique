@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
 import Button from "../../../Components/UI/Button";
 import Input from "../../../Components/UI/Input";
-import { useInput } from "../../../Hooks/useInput";
 import authServices from "../../../Services/AuthServices";
-import authStore from "../../../Stores/Auth.store";
 import { emailValidator, isValid, phoneNumberValidator } from "../../../Utils/Validators";
+import { authStore } from "../../../Stores";
+import { useInput } from "../../../Hooks";
 
 const InputsRender = () => {
   const emailInput = useInput((value) => typeof value === "string" && emailValidator(value));

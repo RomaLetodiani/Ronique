@@ -1,13 +1,11 @@
-import SectionWrapper from "../../Components/SectionWrapper";
-import Button from "../../Components/UI/Button";
-import handleCartItems from "../../Hooks/handleCartItems";
-import handleCartProductsFetcher from "../../Hooks/handleCartProductsFetcher";
-import { wishListHandler } from "../../Hooks/handlerWishlist";
-import cartProductStore from "../../Stores/Cart.store";
+import SectionWrapper from "@/Components/SectionWrapper";
 import CartItem from "./CartItem";
+import { Button } from "@/Components/UI";
+import { cartProductStore } from "@/Stores";
+import { handleCartItems, handleCartProductsFetcher, handlerWishlist } from "@/Hooks";
 
 const CartPage = () => {
-  const { handleWishlistActions, isInWishlist } = wishListHandler();
+  const { handleWishlistActions, isInWishlist } = handlerWishlist();
   const { handleClearCart, handleRemoveCartProduct, handleAddCartProduct } = handleCartItems();
   const { CartProducts, loadingCartProducts } = cartProductStore();
   handleCartProductsFetcher();

@@ -3,7 +3,7 @@ import SectionWrapper from "../../../../Components/SectionWrapper";
 import Mentor from "./Mentor";
 import { mentorsArray } from "../../../../Utils/Mentors";
 import { twMerge } from "tailwind-merge";
-import useMediaQuery from "../../../../Hooks/UseMediaQuery";
+import { useMediaQuery } from "../../../../Hooks";
 
 const Mentors = () => {
   const [mentorIndex, setMentorIndex] = useState(0);

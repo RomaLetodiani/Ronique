@@ -42,7 +42,6 @@ const Selector = ({
         value={selected}
         className={twMerge(
           "w-full border outline-none px-3 py-2 rounded-xl",
-          !selected && "py-4",
           label && selected && "pt-6"
         )}
       >

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import CoursesCard from "../../Components/Courses/CoursesCard";
 import Pagination from "../../Components/UI/Pagination/Pagination";
-import { wishListHandler } from "../../Hooks/handlerWishlist";
-import productStore from "../../Stores/Product.store";
 import { twMerge } from "tailwind-merge";
+import { productStore } from "../../Stores";
+import { handlerWishlist } from "../../Hooks";
 
 const RenderCourses = ({ isMobile }: { isMobile: boolean }) => {
   const [page, setPage] = useState(1);
   const { totalProducts, products: courses } = productStore();
-  const { handleWishlistActions, isInWishlist } = wishListHandler();
+  const { handleWishlistActions, isInWishlist } = handlerWishlist();
 
   return (
     <div className={twMerge(isMobile && "mt-10")}>

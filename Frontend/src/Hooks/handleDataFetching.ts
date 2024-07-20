@@ -2,12 +2,9 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import categoryServices from "../Services/CategoryServices";
 import productServices from "../Services/ProductServices";
-import categoryStore from "../Stores/Category.store";
-import productStore from "../Stores/Product.store";
-import filteredStore from "../Stores/Filtered.store";
-import wishlistProductStore from "../Stores/Wishlist.store";
 import WishListServices from "../Services/WishlistServices";
 import authStore from "../Stores/Auth.store";
+import { categoryStore, filteredStore, productStore, wishlistProductStore } from "../Stores";
 
 const handleDataFetching = () => {
   const { filterParams } = filteredStore();

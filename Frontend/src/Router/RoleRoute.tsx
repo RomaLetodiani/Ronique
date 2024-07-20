@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router";
-import authStore from "../Stores/Auth.store";
 import { Role } from "../Types/User.interface";
+import { authStore } from "../Stores";
 
 const RoleRoute = ({ role }: { role: Role }) => {
   const { user } = authStore();

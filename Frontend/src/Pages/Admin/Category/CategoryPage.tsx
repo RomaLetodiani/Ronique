@@ -4,7 +4,7 @@ import Button from "../../../Components/UI/Button";
 import Category from "./Category";
 import CheckBox from "../../../Components/UI/CheckBox";
 import HandleCategory from "./HandleCategory";
-import categoryStore from "../../../Stores/Category.store";
+import { categoryStore } from "../../../Stores";
 
 const CategoryPage = () => {
   const { categories } = categoryStore();

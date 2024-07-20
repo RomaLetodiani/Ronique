@@ -1,11 +1,11 @@
-import { FaHeart, FaMinus, FaPlus } from "react-icons/fa";
-import PriceRender from "../../Components/PriceRender";
-import Button from "../../Components/UI/Button";
-import { CartProductI } from "../../Types/Cart.interface";
-import { renderImage } from "../../Utils/helpers";
-import { twMerge } from "tailwind-merge";
-import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { Button } from "@/Components/UI";
+import { twMerge } from "tailwind-merge";
+import { renderImage } from "@/Utils/helpers";
+import { CartProductI } from "@/Types/Cart.interface";
+import { MdDeleteForever } from "react-icons/md";
+import { FaHeart, FaMinus, FaPlus } from "react-icons/fa";
+import PriceRender from "@/Components/PriceRender";
 
 type CartItemProps = {
   cartItem: CartProductI;

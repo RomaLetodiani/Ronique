@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import productServices from "../../../Services/ProductServices";
-import productStore from "../../../Stores/Product.store";
+import { productStore } from "../../../Stores";
 
 const HandleCourses = ({
   selectedKeys,

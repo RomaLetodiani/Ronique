@@ -1,9 +1,9 @@
-import { twMerge } from "tailwind-merge";
-import { ProductI } from "../../Types/Product.interface";
-import PriceRender from "../PriceRender";
-import { renderImage, sliceText } from "../../Utils/helpers";
 import { Link } from "react-router-dom";
-import CartWishlistButton from "../CartWishlistButton/CartWishlistButton";
+import { twMerge } from "tailwind-merge";
+import { ProductI } from "@/Types/Product.interface";
+import { renderImage, sliceText } from "../../Utils/helpers";
+import CartWishlistButton from "@/Components/CartWishlistButton/CartWishlistButton";
+import PriceRender from "@/Components/PriceRender";
 
 interface CoursesCardI extends ProductI {
   isInWishlist: boolean;

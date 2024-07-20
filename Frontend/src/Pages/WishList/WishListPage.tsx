@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import SectionWrapper from "../../Components/SectionWrapper";
 import Button from "../../Components/UI/Button";
-import { wishListHandler } from "../../Hooks/handlerWishlist";
-import wishlistProductStore from "../../Stores/Wishlist.store";
 import WishlistItem from "./WishlistItem";
-import handleCartItems from "../../Hooks/handleCartItems";
+import { wishlistProductStore } from "../../Stores";
+import { handleCartItems, handlerWishlist } from "../../Hooks";
 
 const WishListPage = () => {
   const { wishlistProducts, loadingWishlistProducts } = wishlistProductStore();
-  const { handleWishlistActions } = wishListHandler();
+  const { handleWishlistActions } = handlerWishlist();
   const { handleAddCartProduct } = handleCartItems();
   return (
     <SectionWrapper className="pb-10">

@@ -1,7 +1,7 @@
 import SocialsDiv from "../../Components/Socials";
 import Button from "../../Components/UI/Button";
 import Input from "../../Components/UI/Input";
-import { useInput } from "../../Hooks/useInput";
+import { useInput } from "../../Hooks";
 import { FooterTextLeft } from "../../Utils/Const";
 
 const ContactPage = () => {

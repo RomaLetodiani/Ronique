@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router";
-import authStore from "../Stores/Auth.store";
 import { isAdmin } from "../Utils/Claims";
+import { authStore } from "../Stores";
 
 const AdminRoute = () => {
   const { user } = authStore();

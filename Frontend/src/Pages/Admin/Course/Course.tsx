@@ -8,7 +8,7 @@ import productServices from "../../../Services/ProductServices";
 import { toast } from "react-toastify";
 import CheckBox from "../../../Components/UI/CheckBox";
 import PriceRender from "../../../Components/PriceRender";
-import productStore from "../../../Stores/Product.store";
+import { productStore } from "../../../Stores";
 
 type Props = {
   course: ProductI;

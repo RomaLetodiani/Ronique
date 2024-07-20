@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
-import { useInput } from "../../../Hooks/useInput";
 import categoryServices from "../../../Services/CategoryServices";
 import { useState } from "react";
 import { isValid } from "../../../Utils/Validators";
-import categoryStore from "../../../Stores/Category.store";
+import { categoryStore } from "../../../Stores";
+import { useInput } from "../../../Hooks";
 
 const HandleCategory = () => {
   const [addMode, setAddMode] = useState(false);

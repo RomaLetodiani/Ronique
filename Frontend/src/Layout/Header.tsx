@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import Button from "../Components/UI/Button";
-import useMediaQuery from "../Hooks/UseMediaQuery";
 import authStore from "../Stores/Auth.store";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
 import UserAvatar from "../Components/UserAvatar";
 import Logo from "../Components/Logo";
 import SearchBar from "../Components/SearchBar/SearchBar";
-import { useInput } from "../Hooks/useInput";
 import { useState } from "react";
 import Burger from "../Components/Burger";
+import { useInput, useMediaQuery } from "../Hooks";
 
 const Header = () => {
   const [open, setOpen] = useState(false);

@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
 import { useEffect } from "react";
-import cartProductStore from "../Stores/Cart.store";
 import cartServices from "../Services/CartServices";
 import authStore from "../Stores/Auth.store";
+import { cartProductStore } from "../Stores";
 
 const handleCartProductsFetcher = () => {
   const { user } = authStore();

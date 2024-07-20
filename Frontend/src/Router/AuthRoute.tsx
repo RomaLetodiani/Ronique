@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router";
-import authStore from "../Stores/Auth.store";
+import { authStore } from "../Stores";
 
 const AuthRoute = () => {
   const isAuthenticated = authStore((state) => state.user !== null);
