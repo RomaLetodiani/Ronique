@@ -1,4 +1,4 @@
-import api from "../Utils/Api";
+import api from "@/Utils/Api";
 
 const orderServices = {
   buy: (order: { totalPrice: number; totalItems: number }) => api.post("purchases", order),

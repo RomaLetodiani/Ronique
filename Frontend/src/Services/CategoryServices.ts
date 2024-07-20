@@ -1,6 +1,6 @@
-import { AddCategoryDto } from "../Types/Category.interface";
-import { addProductDto } from "../Types/Product.interface";
-import api from "../Utils/Api";
+import { AddCategoryDto } from "@/Types/Category.interface";
+import { addProductDto } from "@/Types/Product.interface";
+import api from "@/Utils/Api";
 
 const categoryServices = {
   allCategories: () => api.get("product-category"),

@@ -1,4 +1,4 @@
-import Router from "./Router/Router";
+import Router from "@/Router/Router";
 import { RouterProvider } from "react-router-dom";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";

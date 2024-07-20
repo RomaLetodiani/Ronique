@@ -1,5 +1,5 @@
-import { ProductFilterI, addProductDto } from "../Types/Product.interface";
-import api from "../Utils/Api";
+import { ProductFilterI, addProductDto } from "@/Types/Product.interface";
+import api from "@/Utils/Api";
 
 const productServices = {
   allProducts: (params?: ProductFilterI) => api.get("product", { params }),

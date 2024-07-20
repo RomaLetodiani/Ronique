@@ -18,7 +18,7 @@ const RegisterPage = lazy(() => import("../Pages/Auth/Register/RegisterPage"));
 const PrivateRoute = lazy(() => import("./PrivateRoute"));
 const Profile = lazy(() => import("../Pages/Profile/Profile"));
 
-const ContactPage = lazy(() => import("../Pages/Contact/ContactPage"));
+const ContactPage = lazy(() => import("@/Pages/Contact/ContactPage"));
 const CartPage = lazy(() => import("../Pages/Cart/CartPage"));
 const WishListPage = lazy(() => import("../Pages/WishList/WishListPage"));
 const FAQPage = lazy(() => import("../Pages/FAQ/FAQPage"));

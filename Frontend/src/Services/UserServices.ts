@@ -1,4 +1,4 @@
-import api from "../Utils/Api";
+import api from "@/Utils/Api";
 
 const userServices = {
   getCurrent: () => api.get("user/current-user"),

@@ -1,4 +1,4 @@
-import api from "../Utils/Api";
+import api from "@/Utils/Api";
 
 const cartServices = {
   allCartProducts: () => api.get("cart"),
