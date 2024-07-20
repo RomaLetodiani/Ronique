@@ -1,5 +1,5 @@
+import { categoryStore } from "@/Stores";
 import { twMerge } from "tailwind-merge";
-import { categoryStore } from "../../../../Stores";
 
 type CategoryFilterProps = {
   handleCategoryChange: (category: string) => void;

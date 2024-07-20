@@ -1,4 +1,4 @@
-import productServices from "@/Services/ProductServices";
+import { productServices } from "@/Services";
 import { ProductI } from "@/Types/Product.interface";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";

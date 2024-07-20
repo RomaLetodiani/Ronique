@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-import { filteredStore, productStore } from "../../../../Stores";
-import { useInput } from "../../../../Hooks";
 import { initialFilterParams } from "@/Stores/Filtered.store";
+import { productStore, filteredStore } from "@/Stores";
+import { useInput } from "@/Hooks";
 
 const useHandleFilters = ({ setOpen }: { setOpen: (value: boolean) => void }) => {
   const { filterParams, setFilterParams } = filteredStore();

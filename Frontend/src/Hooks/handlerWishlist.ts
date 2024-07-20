@@ -1,6 +1,6 @@
+import { authStore, productStore, wishlistProductStore } from "@/Stores";
+import { WishListServices } from "@/Services";
 import { toast } from "react-toastify";
-import WishListServices from "../Services/WishlistServices";
-import { authStore, productStore, wishlistProductStore } from "../Stores";
 
 const handlerWishlist = () => {
   const { wishlistProducts, addWishlistProduct, removeWishlistProduct } = wishlistProductStore();
