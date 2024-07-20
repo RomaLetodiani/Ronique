@@ -1,18 +1,22 @@
+import { z } from "zod";
+
 const emailValidator = (email?: string) => {
-  if (!email) return false;
-  const re = /\S+@\S+\.\S+/;
-  return re.test(email);
-};
-const phoneNumberValidator = (phoneNumber?: string) => {
-  if (!phoneNumber) return false;
-  const re = /\d{9}/; // Updated regex pattern
-  return phoneNumber.length > 8 && re.test(phoneNumber);
-};
-const isValid = (value?: string | number) => {
-  if (typeof value === "number") return value > 0;
-  return value ? value.trim().length > 5 : false;
+  return z.string().email().safeParse(email).success;
 };
 
-// TODO - Add more validators for Course DTO
+const phoneNumberValidator = (phoneNumber?: string) => {
+  return z
+    .string()
+    .regex(/^\d{9}$/)
+    .safeParse(phoneNumber).success;
+};
+
+const isValid = (value?: string | number) => {
+  if (typeof value === "number") {
+    return true;
+  }
+
+  return z.string().safeParse(value).success;
+};
 
 export { emailValidator, phoneNumberValidator, isValid };

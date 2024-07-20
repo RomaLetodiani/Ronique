@@ -1,4 +1,4 @@
-import { AchievementsTextObj } from "../Utils/AchievementsTextObj";
+import { AchievementsTextObj } from "@/Utils/Data";
 import RenderView from "./RenderView";
 
 const Achievements = () => {

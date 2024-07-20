@@ -1,4 +1,4 @@
-import { Socials } from "../Utils/Const";
+import { Socials } from "@/Utils/Data";
 
 const SocialsDiv = () => {
   return (

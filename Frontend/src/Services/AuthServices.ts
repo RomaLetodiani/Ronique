@@ -1,4 +1,4 @@
-import api from "@/Utils/Api";
+import { api } from "@/Utils";
 
 const authServices = {
   login: (body: { email: string; password: string }) => api.post("auth/login", body),

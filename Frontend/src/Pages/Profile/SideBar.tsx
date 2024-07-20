@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Role } from "@/Types/User.interface";
-import { isAdmin } from "@/Utils/Claims";
 import { twMerge } from "tailwind-merge";
-import { ProfileSideBarTexts } from "@/Utils/Const";
 import { authStore } from "@/Stores";
 import { BlurBackground, Burger, Logo, UserAvatar } from "@/Components";
+import { ProfileSideBarTexts } from "@/Utils/Data";
+import { isAdmin } from "@/Utils";
 
 type SideBarProps = {
   role?: Role;
@@ -44,25 +44,24 @@ const SideBar = ({ role, isMobile, open, setOpen }: SideBarProps) => {
         <div>
           <ul>
             {ProfileSideBarTexts.map((text, index) => {
-              if (text.path.includes("admin")) {
-                if (isAdmin(role)) {
-                  return (
-                    <div key={index}>
-                      <li>{<Link to={text.path}>{text.name}</Link>}</li>
-                      <ul>
-                        {text.children?.map((child, index) => {
-                          return (
-                            <li className="ml-5" key={index}>
-                              {<Link to={child.path}>{child.name}</Link>}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  );
-                }
+              if (text.path.includes("admin") && !isAdmin(role)) {
+                return null;
               }
-              return <li key={index}>{<Link to={text.path}>{text.name}</Link>}</li>;
+
+              return (
+                <div key={index}>
+                  <li>{<Link to={text.path}>{text.name}</Link>}</li>
+                  <ul>
+                    {text.children?.map((child, index) => {
+                      return (
+                        <li className="ml-5" key={index}>
+                          {<Link to={child.path}>{child.name}</Link>}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
             })}
           </ul>
         </div>

@@ -1,5 +1,5 @@
 import { SectionWrapper } from "@/Components";
-import { FAQs } from "@/Utils/Const";
+import { FAQs } from "@/Utils/Data";
 import Question from "./Question";
 
 const FAQPage = () => {

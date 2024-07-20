@@ -2,8 +2,8 @@ import { twMerge } from "tailwind-merge";
 import { useEffect, useState } from "react";
 import Mentor from "./Mentor";
 import { useMediaQuery } from "@/Hooks";
-import { mentorsArray } from "@/Utils/Mentors";
 import { SectionWrapper } from "@/Components";
+import { mentorsArray } from "@/Utils/Data";
 
 const Mentors = () => {
   const [mentorIndex, setMentorIndex] = useState(0);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ProductI } from "@/Types/Product.interface";
 import { twMerge } from "tailwind-merge";
 import { toast } from "react-toastify";
-import { renderImage } from "@/Utils/helpers";
+import { renderImage } from "@/Utils";
 import { ImageToBase64Converter, PriceRender } from "@/Components";
 import { productStore } from "@/Stores";
 import { Button, CheckBox } from "@/Components/UI";

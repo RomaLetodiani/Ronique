@@ -1,4 +1,4 @@
-import { GoalsTextObj } from "../Utils/AchievementsTextObj";
+import { GoalsTextObj } from "@/Utils/Data";
 import RenderView from "./RenderView";
 
 const Goals = () => {

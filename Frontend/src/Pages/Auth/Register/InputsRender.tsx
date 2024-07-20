@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { emailValidator, isValid, phoneNumberValidator } from "@/Utils/Validators";
+import { emailValidator, isValid, phoneNumberValidator } from "@/Utils";
 import { useInput } from "@/Hooks";
 import { authStore } from "@/Stores";
 import { authServices } from "@/Services";
@@ -30,12 +30,18 @@ const InputsRender = () => {
     !phoneNumberInput.value,
   ];
   const inputs = [
-    { ...emailInput, label: "Email", autoComplete: "email", errorMessage: "Email is not valid" },
+    {
+      ...emailInput,
+      label: "Email",
+      autoComplete: "email",
+      errorMessage: "Email is not valid",
+      type: "email",
+    },
     { ...passwordInput, label: "Password", autoComplete: "new-password", type: "password" },
     { ...rePasswordInput, label: "Re-Password", autoComplete: "rePassword", type: "password" },
     { ...firstNameInput, label: "First Name", autoComplete: "first name" },
     { ...lastNameInput, label: "Last Name", autoComplete: "last name" },
-    { ...phoneNumberInput, label: "Phone Number", autoComplete: "phone" },
+    { ...phoneNumberInput, label: "Phone Number", autoComplete: "phone", type: "tel" },
   ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

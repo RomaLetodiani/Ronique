@@ -1,4 +1,4 @@
-import CartWishlistButton from "@/Components/CartWishlistButton/CartWishlistButton";
+import { CartWishlistButton } from "@/Components";
 import { Button } from "@/Components/UI";
 import { handleCartItems, handlerWishlist } from "@/Hooks";
 import { useLocation } from "react-router";

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/Components/UI";
 import { twMerge } from "tailwind-merge";
-import { renderImage } from "@/Utils/helpers";
+import { renderImage } from "@/Utils";
 import { CartProductI } from "@/Types/Cart.interface";
 import { MdDeleteForever } from "react-icons/md";
 import { FaHeart, FaMinus, FaPlus } from "react-icons/fa";

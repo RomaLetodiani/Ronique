@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { FooterTextLeft, navBarText } from "../Utils/Const";
 import { Logo, SocialsDiv } from "@/Components";
+import { FooterTextLeft, navBarText } from "@/Utils/Data";
 
 const Footer = () => {
   const { pathname } = useLocation();

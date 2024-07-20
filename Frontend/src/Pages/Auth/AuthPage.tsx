@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { FaRegCopyright } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { allRightsReserved } from "@/Utils/Const";
 import { logo } from "@/Assets";
+import { allRightsReserved } from "@/Utils/Data";
 
 const AuthPage = () => {
   const { pathname } = useLocation();

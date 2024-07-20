@@ -1,5 +1,5 @@
 import { googleMaps } from "@/Assets/Icons";
-import { CardProps } from "@/Components/Card";
+import { CardProps } from "@/Types/Card.interface";
 
 // TODO: Replace the icon with the correct icon
 export const AchievementsTextObj: CardProps[] = [

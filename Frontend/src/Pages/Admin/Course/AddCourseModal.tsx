@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import { isValid } from "@/Utils/Validators";
+import { isValid } from "@/Utils";
 import { CategoryI } from "@/Types/Category.interface";
 import { ImageToBase64Converter, Modal } from "@/Components";
 import { useInput } from "@/Hooks";

@@ -1,7 +1,7 @@
 import env from "@env";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { emailValidator, isValid } from "@/Utils/Validators";
+import { emailValidator, isValid } from "@/Utils";
 import { FormEvent } from "react";
 import { useInput } from "@/Hooks";
 import { authStore } from "@/Stores";

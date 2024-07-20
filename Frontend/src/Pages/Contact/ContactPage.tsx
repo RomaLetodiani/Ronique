@@ -1,7 +1,7 @@
 import { SocialsDiv } from "@/Components";
 import { Button, Input } from "@/Components/UI";
 import { useInput } from "@/Hooks";
-import { FooterTextLeft } from "@/Utils/Const";
+import { FooterTextLeft } from "@/Utils/Data";
 
 const ContactPage = () => {
   const firstNameInput = useInput(() => true);
