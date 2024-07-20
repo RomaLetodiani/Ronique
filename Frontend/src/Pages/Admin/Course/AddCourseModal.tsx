@@ -7,7 +7,8 @@ import { useInput } from "@/Hooks";
 import { productStore } from "@/Stores";
 import { CheckBox, Selector, Input } from "@/Components/UI";
 import { ModalI } from "@/Types/Modal.interface";
-import { categoryServices, productServices } from "@/Services";
+import productServices from "@/Services/ProductServices";
+import categoryServices from "@/Services/CategoryServices";
 
 const AddCourseModal = (props: ModalI) => {
   const titleInput = useInput((value) => isValid(value));

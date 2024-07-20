@@ -1,4 +1,4 @@
-import { cartServices } from "@/Services";
+import cartServices from "@/Services/CartServices";
 import { authStore, cartProductStore } from "@/Stores";
 import { toast } from "react-toastify";
 

@@ -1,6 +1,6 @@
 import Options from "./Options";
 import { useRef, useState } from "react";
-import { productServices } from "@/Services";
+import productServices from "@/Services/ProductServices";
 import { ProductI } from "@/Types/Product.interface";
 import { InputState } from "@/Hooks/useInput";
 import { useClickInside, useClickOutside, useDebounce } from "@/Hooks";

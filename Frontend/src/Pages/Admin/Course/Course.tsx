@@ -6,7 +6,7 @@ import { renderImage } from "@/Utils";
 import { ImageToBase64Converter, PriceRender } from "@/Components";
 import { productStore } from "@/Stores";
 import { Button, CheckBox } from "@/Components/UI";
-import { productServices } from "@/Services";
+import productServices from "@/Services/ProductServices";
 
 type Props = {
   course: ProductI;

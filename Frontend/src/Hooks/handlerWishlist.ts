@@ -1,5 +1,5 @@
+import WishListServices from "@/Services/WishlistServices";
 import { authStore, productStore, wishlistProductStore } from "@/Stores";
-import { WishListServices } from "@/Services";
 import { toast } from "react-toastify";
 
 const handlerWishlist = () => {

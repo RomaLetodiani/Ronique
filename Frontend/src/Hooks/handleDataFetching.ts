@@ -1,4 +1,6 @@
-import { categoryServices, productServices, WishListServices } from "@/Services";
+import categoryServices from "@/Services/CategoryServices";
+import productServices from "@/Services/ProductServices";
+import WishListServices from "@/Services/WishlistServices";
 import {
   authStore,
   categoryStore,

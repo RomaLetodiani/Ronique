@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 import { useMediaQuery } from "@/Hooks";
 import { authStore } from "@/Stores";
 import { SectionWrapper } from "@/Components";
-import { userServices } from "@/Services";
+import userServices from "@/Services/UserServices";
 
 const Profile = () => {
   const { fullUser, setFullUser } = authStore();

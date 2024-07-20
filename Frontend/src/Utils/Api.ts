@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 import env from "@env";
 import { authStore } from "@/Stores";
-import { authServices } from "@/Services";
+import authServices from "@/Services/AuthServices";
 
 const baseUrl = env.VITE_ENV === "development" ? env.VITE_LOCAL_API : env.VITE_PROD_API;
 

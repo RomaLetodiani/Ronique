@@ -2,8 +2,8 @@ import { toast } from "react-toastify";
 import { emailValidator, isValid, phoneNumberValidator } from "@/Utils";
 import { useInput } from "@/Hooks";
 import { authStore } from "@/Stores";
-import { authServices } from "@/Services";
 import { Button, Input } from "@/Components/UI";
+import authServices from "@/Services/AuthServices";
 
 const InputsRender = () => {
   const emailInput = useInput((value) => typeof value === "string" && emailValidator(value));

@@ -5,8 +5,8 @@ import { emailValidator, isValid } from "@/Utils";
 import { FormEvent } from "react";
 import { useInput } from "@/Hooks";
 import { authStore } from "@/Stores";
-import { authServices } from "@/Services";
 import { Button, Input } from "@/Components/UI";
+import authServices from "@/Services/AuthServices";
 
 const LoginPage = () => {
   const emailInput = useInput(
