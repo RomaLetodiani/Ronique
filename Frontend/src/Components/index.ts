@@ -11,9 +11,10 @@ import SectionWrapper from "./SectionWrapper";
 import SliderArrow from "./SliderArrow";
 import SocialsDiv from "./SocialsDiv";
 import UserAvatar from "./UserAvatar";
-
+import CategoryElement from "./CategoryElement";
 import CartWishlistButton from "./CartWishlistButton";
 import CoursesCard from "./CoursesCard";
+import HandlerHeader from "./HandlerHeader";
 import Modal from "./Modal";
 import SearchBar from "./SearchBar/SearchBar";
 
@@ -25,7 +26,9 @@ export {
   Burger,
   Card,
   CartWishlistButton,
+  CategoryElement,
   CoursesCard,
+  HandlerHeader,
   ImageToBase64Converter,
   LeftRightWhiteGradient,
   Logo,

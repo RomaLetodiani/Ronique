@@ -1,10 +1,10 @@
 import { useState } from "react";
 import AddCourseModal from "./AddCourseModal";
 import RenderCourses from "./RenderCourses";
-import HandlerHeader from "../Shared/HandlerHeader";
 import HandleCourses from "./HandleCourses";
 import { productStore } from "@/Stores";
 import { Pagination } from "@/Components/UI";
+import { HandlerHeader } from "@/Components";
 
 const CoursesPage = () => {
   const [page, setPage] = useState(1);

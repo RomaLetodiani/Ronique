@@ -1,8 +1,8 @@
 import { categoryStore } from "@/Stores";
-import HandlerHeader from "../Shared/HandlerHeader";
 import Category from "./Category";
 import HandleCategory from "./HandleCategory";
 import { Button, CheckBox, Input } from "@/Components/UI";
+import { HandlerHeader } from "@/Components";
 
 const CategoryPage = () => {
   const { categories } = categoryStore();

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Role } from "@/Types/User.interface";
+import { isAdmin } from "@/Utils";
 import { twMerge } from "tailwind-merge";
 import { authStore } from "@/Stores";
-import { BlurBackground, Burger, Logo, UserAvatar } from "@/Components";
 import { ProfileSideBarTexts } from "@/Utils/Data";
-import { isAdmin } from "@/Utils";
+import { BlurBackground, Burger, Logo, UserAvatar } from "@/Components";
 
 type SideBarProps = {
   role?: Role;

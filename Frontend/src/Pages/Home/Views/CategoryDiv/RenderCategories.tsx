@@ -1,6 +1,6 @@
 import { CategoryI } from "@/Types/Category.interface";
 import { useRef } from "react";
-import CategoryElement from "./CategoryElement";
+import CategoryElement from "../../../../Components/CategoryElement";
 import { filteredStore } from "@/Stores";
 import { useScrollPosition } from "@/Hooks";
 import { LeftRightWhiteGradient } from "@/Components";

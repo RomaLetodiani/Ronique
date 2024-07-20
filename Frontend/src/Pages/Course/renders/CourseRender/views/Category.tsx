@@ -1,11 +1,11 @@
-import CategoryElement from "@/Pages/Home/Views/CategoryDiv/CategoryElement";
+import { CategoryElement } from "@/Components";
 import { filteredStore } from "@/Stores";
 
-type Props = {
+type CategoryProps = {
   category_name: string;
 };
 
-const Category = ({ category_name }: Props) => {
+const Category = ({ category_name }: CategoryProps) => {
   const { setFilterParams } = filteredStore();
 
   const handleCategoryClick = () => {

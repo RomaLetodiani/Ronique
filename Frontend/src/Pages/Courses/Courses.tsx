@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Filters from "./Filters/Filters";
+import Filters from "./Filters";
 import RenderCourses from "./RenderCourses";
 import { SectionWrapper } from "@/Components";
 import { useMediaQuery } from "@/Hooks";

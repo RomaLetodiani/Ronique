@@ -1,7 +1,5 @@
-import handleSingleCourse from "./hooks/handleSingleCourse";
-import CourseRender from "./renders/CourseRender/CourseRender";
-import Error from "./renders/Error";
-import Loading from "./renders/Loading";
+import { handleSingleCourse } from "@/Hooks";
+import { CourseRender, Error, Loading } from "./renders";
 
 const Course = () => {
   const { course, courseFetchError, courseFetchLoading } = handleSingleCourse();

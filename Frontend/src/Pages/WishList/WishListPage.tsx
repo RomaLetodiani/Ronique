@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import WishlistItem from "./WishlistItem";
-import { handleCartItems, handlerWishlist } from "../../Hooks";
+import { Link } from "react-router-dom";
+import { Button } from "@/Components/UI";
 import { SectionWrapper } from "@/Components";
 import { wishlistProductStore } from "@/Stores";
-import { Button } from "@/Components/UI";
+import { handleCartItems, handlerWishlist } from "@/Hooks";
 
 const WishListPage = () => {
   const { wishlistProducts, loadingWishlistProducts } = wishlistProductStore();

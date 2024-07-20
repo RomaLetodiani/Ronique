@@ -1,9 +1,9 @@
 import { CategoryFilter, NameFilter, PriceFilter, SalesFilter } from "./components";
 import { Dispatch, SetStateAction } from "react";
-import { getFilterStyles } from "./utils/helpers";
-import useHandleFilters from "./hooks/useHandleFilters";
 import { BlurBackground, Burger } from "@/Components";
 import { Button } from "@/Components/UI";
+import { useHandleFilters } from "@/Hooks";
+import { twMerge } from "tailwind-merge";
 
 const Filters = ({
   isMobile,
@@ -65,3 +65,13 @@ const Filters = ({
 };
 
 export default Filters;
+
+const getFilterStyles = (isMobile: boolean, open: boolean) => {
+  return twMerge(
+    "p-5 flex flex-col gap-5 bg-white",
+    "transform transition-transform ease-out duration-300",
+    isMobile
+      ? `absolute -translate-x-full flex-wrap top-0 left-0 w-full z-40 ${open && "translate-x-0"}`
+      : "border-r border-secondary-200 w-64 h-full"
+  );
+};
