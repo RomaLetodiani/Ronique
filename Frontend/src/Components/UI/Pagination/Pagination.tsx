@@ -1,10 +1,10 @@
 import { useEffect, useMemo } from "react";
 import { GeneratePage } from "./GeneratePage";
-import Selector from "../Selector";
 import Page from "./Page";
 import { twMerge } from "tailwind-merge";
-import { filteredStore } from "../../../Stores";
-import { useMediaQuery } from "../../../Hooks";
+import { useMediaQuery } from "@/Hooks";
+import { filteredStore } from "@/Stores";
+import Selector from "../Selector";
 
 type PaginationProps = {
   totalItems: number;

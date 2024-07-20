@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CategoryI } from "../../../Types/Category.interface";
-import CheckBox from "../../../Components/UI/CheckBox";
+import { CategoryI } from "@/Types/Category.interface";
 import { twMerge } from "tailwind-merge";
+import { CheckBox } from "@/Components/UI";
 
 type Props = {
   category: CategoryI;

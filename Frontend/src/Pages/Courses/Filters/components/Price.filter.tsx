@@ -1,4 +1,4 @@
-import Selector from "../../../../Components/UI/Selector";
+import { Selector } from "@/Components/UI";
 
 type Props = {
   priceRange: { min: number; max: number };

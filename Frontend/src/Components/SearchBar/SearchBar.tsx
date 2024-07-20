@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
-import { InputState } from "../../Hooks/useInput";
-import Input from "../UI/Input";
-import productServices from "../../Services/ProductServices";
-import { ProductI } from "../../Types/Product.interface";
 import Options from "./Options";
-import { useClickInside, useClickOutside, useDebounce } from "../../Hooks";
+import { useRef, useState } from "react";
+import { productServices } from "@/Services";
+import { ProductI } from "@/Types/Product.interface";
+import { InputState } from "@/Hooks/useInput";
+import { useClickInside, useClickOutside, useDebounce } from "@/Hooks";
+import { Input } from "../UI";
 
 const SearchBar = ({ searchInput }: { searchInput: InputState }) => {
   const [loading, setLoading] = useState(false);

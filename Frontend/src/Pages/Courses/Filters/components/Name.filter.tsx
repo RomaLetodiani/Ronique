@@ -1,7 +1,7 @@
-import Input from "../../../../Components/UI/Input";
-import { useDebounce } from "../../../../Hooks";
-import { InputState } from "../../../../Hooks/useInput";
-import { ProductFilterI } from "../../../../Types/Product.interface";
+import { Input } from "@/Components/UI";
+import { useDebounce } from "@/Hooks";
+import { InputState } from "@/Hooks/useInput";
+import { ProductFilterI } from "@/Types/Product.interface";
 
 type NameFilterProps = {
   nameInput: InputState;

@@ -1,4 +1,4 @@
-import CheckBox from "../../../../Components/UI/CheckBox";
+import { CheckBox } from "@/Components/UI";
 
 type Props = {
   onlySales: boolean;

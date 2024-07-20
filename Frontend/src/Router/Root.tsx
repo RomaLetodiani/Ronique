@@ -1,6 +1,5 @@
+import { Footer, Header } from "@/Layout";
 import { Outlet } from "react-router";
-import Header from "../Layout/Header";
-import Footer from "../Layout/Footer";
 
 const Root = () => {
   return (
