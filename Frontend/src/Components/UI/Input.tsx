@@ -12,6 +12,7 @@ interface inputI extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean;
   focus?: boolean;
   clear?: () => void;
+  clearable?: boolean;
 }
 
 const Input = ({
@@ -23,6 +24,7 @@ const Input = ({
   hasError,
   focus,
   clear,
+  clearable,
   ...rest
 }: inputI) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -43,7 +45,7 @@ const Input = ({
           labelClassName
         )}
       >
-        {label}
+        {errorMessage && hasError ? errorMessage : label}
       </label>
       <input
         {...rest}
@@ -67,6 +69,18 @@ const Input = ({
           onClick={() => setPasswordVisible((prev) => !prev)}
         >
           {passwordVisible ? <MdOutlineRemoveRedEye /> : <GoEyeClosed />}
+        </div>
+      )}
+      {clearable && (
+        <div
+          className={twMerge(
+            "absolute cursor-pointer right-0 top-0 text-xl flex justify-center items-center w-[50px] h-[50px]",
+            focus ? "text-primary" : "text-secondary-200",
+            hasError && "text-error"
+          )}
+          onClick={clear}
+        >
+          <GoEyeClosed />
         </div>
       )}
     </div>

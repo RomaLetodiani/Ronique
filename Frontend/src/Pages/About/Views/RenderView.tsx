@@ -1,4 +1,5 @@
-import Card, { CardProps } from "../../../Components/Card";
+import type { CardProps } from "@/Components/Card";
+import { Card } from "@/Components";
 
 type Props = {
   title: string;

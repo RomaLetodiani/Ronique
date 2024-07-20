@@ -1,5 +1,5 @@
-const FAQ = () => {
-  return <div>FAQ</div>;
+const FAQView = () => {
+  return <div>FAQView</div>;
 };
 
-export default FAQ;
+export default FAQView;

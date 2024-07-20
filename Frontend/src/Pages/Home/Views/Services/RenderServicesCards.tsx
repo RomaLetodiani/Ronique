@@ -1,5 +1,5 @@
-import Card from "../../../../Components/Card";
-import { ServicesData } from "../../Utils/Services.data";
+import { Card } from "@/Components";
+import { ServicesData } from "@/Utils/Data";
 
 const RenderServicesCards = () => {
   return (

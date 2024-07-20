@@ -1,5 +1,5 @@
-import Avatar from "../../Components/Avatar";
-import { authStore } from "../../Stores";
+import { Avatar } from "@/Components";
+import { authStore } from "@/Stores";
 
 const UserProfile = () => {
   const { fullUser: user } = authStore();

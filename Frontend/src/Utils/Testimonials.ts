@@ -11,7 +11,7 @@ import {
   avatar7,
   avatar8,
   avatar9,
-} from "../Components/Shared/Assets/Avatars";
+} from "@/Assets/Images/avatar";
 import { ITestimonial } from "../Types/Testimonials.interface";
 
 export const testimonials: ITestimonial[] = [

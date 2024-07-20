@@ -75,7 +75,7 @@ function useScrollPosition(
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [containerRef?.current]);
+  }, [containerRef, containerRef?.current, nearSpace]);
 
   return scrollPosition;
 }

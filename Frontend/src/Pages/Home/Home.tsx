@@ -1,7 +1,7 @@
 import About from "./Views/About/About";
 import CategoryDiv from "./Views/CategoryDiv/CategoryDiv";
 import Contact from "./Views/Contact/Contact";
-import FAQ from "./Views/FAQ/FAQ";
+import FAQView from "./Views/FAQ/FAQ";
 import Hero from "./Views/Hero/Hero";
 import Mentors from "./Views/Mentors/Mentors";
 import Newsletter from "./Views/Newsletter/Newsletter";
@@ -20,7 +20,7 @@ const Home = () => {
       {/* TODO: Build these Sections */}
       <Testimonials />
       <About />
-      <FAQ />
+      <FAQView />
       <Newsletter />
       <Contact />
     </span>

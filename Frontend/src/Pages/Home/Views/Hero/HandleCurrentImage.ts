@@ -9,7 +9,7 @@ const HandleCurrentImage = () => {
       setCurrent((current) => (current + 1) % sliderBgs.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [sliderBgs.length]);
   return { img: sliderBgs[current] };
 };
 

@@ -1,7 +1,8 @@
 import { logo } from "@/Assets";
 import { Link } from "react-router-dom";
 
-// @ts-ignore
+// @ts-expect-error tailwindClasses is not used
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const tailwindClasses = ["max-w-[100px]", "max-w-[150px]", "max-w-[200px]"];
 
 const Logo = ({ size }: { size: string }) => {

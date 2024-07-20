@@ -1,5 +1,5 @@
+import { BlurredBg } from "@/Components";
 import { twMerge } from "tailwind-merge";
-import BlurredBg from "../../../../Components/BlurredBg";
 import TextDiv from "./TextDiv";
 import HandleCurrentImage from "./HandleCurrentImage";
 

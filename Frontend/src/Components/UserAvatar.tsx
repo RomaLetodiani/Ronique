@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import { authStore } from "@/Stores";
 import Avatar from "./Avatar";
-import authStore from "../Stores/Auth.store";
 
 const UserAvatar = () => {
   const { user } = authStore();

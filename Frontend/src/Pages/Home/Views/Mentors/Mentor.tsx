@@ -1,5 +1,5 @@
-import Avatar from "../../../../Components/Avatar";
-import { MentorI } from "../../../../Types/Mentor.interface";
+import { Avatar } from "@/Components";
+import { MentorI } from "@/Types/Mentor.interface";
 
 const Mentor = ({ fullName, position, img, desc, quote }: MentorI) => {
   return (

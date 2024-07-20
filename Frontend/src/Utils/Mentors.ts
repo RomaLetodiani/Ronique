@@ -14,7 +14,7 @@ import {
   mentor12,
   mentor13,
   mentor14,
-} from "../Components/Shared/Assets/Mentors";
+} from "@/Assets/Images/Mentors";
 
 export const mentorsArray = [
   {

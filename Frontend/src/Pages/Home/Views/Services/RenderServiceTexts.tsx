@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { serviceDesc } from "../../Utils/Services.data";
+import { serviceDesc } from "../../../../Utils/Data/Services.data";
 import Button from "../../../../Components/UI/Button";
 import { authStore } from "../../../../Stores";
 

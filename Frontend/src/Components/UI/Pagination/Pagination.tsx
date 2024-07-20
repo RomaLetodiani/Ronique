@@ -20,7 +20,7 @@ const Pagination = ({ totalItems, pageSize, page, setPage }: PaginationProps) =>
   const { setFilterParams } = filteredStore();
   useEffect(() => {
     setFilterParams({ page });
-  }, [page]);
+  }, [page, setFilterParams]);
 
   return (
     totalPages > 1 && (

@@ -1,11 +1,4 @@
-import {
-  facebook,
-  gmail,
-  googleMaps,
-  linkedIn,
-  phone,
-  twitter,
-} from "../Components/Shared/Assets/icons";
+import { facebook, gmail, googleMaps, linkedIn, phone, twitter } from "@/Assets/Icons";
 
 const navBarText = [
   {

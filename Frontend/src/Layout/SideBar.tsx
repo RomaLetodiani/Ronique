@@ -1,11 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import { twMerge } from "tailwind-merge";
-import BlurBackground from "../Components/BlurBackground";
-import authStore from "../Stores/Auth.store";
-import UserAvatar from "../Components/UserAvatar";
-import { navBarText } from "../Utils/Const";
+import { navBarText } from "@/Utils/Const";
 import { Link, useLocation } from "react-router-dom";
-import Button from "../Components/UI/Button";
+import { BlurBackground, UserAvatar } from "@/Components";
+import { Button } from "@/Components/UI";
+import { authStore } from "@/Stores";
 
 type SideBarProps = {
   isMobile: boolean;

@@ -8,6 +8,7 @@ type Props = {
 };
 
 // @ts-expect-error tailwindClasses is not used
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const tailwindClasses = ["z-[60]", "z-[50]", "z-[30]"];
 
 const BlurBackground = ({ isMobile, open, zIndex, absOrFixed }: Props) => {

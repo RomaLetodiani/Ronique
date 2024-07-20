@@ -1,4 +1,4 @@
-import SocialsDiv from "../../Components/Socials";
+import SocialsDiv from "../../Components/SocialsDiv";
 import Button from "../../Components/UI/Button";
 import Input from "../../Components/UI/Input";
 import { useInput } from "../../Hooks";

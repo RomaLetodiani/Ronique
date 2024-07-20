@@ -47,7 +47,7 @@ const useHandleFilters = ({ setOpen }: { setOpen: (value: boolean) => void }) =>
       console.log("unmounting");
       setFilterParams(initialFilterParams);
     };
-  }, []);
+  }, [setFilterParams]);
 
   return {
     nameInput,
