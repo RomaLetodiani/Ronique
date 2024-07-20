@@ -1,6 +1,6 @@
+import { Button } from "@/Components/UI";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
-import Button from "../../../../Components/UI/Button";
 
 const TextDiv = () => {
   return (

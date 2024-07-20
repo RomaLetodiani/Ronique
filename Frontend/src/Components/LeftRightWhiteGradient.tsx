@@ -1,12 +1,11 @@
 import { twMerge } from "tailwind-merge";
 
-const LeftRightWhiteGradient = ({
-  disabledLeft,
-  disabledRight,
-}: {
+interface LeftRightWhiteGradientProps {
   disabledLeft?: boolean;
   disabledRight?: boolean;
-}) => {
+}
+
+const LeftRightWhiteGradient = ({ disabledLeft, disabledRight }: LeftRightWhiteGradientProps) => {
   return (
     <div
       className={twMerge(

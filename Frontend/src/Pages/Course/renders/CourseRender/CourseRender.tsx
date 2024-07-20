@@ -1,6 +1,6 @@
-import SectionWrapper from "@/Components/SectionWrapper";
 import { ProductI } from "@/Types/Product.interface";
 import { Actions, Category, Dates, Header, ImageDiv } from "./views";
+import { SectionWrapper } from "@/Components";
 
 type CourseRenderProps = {
   course: ProductI;

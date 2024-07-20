@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Button from "../../../Components/UI/Button";
 import InputsRender from "./InputsRender";
+import { Button } from "@/Components/UI";
 
 const RegisterPage = () => {
   return (

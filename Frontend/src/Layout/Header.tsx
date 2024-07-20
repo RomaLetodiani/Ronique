@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
-import Button from "../Components/UI/Button";
-import authStore from "../Stores/Auth.store";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
-import UserAvatar from "../Components/UserAvatar";
-import Logo from "../Components/Logo";
-import SearchBar from "../Components/SearchBar/SearchBar";
 import { useState } from "react";
-import Burger from "../Components/Burger";
 import { useInput, useMediaQuery } from "../Hooks";
+import { authStore } from "@/Stores";
+import { Burger, Logo, SearchBar, UserAvatar } from "@/Components";
+import { Button } from "@/Components/UI";
 
 const Header = () => {
   const [open, setOpen] = useState(false);

@@ -1,10 +1,8 @@
-import LeftRightWhiteGradient from "@/Components/LeftRightWhiteGradient";
-import SectionWrapper from "@/Components/SectionWrapper";
-import SliderArrow from "@/Components/SliderArrow";
 import SliderItem from "./SliderItem";
 import { ProductI } from "@/Types/Product.interface";
 import { handleCartItems, handlerWishlist, useMediaQuery, useScrollPosition } from "@/Hooks";
 import handleSlider from "./handleSlider";
+import { LeftRightWhiteGradient, SectionWrapper, SliderArrow } from "@/Components";
 
 const CoursesSlider = ({ products }: { products: ProductI[] }) => {
   const { scrollLeft, scrollRight, sliderRef } = handleSlider();

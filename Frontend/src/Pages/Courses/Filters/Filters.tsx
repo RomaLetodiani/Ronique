@@ -1,10 +1,9 @@
 import { CategoryFilter, NameFilter, PriceFilter, SalesFilter } from "./components";
 import { Dispatch, SetStateAction } from "react";
 import { getFilterStyles } from "./utils/helpers";
-import Burger from "../../../Components/Burger";
-import Button from "../../../Components/UI/Button";
 import useHandleFilters from "./hooks/useHandleFilters";
-import BlurBackground from "../../../Components/BlurBackground";
+import { BlurBackground, Burger } from "@/Components";
+import { Button } from "@/Components/UI";
 
 const Filters = ({
   isMobile,

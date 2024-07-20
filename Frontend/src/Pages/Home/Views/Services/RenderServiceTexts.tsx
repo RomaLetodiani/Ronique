@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { serviceDesc } from "../../../../Utils/Data/Services.data";
-import Button from "../../../../Components/UI/Button";
-import { authStore } from "../../../../Stores";
+import { serviceDesc } from "@/Utils/Data/Services.data";
+import { authStore } from "@/Stores";
+import { Button } from "@/Components/UI";
 
 const RenderServiceTexts = () => {
   const { user } = authStore();

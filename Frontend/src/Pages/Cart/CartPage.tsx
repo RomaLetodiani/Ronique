@@ -1,8 +1,8 @@
-import SectionWrapper from "@/Components/SectionWrapper";
 import CartItem from "./CartItem";
 import { Button } from "@/Components/UI";
 import { cartProductStore } from "@/Stores";
 import { handleCartItems, handleCartProductsFetcher, handlerWishlist } from "@/Hooks";
+import { SectionWrapper } from "@/Components";
 
 const CartPage = () => {
   const { handleWishlistActions, isInWishlist } = handlerWishlist();

@@ -1,17 +1,6 @@
-import { HTMLAttributes, ReactNode } from "react";
-import Button from "../UI/Button";
+import { ModalI } from "@/Types/Modal.interface";
 import { twMerge } from "tailwind-merge";
-
-export interface ModalI extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-  open: boolean;
-  handleSubmit?: () => void;
-  close: () => void;
-  wrapperClassName?: string;
-  modalClassName?: string;
-  bodyClassName?: string;
-  footerClassName?: string;
-}
+import { Button } from "./UI";
 
 const Modal = ({
   children,

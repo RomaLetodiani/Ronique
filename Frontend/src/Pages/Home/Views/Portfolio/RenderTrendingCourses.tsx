@@ -1,9 +1,8 @@
-import CoursesCard from "../../../../Components/Courses/CoursesCard";
-import SectionWrapper from "../../../../Components/SectionWrapper";
-import Button from "../../../../Components/UI/Button";
-import { ProductI } from "../../../../Types/Product.interface";
 import { Link } from "react-router-dom";
-import { handleCartItems, handlerWishlist } from "../../../../Hooks";
+import { CoursesCard, SectionWrapper } from "@/Components";
+import { ProductI } from "@/Types/Product.interface";
+import { Button } from "@/Components/UI";
+import { handleCartItems, handlerWishlist } from "@/Hooks";
 
 const RenderTrendingCourses = ({ products }: { products: ProductI[] }) => {
   const { handleWishlistActions, isInWishlist } = handlerWishlist();

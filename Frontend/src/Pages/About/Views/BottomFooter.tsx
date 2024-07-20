@@ -1,4 +1,4 @@
-import Button from "../../../Components/UI/Button";
+import { Button } from "@/Components/UI";
 
 const BottomFooter = () => {
   return (

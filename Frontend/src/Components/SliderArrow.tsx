@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 
-type Props = {
+type SliderArrowProps = {
   direction: "right" | "left";
   onClick: () => void;
   disabled: boolean;
 };
 
-const SliderArrow = ({ direction, onClick, disabled }: Props) => {
+const SliderArrow = ({ direction, onClick, disabled }: SliderArrowProps) => {
   const isLeft = direction === "left";
   return (
     <div

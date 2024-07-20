@@ -1,4 +1,4 @@
-import SectionWrapper from "../../../../Components/SectionWrapper";
+import { SectionWrapper } from "@/Components";
 import RenderServicesCards from "./RenderServicesCards";
 import RenderServiceTexts from "./RenderServiceTexts";
 

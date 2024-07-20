@@ -1,4 +1,4 @@
-import SectionWrapper from "../../Components/SectionWrapper";
+import { SectionWrapper } from "@/Components";
 import Achievements from "./Views/Achievements";
 import BottomFooter from "./Views/BottomFooter";
 import Goals from "./Views/Goals";

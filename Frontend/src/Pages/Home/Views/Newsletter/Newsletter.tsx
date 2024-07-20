@@ -1,8 +1,8 @@
-import SectionWrapper from "../../../../Components/SectionWrapper";
+import { SectionWrapper } from "@/Components";
 
 const Newsletter = () => {
   return (
-    <div className="bg-red-500 w-full">
+    <div className=" w-full">
       <SectionWrapper>Newsletter</SectionWrapper>
     </div>
   );

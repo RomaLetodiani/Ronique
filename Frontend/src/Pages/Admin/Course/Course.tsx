@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { ProductI } from "../../../Types/Product.interface";
-import ImageToBase64Converter from "../../../Components/ImageToBase64Converter";
-import Button from "../../../Components/UI/Button";
+import { ProductI } from "@/Types/Product.interface";
 import { twMerge } from "tailwind-merge";
-import productServices from "../../../Services/ProductServices";
 import { toast } from "react-toastify";
-import CheckBox from "../../../Components/UI/CheckBox";
-import PriceRender from "../../../Components/PriceRender";
-import { productStore } from "../../../Stores";
 import { renderImage } from "@/Utils/helpers";
+import { ImageToBase64Converter, PriceRender } from "@/Components";
+import { productStore } from "@/Stores";
+import { Button, CheckBox } from "@/Components/UI";
+import { productServices } from "@/Services";
 
 type Props = {
   course: ProductI;

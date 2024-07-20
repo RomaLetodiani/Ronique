@@ -1,7 +1,7 @@
+import { CartWishlistButton } from "@/Components";
+import { ProductI } from "@/Types/Product.interface";
+import { renderImage } from "@/Utils/helpers";
 import { Link } from "react-router-dom";
-import { ProductI } from "../../../../../Types/Product.interface";
-import { renderImage } from "../../../../../Utils/helpers";
-import CartWishlistButton from "../../../../../Components/CartWishlistButton/CartWishlistButton";
 
 const SliderItem = ({
   product,

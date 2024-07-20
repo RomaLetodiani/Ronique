@@ -2,7 +2,7 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { MouseEvent } from "react";
 import { twMerge } from "tailwind-merge";
 import { Link } from "react-router-dom";
-import { Button } from "../UI";
+import { Button } from "./UI";
 
 type Props = {
   isCart?: boolean;

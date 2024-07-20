@@ -3,10 +3,10 @@ import userServices from "../../Services/UserServices";
 import SideBar from "./SideBar";
 import { Outlet, useNavigate } from "react-router";
 import UserProfile from "./UserProfile";
-import SectionWrapper from "../../Components/SectionWrapper";
 import { twMerge } from "tailwind-merge";
-import { authStore } from "../../Stores";
-import { useMediaQuery } from "../../Hooks";
+import { useMediaQuery } from "@/Hooks";
+import { authStore } from "@/Stores";
+import { SectionWrapper } from "@/Components";
 
 const Profile = () => {
   const { fullUser, setFullUser } = authStore();

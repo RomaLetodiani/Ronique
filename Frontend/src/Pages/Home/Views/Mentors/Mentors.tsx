@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import SectionWrapper from "../../../../Components/SectionWrapper";
-import Mentor from "./Mentor";
-import { mentorsArray } from "../../../../Utils/Mentors";
 import { twMerge } from "tailwind-merge";
-import { useMediaQuery } from "../../../../Hooks";
+import { useEffect, useState } from "react";
+import Mentor from "./Mentor";
+import { useMediaQuery } from "@/Hooks";
+import { mentorsArray } from "@/Utils/Mentors";
+import { SectionWrapper } from "@/Components";
 
 const Mentors = () => {
   const [mentorIndex, setMentorIndex] = useState(0);

@@ -1,9 +1,9 @@
+import { CoursesCard } from "@/Components";
+import { Pagination } from "@/Components/UI";
+import { handlerWishlist } from "@/Hooks";
+import { productStore } from "@/Stores";
 import { useState } from "react";
-import CoursesCard from "../../Components/Courses/CoursesCard";
-import Pagination from "../../Components/UI/Pagination/Pagination";
 import { twMerge } from "tailwind-merge";
-import { productStore } from "../../Stores";
-import { handlerWishlist } from "../../Hooks";
 
 const RenderCourses = ({ isMobile }: { isMobile: boolean }) => {
   const [page, setPage] = useState(1);

@@ -1,9 +1,9 @@
-import { CategoryI } from "../../../../Types/Category.interface";
-import LeftRightWhiteGradient from "../../../../Components/LeftRightWhiteGradient";
+import { CategoryI } from "@/Types/Category.interface";
 import { useRef } from "react";
-import { filteredStore } from "../../../../Stores";
-import { useScrollPosition } from "../../../../Hooks";
 import CategoryElement from "./CategoryElement";
+import { filteredStore } from "@/Stores";
+import { useScrollPosition } from "@/Hooks";
+import { LeftRightWhiteGradient } from "@/Components";
 
 const RenderCategories = ({ categories }: { categories: CategoryI[] }) => {
   const { setFilterParams } = filteredStore();

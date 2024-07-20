@@ -1,5 +1,5 @@
-import CoursesCard from "../../Components/Courses/CoursesCard";
-import { WishlistProductI } from "../../Types/Wishlist.interface";
+import { CoursesCard } from "@/Components";
+import { WishlistProductI } from "@/Types/Wishlist.interface";
 
 const WishlistItem = ({
   cartAction,

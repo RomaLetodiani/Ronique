@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SectionWrapper from "../../Components/SectionWrapper";
 import Filters from "./Filters/Filters";
 import RenderCourses from "./RenderCourses";
-import { useMediaQuery } from "../../Hooks";
+import { SectionWrapper } from "@/Components";
+import { useMediaQuery } from "@/Hooks";
 
 const Courses = () => {
   const isNotMobile = useMediaQuery("(min-width: 1000px)");

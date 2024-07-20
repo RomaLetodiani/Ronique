@@ -5,7 +5,7 @@ import { renderImage } from "@/Utils/helpers";
 import { CartProductI } from "@/Types/Cart.interface";
 import { MdDeleteForever } from "react-icons/md";
 import { FaHeart, FaMinus, FaPlus } from "react-icons/fa";
-import PriceRender from "@/Components/PriceRender";
+import { PriceRender } from "@/Components";
 
 type CartItemProps = {
   cartItem: CartProductI;

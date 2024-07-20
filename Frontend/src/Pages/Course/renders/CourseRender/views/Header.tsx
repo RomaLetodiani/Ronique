@@ -1,4 +1,4 @@
-import PriceRender from "@/Components/PriceRender";
+import { PriceRender } from "@/Components";
 
 type Props = {
   title: string;
