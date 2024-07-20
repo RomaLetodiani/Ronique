@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ProductI } from "../../../Types/Product.interface";
 import ImageToBase64Converter from "../../../Components/ImageToBase64Converter";
-import { logo } from "../../../Components/Shared/Assets/Assets";
 import Button from "../../../Components/UI/Button";
 import { twMerge } from "tailwind-merge";
 import productServices from "../../../Services/ProductServices";
@@ -9,6 +8,7 @@ import { toast } from "react-toastify";
 import CheckBox from "../../../Components/UI/CheckBox";
 import PriceRender from "../../../Components/PriceRender";
 import { productStore } from "../../../Stores";
+import { renderImage } from "@/Utils/helpers";
 
 type Props = {
   course: ProductI;
@@ -84,7 +84,7 @@ const Course = ({ course, handleSelect, selectedP }: Props) => {
           <div className="absolute right-2 top-2">
             <CheckBox clickable={false} id={course.id} checked={selected} />
           </div>
-          <img src={!course.image.split(",")[1] ? logo : course.image} alt={course.title} />
+          <img src={renderImage(course.image)} alt={course.title} />
           <div className="flex justify-between items-center">
             <h5>{course.title}</h5>
             <PriceRender price={course.price} salePrice={course.salePrice} />

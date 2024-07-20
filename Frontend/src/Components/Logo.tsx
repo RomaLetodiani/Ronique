@@ -1,5 +1,5 @@
+import { logo } from "@/Assets";
 import { Link } from "react-router-dom";
-import { logo } from "./Shared/Assets/Assets";
 
 // @ts-ignore
 const tailwindClasses = ["max-w-[100px]", "max-w-[150px]", "max-w-[200px]"];

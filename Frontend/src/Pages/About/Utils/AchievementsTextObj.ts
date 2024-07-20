@@ -1,5 +1,5 @@
-import { CardProps } from "../../../Components/Card";
-import { googleMaps } from "../../../Components/Shared/Assets/icons";
+import { googleMaps } from "@/Assets/Icons";
+import { CardProps } from "@/Components/Card";
 
 // TODO: Replace the icon with the correct icon
 export const AchievementsTextObj: CardProps[] = [

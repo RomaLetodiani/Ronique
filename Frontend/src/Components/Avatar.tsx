@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
-import { Role } from "../Types/User.interface";
-import { sliceText } from "../Utils/helpers";
+import type { Role } from "@/Types/User.interface";
+import { sliceText } from "@/Utils/helpers";
 
 type avatarProps = {
   firstName?: string;

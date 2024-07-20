@@ -7,7 +7,7 @@ type Props = {
   absOrFixed?: "absolute" | "fixed";
 };
 
-// @ts-ignore
+// @ts-expect-error tailwindClasses is not used
 const tailwindClasses = ["z-[60]", "z-[50]", "z-[30]"];
 
 const BlurBackground = ({ isMobile, open, zIndex, absOrFixed }: Props) => {
