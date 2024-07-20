@@ -11,11 +11,13 @@ import useInput from "./useInput";
 import useMediaQuery from "./UseMediaQuery";
 import useScrollPosition from "./useScrollPosition";
 import useTimeout from "./useTimeout";
+import handleSlider from "./handleSlider";
 
 export {
   useInput,
   useTimeout,
   useDebounce,
+  handleSlider,
   useMediaQuery,
   useClickInside,
   useClickOutside,

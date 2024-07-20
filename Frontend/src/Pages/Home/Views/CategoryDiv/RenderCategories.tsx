@@ -1,9 +1,8 @@
 import { CategoryI } from "@/Types/Category.interface";
 import { useRef } from "react";
-import CategoryElement from "../../../../Components/CategoryElement";
 import { filteredStore } from "@/Stores";
 import { useScrollPosition } from "@/Hooks";
-import { LeftRightWhiteGradient } from "@/Components";
+import { CategoryElement, LeftRightWhiteGradient } from "@/Components";
 
 const RenderCategories = ({ categories }: { categories: CategoryI[] }) => {
   const { setFilterParams } = filteredStore();

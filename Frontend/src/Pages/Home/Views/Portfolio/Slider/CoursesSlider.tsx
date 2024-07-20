@@ -1,7 +1,12 @@
 import SliderItem from "./SliderItem";
 import { ProductI } from "@/Types/Product.interface";
-import { handleCartItems, handlerWishlist, useMediaQuery, useScrollPosition } from "@/Hooks";
-import handleSlider from "./handleSlider";
+import {
+  handleCartItems,
+  handlerWishlist,
+  handleSlider,
+  useMediaQuery,
+  useScrollPosition,
+} from "@/Hooks";
 import { LeftRightWhiteGradient, SectionWrapper, SliderArrow } from "@/Components";
 
 const CoursesSlider = ({ products }: { products: ProductI[] }) => {
